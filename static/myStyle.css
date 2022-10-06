@@ -2,3 +2,20 @@
 .backgroundPic {
     text-align: center;
 }
+
+.buttonsOverlay {
+    text-align: center;
+    margin-top: -651px;
+}
+
+.menuButtons {
+    width: 398px;
+    height: 121px;
+}
+
+#hallway1NavBlock {
+    margin-top: -990px;
+    margin-left: 1202px;
+    margin-bottom: 430px;
+    opacity: 0%;
+}

@@ -16,6 +16,16 @@
 
     <img class="backgroundPic" src="{{url_for('static', filename='start-screen.jpg')}}">
 
+    <!-- Create a div that is the same size as the background image to contain the buttons -->
+    <div class="buttonsOverlay">
+        <img class="menuButtons" src="{{url_for('static', filename='load-game-button.png')}}">
+        <!-- Add some space between the buttons -->
+        </br>
+        </br>
+        </br>
+        <a href="/hallway1"><img class="menuButtons" src="{{url_for('static', filename='new-game-button.png')}}"></a>
+    </div>
+
 </body>
 
 </html>
