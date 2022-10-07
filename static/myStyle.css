@@ -13,9 +13,56 @@
     height: 121px;
 }
 
+/* CSS for the navigation blocks --- invisible shapes overlaying doors, hallway entrances etc */
+
 #hallway1NavBlock {
     margin-top: -990px;
     margin-left: 1202px;
     margin-bottom: 430px;
     opacity: 0%;
+}
+
+#bearRoomNavBlock1 {
+    margin-top: -900px;
+    margin-left: 348px;
+    margin-bottom: 970px;
+    opacity: 0%;
+}
+
+#bearRoomNavBlock2 {
+    margin-top: -1440px;
+    margin-left: 1105px;
+    margin-bottom: 1270px;
+    opacity: 0%;
+}
+
+#beachNavBlock1 {
+    margin-top: -985px;
+    margin-left: 58px;
+    margin-bottom: 1038px;
+    opacity: 0%;
+}
+
+#beachNavBlock2 {
+    margin-top: -1495px;
+    margin-left: 60px;
+    margin-bottom: 1465px;
+    opacity: 0%;
+}
+
+#keyHallNavBlock {
+    margin-top: -1283px;
+    margin-left: 609px;
+    margin-bottom: 417px;
+    opacity: 0%;
+}
+
+#mirrorRoomNavBlock {
+    margin-top: -527px;
+    margin-left: 676px;
+    margin-bottom: 317px;
+    opacity: 0%;
+}
+
+#phantasmRoomNavBlock {
 }

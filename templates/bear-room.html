@@ -16,6 +16,13 @@
 
     <img class="backgroundPic" src="{{url_for('static', filename='bear-room.jpg')}}">
 
+    <!-- Add two navigation blocks / circles (a transparent image laid over the entrance to each tunnel). These can be
+         clicked on and will take the user through the corresponding tunnel. -->
+    <a href="/escape"><img id="bearRoomNavBlock1"
+                              src="{{url_for('static', filename='bear-room-tunnel-1-navigation-block.png')}}"></a>
+    <a href="/beach"><img id="bearRoomNavBlock2"
+                              src="{{url_for('static', filename='bear-room-tunnel-2-navigation-block.png')}}"></a>
+
 </body>
 
 </html>

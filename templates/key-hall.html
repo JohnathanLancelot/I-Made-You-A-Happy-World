@@ -16,6 +16,11 @@
 
     <img class="backgroundPic" src="{{url_for('static', filename='hallway-with-key.jpg')}}">
 
+    <!-- Add a navigation block (an invisible shape that can be clicked on) over the entrance to the next hallway.
+         If the user clicks on it, they will be taken to the next room. -->
+    <a href="/mirror-room"><img id="keyHallNavBlock"
+                              src="{{url_for('static', filename='key-hallway-navigation-block.png')}}"></a>
+
 </body>
 
 </html>

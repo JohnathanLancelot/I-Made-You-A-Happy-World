@@ -16,6 +16,12 @@
 
         <img class="backgroundPic" src="{{url_for('static', filename='phantasm-room.jpg')}}">
 
+        <!-- Add a navigation block (an invisible shape that can be clicked on) over the spiral staircase.
+             If the user clicks on it, they will be taken to the previous room. -->
+        <a href="/phantasm-room"><img id="phantasmRoomNavBlock"
+                                      src="{{url_for('static', filename='phantasm-room-stairs-navigation-block.png')}}">
+        </a>
+
     </body>
 
 </html>

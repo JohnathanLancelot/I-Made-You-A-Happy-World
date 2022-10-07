@@ -16,6 +16,13 @@
 
     <img class="backgroundPic" src="{{url_for('static', filename='beach-room.jpg')}}">
 
+    <!-- Add two navigation blocks (a transparent image laid over the ladder and the gate). These can be
+         clicked on and will take the user up the ladder or through the gate. -->
+    <a href="/bear-room"><img id="beachNavBlock1"
+                              src="{{url_for('static', filename='beach-room-ladder-navigation-block.png')}}"></a>
+    <a href="/key-hall"><img id="beachNavBlock2"
+                              src="{{url_for('static', filename='beach-room-gate-navigation-block.png')}}"></a>
+
 </body>
 
 </html>
