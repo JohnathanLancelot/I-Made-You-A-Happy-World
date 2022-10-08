@@ -36,17 +36,35 @@
     opacity: 0%;
 }
 
+#beachSign {
+    margin-top: -1000px;
+    margin-left: 378px;
+    margin-bottom: 1250px;
+    /* Make this sign invisible to start with. The user has to click on the small image on the wall
+       to make this sign come up as a zoomed-in image. */
+    opacity: 0%;
+    /* This piece of code allows users to click on items that lie within the area taken up by the sign. */
+    pointer-events: none;
+}
+
 #beachNavBlock1 {
     margin-top: -985px;
-    margin-left: 58px;
+    margin-left: -1485px;
     margin-bottom: 1038px;
     opacity: 0%;
 }
 
 #beachNavBlock2 {
     margin-top: -1495px;
-    margin-left: 60px;
+    margin-left: -1200px;
     margin-bottom: 1465px;
+    opacity: 0%;
+}
+
+#beachSignNavBlock {
+    margin-top: -1837px;
+    margin-left: 986px;
+    margin-bottom: 1957px;
     opacity: 0%;
 }
 

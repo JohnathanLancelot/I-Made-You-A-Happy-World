@@ -10,11 +10,17 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='myStyle.css')}}">
 
+    <script src="{{ url_for('static', filename='functions.js')}}"></script>
+
 </head>
 
 <body>
 
     <img class="backgroundPic" src="{{url_for('static', filename='beach-room.jpg')}}">
+
+    <!-- Add the pop-up zoomed in image of the sign that the user can read. This has to go behind all of the
+         navigation blocks, so that it does not interfere with it. -->
+    <img id="beachSign" src="{{url_for('static', filename='beach-room-sign.png')}}">
 
     <!-- Add two navigation blocks (a transparent image laid over the ladder and the gate). These can be
          clicked on and will take the user up the ladder or through the gate. -->
@@ -22,6 +28,11 @@
                               src="{{url_for('static', filename='beach-room-ladder-navigation-block.png')}}"></a>
     <a href="/key-hall"><img id="beachNavBlock2"
                               src="{{url_for('static', filename='beach-room-gate-navigation-block.png')}}"></a>
+
+    <!-- Add an invisible image overlaying the sign on the wall, so that when the user presses and holds on the sign,
+         a pop-up showing the sign zoomed-in appears. -->
+    <img id="beachSignNavBlock" src="{{url_for('static', filename='beach-sign-navigation-block.png')}}"
+                                onmousedown="showSign('beachRoom')" onmouseup="removeSign('beachRoom')">
 
 </body>
 
