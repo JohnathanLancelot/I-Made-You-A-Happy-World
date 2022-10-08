@@ -10,7 +10,7 @@ function showSign(room)
     else if (room == "keyRoom")
     {
         // Make the sign inside the hallway with a key appear as a zoomed-in image:
-
+        document.getElementById("keyHallSign").style.opacity = "100%";
     }
 }
 
@@ -26,6 +26,6 @@ function removeSign(room)
     else if (room == "keyRoom")
     {
         // Make the sign inside the hallway with a key disappear:
-
+        document.getElementById("keyHallSign").style.opacity = "0%";
     }
 }

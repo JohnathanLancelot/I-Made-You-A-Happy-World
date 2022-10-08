@@ -13,7 +13,10 @@
     height: 121px;
 }
 
-/* CSS for the navigation blocks --- invisible shapes overlaying doors, hallway entrances etc */
+/* CSS for the navigation blocks --- invisible shapes overlaying doors, hallway entrances etc
+   as well as for signs and notes, organized by room. */
+
+/* HALLWAY 1 */
 
 #hallway1NavBlock {
     margin-top: -990px;
@@ -21,6 +24,8 @@
     margin-bottom: 430px;
     opacity: 0%;
 }
+
+/* BEAR ROOM */
 
 #bearRoomNavBlock1 {
     margin-top: -900px;
@@ -35,6 +40,8 @@
     margin-bottom: 1270px;
     opacity: 0%;
 }
+
+/* BEACH ROOM */
 
 #beachSign {
     margin-top: -1000px;
@@ -68,12 +75,34 @@
     opacity: 0%;
 }
 
+/* HALLWAY WITH KEY */
+
+#keyHallSign {
+    margin-top: -900px;
+    margin-left: 378px;
+    margin-bottom: 1250px;
+    /* Make this sign invisible to start with. The user has to click on the small image on the wall
+       to make this sign come up as a zoomed-in image. */
+    opacity: 0%;
+    /* This piece of code allows users to click on items that lie within the area taken up by the sign. */
+    pointer-events: none;
+}
+
 #keyHallNavBlock {
-    margin-top: -1283px;
+    margin-top: -1973px;
     margin-left: 609px;
-    margin-bottom: 417px;
+    margin-bottom: 1817px;
     opacity: 0%;
 }
+
+#keyHallwaySignNavBlock {
+    margin-top: -2170px;
+    margin-left: 1279px;
+    margin-bottom: 2000px;
+    opacity: 0%;
+}
+
+/* MIRROR ROOM */
 
 #mirrorRoomNavBlock {
     margin-top: -527px;
@@ -81,6 +110,8 @@
     margin-bottom: 317px;
     opacity: 0%;
 }
+
+/* PHANTASM ROOM */
 
 #phantasmRoomNavBlock {
     margin-top: -990px;

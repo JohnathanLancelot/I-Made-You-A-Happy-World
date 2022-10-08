@@ -18,10 +18,18 @@
 
     <img class="backgroundPic" src="{{url_for('static', filename='hallway-with-key.jpg')}}">
 
+    <!-- Add the overlay showing a zoomed-in depiction of the sign on the wall. -->
+    <img id="keyHallSign" src="{{url_for('static', filename='key-room-sign.png')}}">
+
     <!-- Add a navigation block (an invisible shape that can be clicked on) over the entrance to the next hallway.
          If the user clicks on it, they will be taken to the next room. -->
     <a href="/mirror-room"><img id="keyHallNavBlock"
                               src="{{url_for('static', filename='key-hallway-navigation-block.png')}}"></a>
+
+    <!-- Add an invisible image overlaying the sign on the wall, so that when the user presses and holds on the sign,
+         a pop-up showing the sign zoomed-in appears. -->
+    <img id="keyHallwaySignNavBlock" src="{{url_for('static', filename='key-hallway-sign-navigation-block.png')}}"
+                                onmousedown="showSign('keyRoom')" onmouseup="removeSign('keyRoom')">
 
 </body>
 
