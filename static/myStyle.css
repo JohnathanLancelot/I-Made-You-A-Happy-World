@@ -1,7 +1,17 @@
-/* The class for background images */
+/* Class for background images */
 .backgroundPic {
     text-align: center;
 }
+
+.backgroundNoteRemoved {
+    text-align: center;
+    margin-top: -2000px;
+    opacity: 0%;
+    /* Prevent this overlay from interfering with clickable items. */
+    pointer-events: none;
+}
+
+/* Classes for buttons */
 
 .buttonsOverlay {
     text-align: center;
@@ -23,6 +33,22 @@
     margin-left: 1202px;
     margin-bottom: 430px;
     opacity: 0%;
+}
+
+#hallway1NoteBlock {
+    margin-top: -970px;
+    margin-left: 484px;
+    margin-bottom: 288px;
+    opacity: 0%;
+}
+
+#hallway1Note {
+    margin-top: -970px;
+    margin-left: 40px;
+    margin-bottom: 288px;
+    opacity: 0%;
+    /* Prevent this overlay from interfering with clickable items. */
+    pointer-events: none;
 }
 
 /* BEAR ROOM */

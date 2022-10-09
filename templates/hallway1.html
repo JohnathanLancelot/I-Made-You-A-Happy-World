@@ -10,15 +10,28 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='myStyle.css')}}">
 
+    <script src="{{ url_for('static', filename='functions.js')}}"></script>
+
 </head>
 
 <body>
 
+    <!-- The default background, with the note showing on the floor. -->
     <img class="backgroundPic" src="{{url_for('static', filename='hallway1.jpg')}}">
 
+    <!-- The alternative background without the note on the floor, activated when the note is picked up. -->
+    <img class="backgroundNoteRemoved" id="hall1BackgroundNoteRemoved" src="{{url_for('static', filename='hallway1-no-note.jpg')}}">
+
     <!-- Add a navigation block (a transparent image laid over the entrance to the next hallway). This can be clicked
-         and will take the user to that hallway -->
+         and will take the user to that hallway. -->
     <a href="/bear-room"><img id="hallway1NavBlock" src="{{url_for('static', filename='hallway1-navigation-block.png')}}"></a>
+
+    <!-- Add a navigation block for the note that can be picked up. -->
+    <img id="hallway1NoteBlock" src="{{url_for('static', filename='hallway-1-note-block.png')}}"
+         onmousedown="showNote('hallway1')" onmouseup="hideNote('hallway1')">
+
+    <!-- Add the zoomed-in image of the note. -->
+    <img id="hallway1Note" src="{{url_for('static', filename='note1.png')}}">
 
 </body>
 

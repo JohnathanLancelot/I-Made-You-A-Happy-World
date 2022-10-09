@@ -29,3 +29,29 @@ function removeSign(room)
         document.getElementById("keyHallSign").style.opacity = "0%";
     }
 }
+
+// The function for when the mouse is being held down when hovering over a note:
+function showNote(room)
+{
+    if (room == "hallway1")
+    {
+        // Make the note disappear from the background:
+        document.getElementById("hall1BackgroundNoteRemoved").style.opacity = "100%";
+
+        // Make the note pop-up appear:
+        document.getElementById("hallway1Note").style.opacity = "100%";
+    }
+}
+
+// The function for when the mouse is not being held down when hovering over a note:
+function hideNote(room)
+{
+    if (room == "hallway1")
+    {
+        // Make the note reappear in the background:
+        document.getElementById("hall1BackgroundNoteRemoved").style.opacity = "0%";
+
+        // Make the note pop-up disappear:
+        document.getElementById("hallway1Note").style.opacity = "0%";
+    }
+}
