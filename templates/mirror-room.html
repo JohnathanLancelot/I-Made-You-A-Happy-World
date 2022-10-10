@@ -16,12 +16,24 @@
 
 <body>
 
+    <!-- The original background, showing the note on the floor. -->
     <img class="backgroundPic" src="{{url_for('static', filename='mirror-room.jpg')}}">
+
+    <!-- An overlay of the background without the note on the floor, activated when the note is picked up. -->
+    <img class="backgroundNoteRemoved" id="mirrorRoomNoteRemoved"
+         src="{{url_for('static', filename='mirror-room-no-note.jpg')}}">
+
+    <!-- Add a clickable invisible image over the note on the floor, which triggers the zoomed-in overlay. -->
+    <img id="mirrorRoomNoteBlock" src="{{url_for('static', filename='mirror-room-note-block.png')}}"
+         onmousedown="showNote('mirrorRoom')" onmouseup="hideNote('mirrorRoom')">
 
     <!-- Add a navigation block (an invisible shape that can be clicked on) over the spiral staircase.
          If the user clicks on it, they will be taken to the next room. -->
     <a href="/phantasm-room"><img id="mirrorRoomNavBlock"
                               src="{{url_for('static', filename='mirror-room-stairs-navigation-block.png')}}"></a>
+
+    <!-- Add the note overlay. -->
+    <img id="mirrorRoomNote" src="{{url_for('static', filename='note2.png')}}">
 
 </body>
 

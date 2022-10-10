@@ -131,10 +131,31 @@
 /* MIRROR ROOM */
 
 #mirrorRoomNavBlock {
-    margin-top: -527px;
-    margin-left: 676px;
-    margin-bottom: 317px;
+    margin-top: -1000px;
+    margin-left: 680px;
+    margin-bottom: 900px;
+    opacity: 100%;
+    z-index: 2;
+    display: block;
     opacity: 0%;
+}
+
+#mirrorRoomNoteBlock {
+    margin-top: -360px;
+    margin-left: 143px;
+    margin-bottom: 595px;
+    z-index: 3;
+    display: block;
+    opacity: 0%;
+}
+
+#mirrorRoomNote {
+    margin-top: -1600px;
+    margin-left: 630px;
+    margin-bottom: 988px;
+    opacity: 0%;
+    /* Prevent this overlay from interfering with clickable items. */
+    pointer-events: none;
 }
 
 /* PHANTASM ROOM */

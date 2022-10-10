@@ -41,6 +41,14 @@ function showNote(room)
         // Make the note pop-up appear:
         document.getElementById("hallway1Note").style.opacity = "100%";
     }
+    else if (room == "mirrorRoom")
+    {
+        // Make the mirror room note disappear from the background image:
+        document.getElementById("mirrorRoomNoteRemoved").style.opacity = "100%";
+
+        // Bring up the note pop-up:
+        document.getElementById("mirrorRoomNote").style.opacity = "100%";
+    }
 }
 
 // The function for when the mouse is not being held down when hovering over a note:
@@ -53,5 +61,13 @@ function hideNote(room)
 
         // Make the note pop-up disappear:
         document.getElementById("hallway1Note").style.opacity = "0%";
+    }
+    else if (room == "mirrorRoom")
+    {
+        // Bring back the note in the background:
+        document.getElementById("mirrorRoomNoteRemoved").style.opacity = "0%";
+
+        // Remove the note pop-up:
+        document.getElementById("mirrorRoomNote").style.opacity = "0%";
     }
 }
