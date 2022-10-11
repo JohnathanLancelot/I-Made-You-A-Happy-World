@@ -58,6 +58,7 @@
     margin-left: 348px;
     margin-bottom: 970px;
     opacity: 0%;
+    pointer-events: none;
 }
 
 #bearRoomNavBlock2 {
@@ -92,6 +93,7 @@
     margin-left: -1200px;
     margin-bottom: 1465px;
     opacity: 0%;
+    pointer-events: none;
 }
 
 #beachSignNavBlock {
@@ -106,6 +108,7 @@
     margin-left: 645px;
     margin-bottom: 2100px;
     opacity: 0%;
+    pointer-events: allows;
 }
 
 #beachRoomBigKey {
@@ -114,6 +117,7 @@
     margin-bottom: 1900px;
     z-index: 6;
     opacity: 0%;
+    pointer-events: none;
 }
 
 /* HALLWAY WITH KEY */

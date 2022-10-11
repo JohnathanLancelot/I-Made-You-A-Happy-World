@@ -1,6 +1,8 @@
 // Global variables:
 var key1Taken = false;
 var key2Taken = false;
+var escapeTunnelLocked = true;
+var beachGateLocked = true;
 
 // The function for when the user presses down while hovering over a sign:
 function showSign(room)
@@ -90,6 +92,10 @@ function keyTaken(room)
         // Show the pop-up for a short amount of time (4 seconds):
         document.getElementById("keyHallBigKey").style.opacity = "100%";
         setTimeout(keyPopRemoved, 4000, "keyHall");
+
+        // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
+        escapeTunnelLocked = false;
+        document.getElementById("bearRoomNavBlock1").style.pointerEvents = "auto";
     }
     else if (room == "beachRoom" && !key2Taken)
     {
@@ -99,6 +105,10 @@ function keyTaken(room)
         // Show the key pop-up for 4 seconds:
         document.getElementById("beachRoomBigKey").style.opacity = "100%";
         setTimeout(keyPopRemoved, 4000, "beachRoom");
+
+        // With this key in the user's inventory, the gate to the next hallway will be unlocked:
+        beachGateLocked = false;
+        document.getElementById("beachNavBlock2").style.pointerEvents = "auto";
     }
 }
 
