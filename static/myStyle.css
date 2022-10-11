@@ -101,6 +101,21 @@
     opacity: 0%;
 }
 
+#chestNavBlock {
+    margin-top: -2045px;
+    margin-left: 645px;
+    margin-bottom: 2100px;
+    opacity: 0%;
+}
+
+#beachRoomBigKey {
+    margin-top: -2400px;
+    margin-left: 663px;
+    margin-bottom: 1900px;
+    z-index: 6;
+    opacity: 0%;
+}
+
 /* HALLWAY WITH KEY */
 
 #keyHallSign {
@@ -112,6 +127,8 @@
     opacity: 0%;
     /* This piece of code allows users to click on items that lie within the area taken up by the sign. */
     pointer-events: none;
+    z-index: 3;
+    position: relative;
 }
 
 #keyHallNavBlock {
@@ -125,6 +142,24 @@
     margin-top: -2170px;
     margin-left: 1279px;
     margin-bottom: 2000px;
+    opacity: 0%;
+}
+
+#keyHallSmallKey {
+    width: 94px;
+    height: 61px;
+    margin-top: -2000px;
+    margin-left: 1100px;
+    margin-bottom: 1800px;
+    z-index: 1;
+    opacity: 100%;
+}
+
+#keyHallBigKey {
+    margin-top: -2400px;
+    margin-left: 663px;
+    margin-bottom: 1900px;
+    z-index: 4;
     opacity: 0%;
 }
 
