@@ -59,6 +59,7 @@
     margin-bottom: 970px;
     opacity: 0%;
     pointer-events: none;
+    z-index: 1;
 }
 
 #bearRoomNavBlock2 {
@@ -66,6 +67,15 @@
     margin-left: 1105px;
     margin-bottom: 1270px;
     opacity: 0%;
+    z-index: 2;
+}
+
+#bearRoomArrow {
+    margin-top: -1100px;
+    margin-left: 890px;
+    margin-bottom: 2000px;
+    opacity: 100%;
+    z-index: 3;
 }
 
 /* BEACH ROOM */
@@ -167,6 +177,12 @@
     opacity: 0%;
 }
 
+#keyHallArrow {
+    margin-top: -1800px;
+    margin-left: 810px;
+    margin-bottom: 2000px;
+}
+
 /* MIRROR ROOM */
 
 #mirrorRoomNavBlock {
@@ -193,8 +209,16 @@
     margin-left: 630px;
     margin-bottom: 988px;
     opacity: 0%;
+    z-index: 5;
     /* Prevent this overlay from interfering with clickable items. */
     pointer-events: none;
+}
+
+#mirrorRoomArrow {
+    margin-top: -1050px;
+    margin-left: 850px;
+    margin-bottom: 1400px;
+    z-index: 4;
 }
 
 /* PHANTASM ROOM */

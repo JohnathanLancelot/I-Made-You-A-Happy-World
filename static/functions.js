@@ -89,9 +89,9 @@ function keyTaken(room)
         // Change the key taken variable to true:
         key1Taken = true;
 
-        // Show the pop-up for a short amount of time (4 seconds):
+        // Show the pop-up for a short amount of time (2 seconds):
         document.getElementById("keyHallBigKey").style.opacity = "100%";
-        setTimeout(keyPopRemoved, 4000, "keyHall");
+        setTimeout(keyPopRemoved, 2000, "keyHall");
 
         // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
         escapeTunnelLocked = false;
@@ -102,9 +102,9 @@ function keyTaken(room)
         // Change the key taken variable to true:
         key2Taken = true;
 
-        // Show the key pop-up for 4 seconds:
+        // Show the key pop-up for 2 seconds:
         document.getElementById("beachRoomBigKey").style.opacity = "100%";
-        setTimeout(keyPopRemoved, 4000, "beachRoom");
+        setTimeout(keyPopRemoved, 2000, "beachRoom");
 
         // With this key in the user's inventory, the gate to the next hallway will be unlocked:
         beachGateLocked = false;
