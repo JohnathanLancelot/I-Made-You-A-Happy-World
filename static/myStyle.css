@@ -29,16 +29,16 @@
 /* HALLWAY 1 */
 
 #hallway1NavBlock {
-    margin-top: -990px;
+    margin-top: -1005px;
     margin-left: 1202px;
-    margin-bottom: 430px;
+    margin-bottom: 500px;
     opacity: 0%;
 }
 
 #hallway1NoteBlock {
-    margin-top: -970px;
-    margin-left: 484px;
-    margin-bottom: 288px;
+    margin-top: -800px;
+    margin-left: 485px;
+    margin-bottom: 388px;
     opacity: 0%;
 }
 
@@ -58,6 +58,8 @@
     margin-left: 348px;
     margin-bottom: 970px;
     opacity: 0%;
+    pointer-events: none;
+    z-index: 1;
 }
 
 #bearRoomNavBlock2 {
@@ -65,6 +67,15 @@
     margin-left: 1105px;
     margin-bottom: 1270px;
     opacity: 0%;
+    z-index: 2;
+}
+
+#bearRoomArrow {
+    margin-top: -1100px;
+    margin-left: 890px;
+    margin-bottom: 2000px;
+    opacity: 100%;
+    z-index: 3;
 }
 
 /* BEACH ROOM */
@@ -92,6 +103,7 @@
     margin-left: -1200px;
     margin-bottom: 1465px;
     opacity: 0%;
+    pointer-events: none;
 }
 
 #beachSignNavBlock {
@@ -99,6 +111,23 @@
     margin-left: 986px;
     margin-bottom: 1957px;
     opacity: 0%;
+}
+
+#chestNavBlock {
+    margin-top: -2045px;
+    margin-left: 645px;
+    margin-bottom: 2100px;
+    opacity: 0%;
+    pointer-events: allows;
+}
+
+#beachRoomBigKey {
+    margin-top: -2400px;
+    margin-left: 663px;
+    margin-bottom: 1900px;
+    z-index: 6;
+    opacity: 0%;
+    pointer-events: none;
 }
 
 /* HALLWAY WITH KEY */
@@ -112,6 +141,8 @@
     opacity: 0%;
     /* This piece of code allows users to click on items that lie within the area taken up by the sign. */
     pointer-events: none;
+    z-index: 3;
+    position: relative;
 }
 
 #keyHallNavBlock {
@@ -128,13 +159,66 @@
     opacity: 0%;
 }
 
+#keyHallSmallKey {
+    width: 94px;
+    height: 61px;
+    margin-top: -2000px;
+    margin-left: 1100px;
+    margin-bottom: 1800px;
+    z-index: 1;
+    opacity: 100%;
+}
+
+#keyHallBigKey {
+    margin-top: -2400px;
+    margin-left: 663px;
+    margin-bottom: 1900px;
+    z-index: 4;
+    opacity: 0%;
+}
+
+#keyHallArrow {
+    margin-top: -1800px;
+    margin-left: 810px;
+    margin-bottom: 2000px;
+}
+
 /* MIRROR ROOM */
 
 #mirrorRoomNavBlock {
-    margin-top: -527px;
-    margin-left: 676px;
-    margin-bottom: 317px;
+    margin-top: -1000px;
+    margin-left: 680px;
+    margin-bottom: 900px;
+    opacity: 100%;
+    z-index: 2;
+    display: block;
     opacity: 0%;
+}
+
+#mirrorRoomNoteBlock {
+    margin-top: -360px;
+    margin-left: 143px;
+    margin-bottom: 595px;
+    z-index: 3;
+    display: block;
+    opacity: 0%;
+}
+
+#mirrorRoomNote {
+    margin-top: -1600px;
+    margin-left: 630px;
+    margin-bottom: 988px;
+    opacity: 0%;
+    z-index: 5;
+    /* Prevent this overlay from interfering with clickable items. */
+    pointer-events: none;
+}
+
+#mirrorRoomArrow {
+    margin-top: -1050px;
+    margin-left: 850px;
+    margin-bottom: 1400px;
+    z-index: 4;
 }
 
 /* PHANTASM ROOM */
