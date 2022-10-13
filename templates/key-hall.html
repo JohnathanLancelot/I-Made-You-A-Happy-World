@@ -31,6 +31,16 @@
     <img id="keyHallwaySignNavBlock" src="{{url_for('static', filename='key-hallway-sign-navigation-block.png')}}"
                                 onmousedown="showSign('keyRoom')" onmouseup="removeSign('keyRoom')">
 
+    <!-- Add a small key to the background that the user can click on. -->
+    <img id="keyHallSmallKey" src="{{url_for('static', filename='key1.png')}}" onclick="keyTaken('keyHall')">
+
+    <!-- Add a large key as a zoomed-in pop-up when the user picks up the key. -->
+    <img id="keyHallBigKey" src="{{url_for('static', filename='key-found1.png')}}">
+
+    <!-- Add an arrow so that the user can choose to go back to the previous room. -->
+    <a href="/beach"><img id="keyHallArrow"
+                              src="{{url_for('static', filename='down-arrow.png')}}"></a>
+
 </body>
 
 </html>
