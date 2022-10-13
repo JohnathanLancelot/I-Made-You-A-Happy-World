@@ -33,6 +33,13 @@
     <img id="beachSignNavBlock" src="{{url_for('static', filename='beach-sign-navigation-block.png')}}"
                                 onmousedown="showSign('beachRoom')" onmouseup="removeSign('beachRoom')">
 
+    <!-- Add a clickable overlay to the chest so that the user can click on it. -->
+    <img id="chestNavBlock" src="{{url_for('static', filename='chest-navigation-block.png')}}"
+                                onclick="keyTaken('beachRoom')">
+
+    <!-- Add the key pop-up for when the user clicks on the chest. -->
+    <img id="beachRoomBigKey" src="{{url_for('static', filename='key-found2.png')}}">
+
 </body>
 
 </html>
