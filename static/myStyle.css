@@ -29,16 +29,16 @@
 /* HALLWAY 1 */
 
 #hallway1NavBlock {
-    margin-top: -990px;
+    margin-top: -1005px;
     margin-left: 1202px;
-    margin-bottom: 430px;
+    margin-bottom: 500px;
     opacity: 0%;
 }
 
 #hallway1NoteBlock {
-    margin-top: -970px;
-    margin-left: 484px;
-    margin-bottom: 288px;
+    margin-top: -800px;
+    margin-left: 485px;
+    margin-bottom: 388px;
     opacity: 0%;
 }
 
