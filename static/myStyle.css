@@ -1,12 +1,28 @@
 /* Class for background images */
+html {
+    max-height: 982px;
+   
+}
+
+.body-structure{
+
+    max-width: 1920px;
+}
 .backgroundPic {
     text-align: center;
+
+    max-width: 100%;
+}
+
+body {
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .backgroundNoteRemoved {
     text-align: center;
     margin-top: -2000px;
-    opacity: 0%;
+    opacity: 100%;
     /* Prevent this overlay from interfering with clickable items. */
     pointer-events: none;
 }
@@ -32,14 +48,14 @@
     margin-top: -1005px;
     margin-left: 1202px;
     margin-bottom: 500px;
-    opacity: 0%;
+    opacity: 100%;
 }
 
 #hallway1NoteBlock {
     margin-top: -800px;
     margin-left: 485px;
     margin-bottom: 388px;
-    opacity: 0%;
+    opacity: 100%;
 }
 
 #hallway1Note {
@@ -57,7 +73,7 @@
     margin-top: -900px;
     margin-left: 348px;
     margin-bottom: 970px;
-    opacity: 0%;
+    opacity: 100%;
     pointer-events: none;
     z-index: 1;
 }
@@ -66,7 +82,7 @@
     margin-top: -1440px;
     margin-left: 1105px;
     margin-bottom: 1270px;
-    opacity: 0%;
+    opacity: 100%;
     z-index: 2;
 }
 
@@ -95,30 +111,33 @@
     margin-top: -985px;
     margin-left: -1485px;
     margin-bottom: 1038px;
-    opacity: 0%;
+    opacity: 100%;
 }
 
 #beachNavBlock2 {
     margin-top: -1495px;
     margin-left: -1200px;
     margin-bottom: 1465px;
-    opacity: 0%;
+    opacity: 100%;
     pointer-events: none;
 }
 
 #beachSignNavBlock {
+    
     margin-top: -1837px;
     margin-left: 986px;
     margin-bottom: 1957px;
-    opacity: 0%;
+    opacity: 100%;
 }
 
 #chestNavBlock {
+
     margin-top: -2045px;
     margin-left: 645px;
     margin-bottom: 2100px;
-    opacity: 0%;
+    opacity: 100%;
     pointer-events: allows;
+    z-index: 1;
 }
 
 #beachRoomBigKey {
@@ -126,7 +145,7 @@
     margin-left: 663px;
     margin-bottom: 1900px;
     z-index: 6;
-    opacity: 0%;
+    opacity: 100%;
     pointer-events: none;
 }
 
