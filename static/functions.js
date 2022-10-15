@@ -4,6 +4,17 @@ var key2Taken = false;
 var escapeTunnelLocked = true;
 var beachGateLocked = true;
 
+// The two functions enabling a timed (2 second) redirect from the title screen to the load or new game screen:
+function timedRedirect()
+{
+    setTimeout(pageRedirect, 2000);
+}
+
+function pageRedirect()
+{
+    window.location = "/load-or-new"
+}
+
 // The function for when the user presses down while hovering over a sign:
 function showSign(room)
 {

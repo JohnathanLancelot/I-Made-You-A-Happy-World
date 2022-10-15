@@ -16,22 +16,42 @@
 
 <body>
 
-    <!-- The default background, with the note showing on the floor. -->
-    <img class="backgroundPic" src="{{url_for('static', filename='hallway1.jpg')}}">
+    <div class="imageStack">
 
-    <!-- The alternative background without the note on the floor, activated when the note is picked up. -->
-    <img class="backgroundNoteRemoved" id="hall1BackgroundNoteRemoved" src="{{url_for('static', filename='hallway1-no-note.jpg')}}">
+        <div class="bottomOfTheStack">
+            <!-- The default background, with the note showing on the floor. -->
+            <img class="backgroundPic" src="{{url_for('static', filename='hallway1.jpg')}}">
+        </div>
 
-    <!-- Add a navigation block (a transparent image laid over the entrance to the next hallway). This can be clicked
-         and will take the user to that hallway. -->
-    <a href="/bear-room"><img id="hallway1NavBlock" src="{{url_for('static', filename='hallway1-navigation-block.png')}}"></a>
+        <div class="altBackground">
+            <!-- The alternative background without the note on the floor, activated when the note is picked up. -->
+            <img class="backgroundNoteRemoved" id="hall1BackgroundNoteRemoved" src="{{url_for('static',
+                filename='hallway1-no-note.jpg')}}">
+        </div>
 
-    <!-- Add a navigation block for the note that can be picked up. -->
-    <img id="hallway1NoteBlock" src="{{url_for('static', filename='hallway-1-note-block.png')}}"
-         onmousedown="showNote('hallway1')" onmouseup="hideNote('hallway1')">
+        <div class="navBlockLayer1">
+            <!-- Add a navigation block (a transparent image laid over the entrance to the next hallway). This can be clicked
+            and will take the user to that hallway. -->
+            <a href="/bear-room"><img id="hallway1NavBlock" src="{{url_for('static', filename='hallway1-navigation-block.png')}}"></a>
+        </div>
 
-    <!-- Add the zoomed-in image of the note. -->
-    <img id="hallway1Note" src="{{url_for('static', filename='note1.png')}}">
+        <div class="navBlockLayer2">
+            <!-- Add a navigation block for the note that can be picked up. -->
+            <img id="hallway1NoteBlock" src="{{url_for('static', filename='hallway-1-note-block.png')}}"
+                onmousedown="showNote('hallway1')" onmouseup="hideNote('hallway1')">
+        </div>
+
+        <div class="notesAndSignsLayer">
+            <!-- Add the zoomed-in image of the note. -->
+            <img id="hallway1Note" src="{{url_for('static', filename='note1.png')}}">
+        </div>
+
+        <div id="topOfTheHall1Stack">
+             <!-- Vignette. -->
+             <img class="backgroundPic" class="vignette" src="{{url_for('static', filename='vignette.png')}}">
+        </div>
+
+    </div>
 
 </body>
 
