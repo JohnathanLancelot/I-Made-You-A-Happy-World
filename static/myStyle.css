@@ -1,53 +1,161 @@
-/* Class for background images */
+/* Class for making image stacking work */
+.imageStack {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    position: relative;
+}
+
+/* Classes for background images */
 .backgroundPic {
     text-align: center;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.vignette {
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
 }
 
 .backgroundNoteRemoved {
-    text-align: center;
-    margin-top: -2000px;
+    width: 100vw;
+    height: 100vh;
     opacity: 0%;
     /* Prevent this overlay from interfering with clickable items. */
     pointer-events: none;
 }
 
-/* Classes for buttons */
+.bottomOfTheStack { /* Used on all default background images */
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 0;
+}
+
+.altBackground {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+}
+
+/* Classes for all the divs containing navigation blocks */
+.navBlockLayer1 {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.navBlockLayer2 {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* A class for all the divs containing signs or notes */
+.notesAndSignsLayer {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* Stacking for the opening screen and load / new game screen */
+#topOfTheIndexStack {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+}
+
+#topOfTheButtonScreenStack {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* Classes and ID's for buttons */
 
 .buttonsOverlay {
-    text-align: center;
-    margin-top: -651px;
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
 }
 
 .menuButtons {
-    width: 398px;
-    height: 121px;
+    width: 20vw;
+    height: 10vh;
+    padding-left: 40vw;
+}
+
+#loadButton {
+    grid-column: 9;
+    grid-row: 8;
+    z-index: 2;
+    padding-top: 35vh;
+}
+
+#newGameButton {
+    grid-column: 9;
+    grid-row: 11;
+    z-index: 3;
+    padding-top: 5vh;
 }
 
 /* CSS for the navigation blocks --- invisible shapes overlaying doors, hallway entrances etc
-   as well as for signs and notes, organized by room. */
+   as well as for vignettes, signs and notes, organized by room. */
 
 /* HALLWAY 1 */
 
 #hallway1NavBlock {
-    margin-top: -1005px;
-    margin-left: 1202px;
-    margin-bottom: 500px;
-    opacity: 0%;
+    width: 5vw;
+    height: 57.5vh;
+    grid-column: 14;
+    grid-row: 1;
+    padding-top: 0vh;
+    padding-left: 65vw;
+    opacity: 100%;
+    pointer-events: auto;
 }
 
 #hallway1NoteBlock {
-    margin-top: -800px;
-    margin-left: 485px;
-    margin-bottom: 388px;
-    opacity: 0%;
+    width: 5vw;
+    height: 15vh;
+    grid-column: 6;
+    grid-row: 13;
+    padding-top: 60vh;
+    padding-left: 25.5vw;
+    opacity: 100%;
+    pointer-events: auto;
 }
 
 #hallway1Note {
-    margin-top: -970px;
-    margin-left: 40px;
-    margin-bottom: 288px;
+    width: 30vw;
+    height: 75vh;
+    grid-column: 8;
+    grid-row: 2;
+    padding-top: 5vh;
+    padding-left: 35vw;
     opacity: 0%;
+    z-index: 4;
     /* Prevent this overlay from interfering with clickable items. */
+    pointer-events: none;
+}
+
+#topOfTheHall1Stack {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 5;
     pointer-events: none;
 }
 
