@@ -16,8 +16,20 @@
 
 <body>
 
-    <!-- Making the background image a link to the save / load game page -->
-    <img class="backgroundPic" src="{{url_for('static', filename='title-page.jpg')}}" onload="timedRedirect()">
+    <!-- This stack will allow us to have images that overlap. -->
+    <div class="imageStack">
+
+        <div class="bottomOfTheStack">
+             <!-- Making the background image a link to the save / load game page. -->
+             <img class="backgroundPic" src="{{url_for('static', filename='title-page.jpg')}}" onload="timedRedirect()">
+        </div>
+
+        <div id="topOfTheIndexStack">
+             <!-- Vignette. -->
+             <img class="backgroundPic" class="vignette" src="{{url_for('static', filename='vignette.png')}}">
+        </div>
+
+    </div>
 
 </body>
 
