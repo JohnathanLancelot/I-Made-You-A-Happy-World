@@ -104,6 +104,9 @@ function keyTaken(room)
         document.getElementById("keyHallBigKey").style.opacity = "100%";
         setTimeout(keyPopRemoved, 2000, "keyHall");
 
+        // Add this key to the inventory:
+        document.getElementsByClassName(".inventoryKey1").style.opacity = "100%";
+
         // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
         escapeTunnelLocked = false;
         document.getElementById("bearRoomNavBlock1").style.pointerEvents = "auto";
@@ -116,6 +119,9 @@ function keyTaken(room)
         // Show the key pop-up for 2 seconds:
         document.getElementById("beachRoomBigKey").style.opacity = "100%";
         setTimeout(keyPopRemoved, 2000, "beachRoom");
+
+        // Add this key to the inventory:
+        document.getElementsByClassName(".inventoryKey2").style.opacity = "100%";
 
         // With this key in the user's inventory, the gate to the next hallway will be unlocked:
         beachGateLocked = false;
