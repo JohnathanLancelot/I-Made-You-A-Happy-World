@@ -68,6 +68,41 @@
     z-index: 4;
 }
 
+/* Classes for NPCs & dialogue */
+.npcLayer {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    pointer-events: none;
+    z-index: 6;
+}
+
+.dialogueLayer {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    pointer-events: none;
+    z-index: 7;
+}
+
+.dialogueBox {
+    width: 41.5vw;
+    height: 40vh;
+    grid-column: 11;
+    grid-row: 7.5;
+    margin-top: 37.5vh;
+    margin-left: 50vw;
+    opacity: 100%;
+    /* Inside the dialogue layer, this box should be at the back. */
+    z-index: 0;
+}
+
+.arrowLayer {
+    z-index: 8;
+}
+
 /* Classes for the UI components */
 .uiBarLayer {
     width: 100vw;
@@ -251,28 +286,43 @@
 /* BEAR ROOM */
 
 #bearRoomNavBlock1 {
-    margin-top: -900px;
-    margin-left: 348px;
-    margin-bottom: 970px;
-    opacity: 0%;
+    width: 25vw;
+    height: 50vh;
+    grid-column: 3.6;
+    grid-row: 2.9;
+    margin-top: 9.5vh;
+    margin-left: 18vw;
     pointer-events: none;
-    z-index: 1;
+    opacity: 100%;
 }
 
 #bearRoomNavBlock2 {
-    margin-top: -1440px;
-    margin-left: 1105px;
-    margin-bottom: 1270px;
-    opacity: 0%;
-    z-index: 2;
+    width: 25vw;
+    height: 50vh;
+    grid-column: 11.5;
+    grid-row: 2.9;
+    margin-top: 9.5vh;
+    margin-left: 57.5vw;
+    opacity: 100%;
+}
+
+#wendyImage {
+    width: 15vw;
+    height: 77.5vh;
+    grid-column: 6.5;
+    grid-row: 3.5;
+    margin-top: 17.5vh;
+    margin-left: 32.5vw;
+    opacity: 100%;
 }
 
 #bearRoomArrow {
-    margin-top: -1100px;
-    margin-left: 890px;
-    margin-bottom: 2000px;
-    opacity: 100%;
-    z-index: 3;
+    width: 6vw;
+    height: 11.5vw;
+    grid-column: 1.5;
+    grid-row: 14;
+    margin-top: 65vh;
+    margin-left: 2.5vw;
 }
 
 /* BEACH ROOM */
