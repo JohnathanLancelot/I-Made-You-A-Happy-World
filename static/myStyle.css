@@ -97,9 +97,15 @@
     opacity: 100%;
     /* Inside the dialogue layer, this box should be at the back. */
     z-index: 0;
+    pointer-events: none;
 }
 
 .arrowLayer {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    pointer-events: none;
     z-index: 8;
 }
 
@@ -293,7 +299,7 @@
     margin-top: 9.5vh;
     margin-left: 18vw;
     pointer-events: none;
-    opacity: 100%;
+    opacity: 0%;
 }
 
 #bearRoomNavBlock2 {
@@ -303,7 +309,8 @@
     grid-row: 2.9;
     margin-top: 9.5vh;
     margin-left: 57.5vw;
-    opacity: 100%;
+    opacity: 0%;
+    pointer-events:auto;
 }
 
 #wendyImage {
@@ -318,11 +325,44 @@
 
 #bearRoomArrow {
     width: 6vw;
-    height: 11.5vw;
+    height: 7vw;
     grid-column: 1.5;
     grid-row: 14;
     margin-top: 65vh;
     margin-left: 2.5vw;
+    pointer-events: auto;
+}
+
+#bearRoomUIBarLayer {
+    z-index: 9;
+    pointer-events: none;
+}
+
+#bearRoomUIBar {
+    z-index: 10;
+    pointer-events: none;
+}
+
+#bearRoomIconsLayer {
+    z-index: 11;
+    pointer-events: none;
+}
+
+#bearInv1, #bearInv2 {
+    z-index: 12;
+    pointer-events: none;
+}
+
+#bearRoomSaveIcon, #bearRoomExitIcon {
+    z-index: 12;
+    pointer-events: auto;
+}
+
+#topOfTheBearRoomStack {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 13;
+    pointer-events: none;
 }
 
 /* BEACH ROOM */
