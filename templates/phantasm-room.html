@@ -16,13 +16,41 @@
 
     <body>
 
-        <img class="backgroundPic" src="{{url_for('static', filename='phantasm-room.jpg')}}">
+        <div class="imageStack">
 
-        <!-- Add a navigation block (an invisible shape that can be clicked on) over the spiral staircase.
-             If the user clicks on it, they will be taken to the previous room. -->
-        <a href="/mirror-room"><img id="phantasmRoomNavBlock"
+            <div class="bottomOfTheStack">
+                <img class="backgroundPic" src="{{url_for('static', filename='phantasm-room.jpg')}}">
+            </div>
+
+            <div class="navBlockLayer1">
+                <!-- Add a navigation block (an invisible shape that can be clicked on) over the spiral staircase.
+                If the user clicks on it, they will be taken to the previous room. -->
+                <a href="/mirror-room"><img id="phantasmRoomNavBlock"
                                       src="{{url_for('static', filename='phantasm-room-stairs-navigation-block.png')}}">
-        </a>
+                                      </a>
+            </div>
+
+            <div class="uiBarLayer" id="phantasmRoomUIBarLayer">
+                <!-- Add the blue background for the UI buttons. -->
+                <img class="uiBar" id="phantasmRoomUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
+            </div>
+
+            <div class="uiBarIconsLayer" id="phantasmRoomIconsLayer">
+                <!-- Add the icons to the UI bar. -->
+                <img class="inventoryKey1" id="phantasmRoomInv1" src="{{url_for('static', filename='inventory-key-1.png')}}">
+                <img class="inventoryKey2" id="phantasmRoomInv2" src="{{url_for('static', filename='inventory-key-2.png')}}">
+                <img class="saveIcon" id="phantasmRoomSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
+                <!-- Clicking on the exit icon should take the user to the website's home page. -->
+                <a href="/"><img class="exitIcon" id="phantasmRoomExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
+                </a>
+            </div>
+
+            <div id="topOfThePhantasmRoomStack">
+                <!-- Vignette. -->
+                <img class="backgroundPic" class="vignette" src="{{url_for('static', filename='vignette.png')}}">
+            </div>
+
+        </div>
 
     </body>
 
