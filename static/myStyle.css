@@ -433,46 +433,110 @@
 /* MIRROR ROOM */
 
 #mirrorRoomNavBlock {
-    margin-top: -1000px;
-    margin-left: 680px;
-    margin-bottom: 900px;
-    opacity: 100%;
-    z-index: 2;
-    display: block;
-    opacity: 0%;
+    width: 27vw;
+    height: 35.5vh;
+    grid-column: 14;
+    grid-row: 1;
+    margin-top: 44vh;
+    margin-left: 35vw;
+    opacity: 50%;
+    pointer-events: auto;
 }
 
 #mirrorRoomNoteBlock {
-    margin-top: -360px;
-    margin-left: 143px;
-    margin-bottom: 595px;
-    z-index: 3;
-    display: block;
-    opacity: 0%;
+    width: 10vw;
+    height: 23vh;
+    grid-column: 6;
+    grid-row: 13;
+    margin-top: 65vh;
+    margin-left: 8vw;
+    opacity: 50%;
+    pointer-events: auto;
 }
 
 #mirrorRoomNote {
-    margin-top: -1600px;
-    margin-left: 630px;
-    margin-bottom: 988px;
+    width: 30vw;
+    height: 75vh;
+    grid-column: 8;
+    grid-row: 2;
+    margin-top: 5vh;
+    margin-left: 35vw;
     opacity: 0%;
-    z-index: 5;
+    z-index: 4;
     /* Prevent this overlay from interfering with clickable items. */
     pointer-events: none;
 }
 
 #mirrorRoomArrow {
-    margin-top: -1050px;
-    margin-left: 850px;
-    margin-bottom: 1400px;
-    z-index: 4;
+    width: 6vw;
+    height: 7vw;
+    grid-column: 1.5;
+    grid-row: 14;
+    margin-top: 65vh;
+    margin-left: 2.5vw;
+    pointer-events: auto;
 }
 
+#mirrorRoomUIBarLayer {
+    z-index: 5;
+}
+
+#mirrorRoomUIBar {
+    z-index: 6;
+}
+
+#mirrorRoomIconsLayer {
+    z-index: 7;
+    pointer-events: none;
+}
+
+#mirrorRoomInv1, #mirrorRoomInv2 {
+    z-index: 8;
+    pointer-events: none;
+}
+
+#mirrorRoomSaveIcon, #mirrorRoomExitIcon {
+    z-index: 8;
+    pointer-events: auto;
+}
+
+#topOfTheMirrorRoomStack {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 9;
+    pointer-events: none;
+}
 /* PHANTASM ROOM */
 
 #phantasmRoomNavBlock {
-    margin-top: -990px;
-    margin-left: 660px;
-    margin-bottom: 1017px;
+    width: 25vw;
+    height: 80vh;
+    grid-column: 3.6;
+    grid-row: 2.9;
+    margin-top: 0vh;
+    margin-left: 37vw;
+    pointer-events: auto;
     opacity: 0%;
+    
+}
+
+#phantasmRoomUIBarLayer{
+    z-index: 5;
+}
+
+#phantasmRoomIconsLayer{
+    z-index: 7;
+    pointer-events: none;
+}
+
+#phantasmRoomInv1, #phantasmRoomInv2 {
+    z-index: 8;
+    pointer-events: none;
+}
+
+#topOfThePhantasmRoomStack{
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 9;
+    pointer-events: none;
 }
