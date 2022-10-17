@@ -286,7 +286,7 @@
     pointer-events: none;
 }
 
-#hall1Inv1, #hallway1Inv2 {
+#hall1Inv1, #hall1Inv2 {
     z-index: 8;
     pointer-events: none;
     opacity: 0%;
@@ -313,6 +313,8 @@
     grid-row: 2.9;
     margin-top: 9.5vh;
     margin-left: 18vw;
+    opacity: 0%;
+    pointer-events: auto;
 }
 
 #bearRoomNavBlock2 {
@@ -323,7 +325,7 @@
     margin-top: 9.5vh;
     margin-left: 57.5vw;
     opacity: 0%;
-    pointer-events:auto;
+    pointer-events: auto;
 }
 
 #wendyImage {
@@ -481,6 +483,7 @@
     z-index: 9;
     pointer-events: none;
 }
+
 /* HALLWAY WITH KEY */
 
 #keyHallSign {
@@ -665,6 +668,7 @@
     z-index: 9;
     pointer-events: none;
 }
+
 /* PHANTASM ROOM */
 
 #phantasmRoomNavBlock {
@@ -712,7 +716,7 @@
     pointer-events: none;
 }
 
-#escapeRoomInv1, #escapeRoomInv2 {
+#escapeInv1, #escapeInv2 {
     z-index: 4;
     pointer-events: none;
     opacity: 0%;
