@@ -100,48 +100,29 @@ function keyTaken(room)
         // Change the key taken variable to true:
         key1Taken = true;
 
+        // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
+        escapeTunnelLocked = false;
+
         // Show the pop-up for a short amount of time (2 seconds):
         document.getElementById("keyHallBigKey").style.opacity = "100%";
         setTimeout(keyPopRemoved, 2000, "keyHall");
-
-        // Add this key to the inventory:
-        document.getElementById("hall1Inv1").style.opacity = "100%";
-        document.getElementById("bearInv1").style.opacity = "100%";
-        document.getElementById("escapeInv1").style.opacity = "100%";
-        document.getElementById("beachInv1").style.opacity = "100%";
-        document.getElementById("keyHallInv1").style.opacity = "100%";
-        document.getElementById("mirrorRoomInv1").style.opacity = "100%";
-        document.getElementById("phantasmRoomInv1").style.opacity = "100%";
-
-        // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
-        escapeTunnelLocked = false;
-        document.getElementById("bearRoomNavBlock1").style.pointerEvents = "auto";
     }
     else if (room == "beachRoom" && !key2Taken)
     {
         // Change the key taken variable to true:
         key2Taken = true;
 
+        // With this key in the user's inventory, the gate to the next hallway will be unlocked:
+        beachGateLocked = false;
+        document.getElementById("beachNavBlock2").style['pointer-events'] = 'auto';
+
         // Show the key pop-up for 2 seconds:
         document.getElementById("beachRoomBigKey").style.opacity = "100%";
         setTimeout(keyPopRemoved, 2000, "beachRoom");
-
-        // Add this key to the inventory:
-        document.getElementById("hall1Inv2").style.opacity = "100%";
-        document.getElementById("bearInv2").style.opacity = "100%";
-        document.getElementById("escapeInv2").style.opacity = "100%";
-        document.getElementById("beachInv2").style.opacity = "100%";
-        document.getElementById("keyHallInv2").style.opacity = "100%";
-        document.getElementById("mirrorRoomInv2").style.opacity = "100%";
-        document.getElementById("phantasmRoomInv2").style.opacity = "100%";
-
-        // With this key in the user's inventory, the gate to the next hallway will be unlocked:
-        beachGateLocked = false;
-        document.getElementById("beachNavBlock2").style.pointerEvents = "auto";
     }
 }
 
-// The function for removing a key pop-up:
+// The function for removing a key pop-up, and adding the key to the inventory:
 function keyPopRemoved(room)
 {
     if (room == "keyHall")
