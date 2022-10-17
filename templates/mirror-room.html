@@ -17,11 +17,7 @@
 <body>
 
      <div class="imageStack">
-          
-          <div>
-               <!-- Add an arrow so that the user can choose to go back to the previous room. -->
-               <a href="/key-hall"><img id="mirrorRoomArrow" src="{{url_for('static', filename='down-arrow.png')}}"></a>
-           </div>
+
           <div class="bottomOfTheStack">
                <!-- The original background, showing the note on the floor. -->
                <img class="backgroundPic" src="{{url_for('static', filename='mirror-room.jpg')}}">
@@ -50,13 +46,18 @@
                <!-- Add the note overlay. -->
                <img id="mirrorRoomNote" src="{{url_for('static', filename='note2.png')}}">
           </div>
+
+          <div class="arrowLayer">
+               <!-- Add an arrow so that the user can choose to go back to the previous room. -->
+               <a href="/key-hall"><img id="mirrorRoomArrow" src="{{url_for('static', filename='right-arrow.png')}}"></a>
+          </div>
           
           <div class="uiBarLayer" id="mirrorRoomUIBarLayer">
                <!-- Add the blue background for the UI buttons. -->
                <img class="uiBar" id="mirrorRoomUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
           </div>
 
-           <div class="uiBarIconsLayer" id="mirrorRoomIconsLayer">
+          <div class="uiBarIconsLayer" id="mirrorRoomIconsLayer">
                <!-- Add the icons to the UI bar. -->
                <img class="inventoryKey1" id="mirrorRoomInv1" src="{{url_for('static', filename='inventory-key-1.png')}}">
                <img class="inventoryKey2" id="mirrorRoomInv2" src="{{url_for('static', filename='inventory-key-2.png')}}">
@@ -64,7 +65,7 @@
                <!-- Clicking on the exit icon should take the user to the website's home page. -->
                <a href="/"><img class="exitIcon" id="mirrorRoomExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
                    </a>
-           </div>
+          </div>
 
           <div id="topOfTheMirrorRoomStack">
                <!-- Vignette. -->
