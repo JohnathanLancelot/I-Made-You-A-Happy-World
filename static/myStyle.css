@@ -108,7 +108,7 @@
     z-index: 8;
 }
 
-/* Classes for the UI components */
+/* Classes for the UI components and keys */
 .uiBarLayer {
     width: 100vw;
     height: 100vh;
@@ -140,8 +140,6 @@
     grid-row: 17.5;
     margin-top: 82vh;
     margin-left: 25vw;
-    opacity: 0%;
-
 }
 
 .inventoryKey2 {
@@ -151,7 +149,6 @@
     grid-row: 17.5;
     margin-top: 82vh;
     margin-left: 5vw;
-    opacity: 0%;
 }
 
 .saveIcon {
@@ -172,6 +169,24 @@
     margin-top: 82vh;
     margin-left: 5vw;
     pointer-events: auto;
+}
+
+.backgroundKeyLayer {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 7;
+    pointer-events: none;
+}
+
+.keyPopUpLayer {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 7;
+    pointer-events: none;
 }
 
 /* Stacking for the opening screen and load / new game screen */
@@ -245,7 +260,6 @@
     pointer-events: auto;
 }
 
-
 #hallway1Note {
     width: 30vw;
     height: 75vh;
@@ -275,6 +289,7 @@
 #hall1Inv1, #hallway1Inv2 {
     z-index: 8;
     pointer-events: none;
+    opacity: 0%;
 }
 
 #hall1SaveIcon, #hall1ExitIcon {
@@ -326,7 +341,7 @@
     height: 7vw;
     grid-column: 1.5;
     grid-row: 14;
-    margin-top: 65vh;
+    margin-top: 60vh;
     margin-left: 2.5vw;
     pointer-events: auto;
 }
@@ -349,6 +364,7 @@
 #bearInv1, #bearInv2 {
     z-index: 12;
     pointer-events: none;
+    opacity: 0%;
 }
 
 #bearRoomSaveIcon, #bearRoomExitIcon {
@@ -451,6 +467,7 @@
 #beachInv1, #beachInv2 {
     z-index: 8;
     pointer-events: none;
+    opacity: 0%;
 }
 
 #beachSaveIcon, #beachExitIcon {
@@ -467,54 +484,108 @@
 /* HALLWAY WITH KEY */
 
 #keyHallSign {
-    margin-top: -900px;
-    margin-left: 378px;
-    margin-bottom: 1250px;
+    width: 60vw;
+    height: 60vh;
+    grid-column: 5;
+    grid-row: 4;
+    margin-top: 15vh;
+    margin-left: 20vw;
     /* Make this sign invisible to start with. The user has to click on the small image on the wall
        to make this sign come up as a zoomed-in image. */
     opacity: 0%;
     /* This piece of code allows users to click on items that lie within the area taken up by the sign. */
     pointer-events: none;
-    z-index: 3;
-    position: relative;
 }
 
 #keyHallNavBlock {
-    margin-top: -1973px;
-    margin-left: 609px;
-    margin-bottom: 1817px;
+    width: 7.5vw;
+    height: 60vh;
+    grid-column: 6.25;
+    grid-row: 1;
+    margin-top: 0vh;
+    margin-left: 31.3vw;
     opacity: 0%;
+    pointer-events: auto;
 }
 
 #keyHallwaySignNavBlock {
-    margin-top: -2170px;
-    margin-left: 1279px;
-    margin-bottom: 2000px;
+    width: 14vw;
+    height: 25.5vh;
+    grid-column: 13.5;
+    grid-row: 4.9;
+    margin-top: 24.5vh;
+    margin-left: 67.5vw;
     opacity: 0%;
+    pointer-events: auto;
 }
 
 #keyHallSmallKey {
-    width: 94px;
-    height: 61px;
-    margin-top: -2000px;
-    margin-left: 1100px;
-    margin-bottom: 1800px;
-    z-index: 1;
+    width: 5vw;
+    height: 7.5vh;
+    grid-column: 12.2;
+    grid-row: 14.1;
+    margin-top: 70.5vh;
+    margin-left: 61vw;
     opacity: 100%;
+    pointer-events: auto;
 }
 
 #keyHallBigKey {
-    margin-top: -2400px;
-    margin-left: 663px;
-    margin-bottom: 1900px;
-    z-index: 4;
+    width: 27.5vw;
+    height: 35vh;
+    grid-column: 8;
+    grid-row: 7;
+    margin-top: 30vh;
+    margin-left: 35vw;
     opacity: 0%;
+    pointer-events: none;
 }
 
 #keyHallArrow {
-    margin-top: -1800px;
-    margin-left: 810px;
-    margin-bottom: 2000px;
+    width: 5.5vw;
+    height: 11vh;
+    grid-column: 8.9;
+    grid-row: 14;
+    margin-top: 65vh;
+    margin-left: 44.5vw;
+    pointer-events: auto;
+}
+
+#keyHallUIBarLayer {
+    z-index: 9;
+}
+
+#keyHallUIBar {
+    z-index: 10;
+}
+
+#keyHallIconsLayer {
+    z-index: 11;
+    pointer-events: none;
+}
+
+#keyHallInv1 {
+    z-index: 12;
+    pointer-events: none;
+    opacity: 0%;
+}
+
+#keyHallInv2 {
+    z-index: 12;
+    pointer-events: none;
+    opacity: 0%;
+}
+
+#keyHallSaveIcon, #keyHallExitIcon {
+    z-index: 12;
+    pointer-events: auto;
+}
+
+#topOfTheKeyHallStack {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 13;
+    pointer-events: none;
 }
 
 /* MIRROR ROOM */
@@ -580,6 +651,7 @@
 #mirrorRoomInv1, #mirrorRoomInv2 {
     z-index: 8;
     pointer-events: none;
+    opacity: 0%;
 }
 
 #mirrorRoomSaveIcon, #mirrorRoomExitIcon {
@@ -604,7 +676,6 @@
     margin-left: 37vw;
     pointer-events: auto;
     opacity: 0%;
-    
 }
 
 #phantasmRoomUIBarLayer{
@@ -619,9 +690,35 @@
 #phantasmRoomInv1, #phantasmRoomInv2 {
     z-index: 8;
     pointer-events: none;
+    opacity: 0%;
 }
 
 #topOfThePhantasmRoomStack{
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 9;
+    pointer-events: none;
+}
+
+/* ESCAPE ROOM */
+
+#escapeRoomUIBarLayer {
+    z-index: 2;
+    pointer-events: none;
+}
+
+#escapeRoomIconsLayer {
+    z-index: 3;
+    pointer-events: none;
+}
+
+#escapeRoomInv1, #escapeRoomInv2 {
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0%;
+}
+
+#topOfTheEscapeRoomStack{
     grid-column: 1;
     grid-row: 1;
     z-index: 9;
