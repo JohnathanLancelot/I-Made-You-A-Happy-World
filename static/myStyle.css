@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* Class for making image stacking work */
 .imageStack {
     display: grid;
@@ -24,35 +24,6 @@
     width: 100vw;
     height: 100vh;
     opacity: 0%;
-=======
-/* Class for background images */
-html {
-    max-height: 982px;
-   
-}
-
-.body-structure{
-
-    max-width: 1920px;
-}
-.backgroundPic {
-    text-align: center;
-
-    max-width: 100%;
-}
-
-body {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.backgroundNoteRemoved {
-    text-align: center;
-    margin-top: -2000px;
-    opacity: 100%;
->>>>>>> 5140300ee2cd38e6c837db18d27bb82bda2af0b2
-    /* Prevent this overlay from interfering with clickable items. */
-    pointer-events: none;
 }
 
 .bottomOfTheStack { /* Used on all default background images */
@@ -253,7 +224,6 @@ body {
 /* HALLWAY 1 */
 
 #hallway1NavBlock {
-<<<<<<< HEAD
     width: 5vw;
     height: 57.5vh;
     grid-column: 14;
@@ -273,20 +243,8 @@ body {
     margin-left: 25.5vw;
     opacity: 0%;
     pointer-events: auto;
-=======
-    margin-top: -1005px;
-    margin-left: 1202px;
-    margin-bottom: 500px;
-    opacity: 100%;
 }
 
-#hallway1NoteBlock {
-    margin-top: -800px;
-    margin-left: 485px;
-    margin-bottom: 388px;
-    opacity: 100%;
->>>>>>> 5140300ee2cd38e6c837db18d27bb82bda2af0b2
-}
 
 #hallway1Note {
     width: 30vw;
@@ -334,25 +292,15 @@ body {
 /* BEAR ROOM */
 
 #bearRoomNavBlock1 {
-<<<<<<< HEAD
     width: 25vw;
     height: 50vh;
     grid-column: 3.6;
     grid-row: 2.9;
     margin-top: 9.5vh;
     margin-left: 18vw;
-=======
-    margin-top: -900px;
-    margin-left: 348px;
-    margin-bottom: 970px;
-    opacity: 100%;
->>>>>>> 5140300ee2cd38e6c837db18d27bb82bda2af0b2
-    pointer-events: none;
-    opacity: 0%;
 }
 
 #bearRoomNavBlock2 {
-<<<<<<< HEAD
     width: 25vw;
     height: 50vh;
     grid-column: 11.5;
@@ -371,13 +319,6 @@ body {
     margin-top: 17.5vh;
     margin-left: 32.5vw;
     opacity: 100%;
-=======
-    margin-top: -1440px;
-    margin-left: 1105px;
-    margin-bottom: 1270px;
-    opacity: 100%;
-    z-index: 2;
->>>>>>> 5140300ee2cd38e6c837db18d27bb82bda2af0b2
 }
 
 #bearRoomArrow {
