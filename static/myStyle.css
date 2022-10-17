@@ -366,58 +366,104 @@
 /* BEACH ROOM */
 
 #beachSign {
-    margin-top: -1000px;
-    margin-left: 378px;
-    margin-bottom: 1250px;
-    /* Make this sign invisible to start with. The user has to click on the small image on the wall
-       to make this sign come up as a zoomed-in image. */
+    width: 30vw;
+    height: 75vh;
+    grid-column: 8;
+    grid-row: 2;
+    margin-top: 5vh;
+    margin-left: 35vw;
     opacity: 0%;
-    /* This piece of code allows users to click on items that lie within the area taken up by the sign. */
+    z-index: 4;
+    /* Prevent this overlay from interfering with clickable items. */
     pointer-events: none;
 }
 
 #beachNavBlock1 {
-    margin-top: -985px;
-    margin-left: -1485px;
-    margin-bottom: 1038px;
-    opacity: 100%;
+    width: 10vw;
+    height: 78vh;
+    grid-column: 14;
+    grid-row: 1;
+    margin-top: 0vh;
+    margin-left: 3vw;
+    opacity: 50%;
+    pointer-events: auto;
 }
 
 #beachNavBlock2 {
-    margin-top: -1495px;
-    margin-left: -1200px;
-    margin-bottom: 1465px;
-    opacity: 100%;
-    pointer-events: none;
+    width: 10vw;
+    height: 23vh;
+    grid-column: 6;
+    grid-row: 13;
+    margin-top: 1vh;
+    margin-left: 8vw;
+    opacity: 50%;
+    pointer-events: auto;
 }
 
 #beachSignNavBlock {
     
-    margin-top: -1837px;
-    margin-left: 986px;
-    margin-bottom: 1957px;
-    opacity: 100%;
+    width: 5vw;
+    height: 15vh;
+    grid-column: 6;
+    grid-row: 13;
+    margin-top: 60vh;
+    margin-left: 25.5vw;
+    opacity: 0%;
+    pointer-events: auto;
 }
 
 #chestNavBlock {
+    width: 5vw;
+    height: 15vh;
+    grid-column: 6;
+    grid-row: 13;
+    margin-top: 60vh;
+    margin-left: 25.5vw;
+    opacity: 0%;
+    pointer-events: auto;
 
-    margin-top: -2045px;
-    margin-left: 645px;
-    margin-bottom: 2100px;
-    opacity: 100%;
-    pointer-events: allows;
-    z-index: 1;
 }
 
 #beachRoomBigKey {
-    margin-top: -2400px;
-    margin-left: 663px;
-    margin-bottom: 1900px;
+    width: 5vw;
+    height: 15vh;
+    grid-column: 6;
+    grid-row: 13;
+    margin-top: 60vh;
+    margin-left: 25.5vw;
+    opacity: 0%;
+    pointer-events: auto;
+}
+
+#beachUIBarLayer {
+    z-index: 5;
+}
+
+#beachUIBar {
     z-index: 6;
-    opacity: 100%;
+}
+
+#beachIconsLayer {
+    z-index: 7;
     pointer-events: none;
 }
 
+#beachInv1, #beachInv2 {
+    z-index: 8;
+    pointer-events: none;
+}
+
+#beachSaveIcon, #beachExitIcon {
+    z-index: 8;
+    pointer-events: auto;
+}
+
+#topOfTheBeachStack {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 9;
+    pointer-events: none;
+}
 /* HALLWAY WITH KEY */
 
 #keyHallSign {
