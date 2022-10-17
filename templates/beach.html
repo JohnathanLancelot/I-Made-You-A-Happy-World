@@ -16,29 +16,63 @@
 
 <body>
 
-    <img class="backgroundPic" src="{{url_for('static', filename='beach-room.jpg')}}">
+    <div class="imageStack">
 
-    <!-- Add the pop-up zoomed in image of the sign that the user can read. -->
-    <img id="beachSign" src="{{url_for('static', filename='beach-room-sign.png')}}">
+        <div class="bottomOfTheStack">
+            <img class="backgroundPic" src="{{url_for('static', filename='beach-room.jpg')}}">
+        </div>
 
-    <!-- Add two navigation blocks (a transparent image laid over the ladder and the gate). These can be
-         clicked on and will take the user up the ladder or through the gate. -->
-    <a href="/bear-room"><img id="beachNavBlock1"
-                              src="{{url_for('static', filename='beach-room-ladder-navigation-block.png')}}"></a>
-    <a href="/key-hall"><img id="beachNavBlock2"
-                              src="{{url_for('static', filename='beach-room-gate-navigation-block.png')}}"></a>
+        <div class="navBlockLayer1">
+            <a href="/bear-room"><img id="beachNavBlock1"
+                src="{{url_for('static', filename='beach-room-ladder-navigation-block.png')}}"></a>
+            <a href="/key-hall"><img id="beachNavBlock2"
+                src="{{url_for('static', filename='beach-room-gate-navigation-block.png')}}"></a>
+        </div>
 
-    <!-- Add an invisible image overlaying the sign on the wall, so that when the user presses and holds on the sign,
-         a pop-up showing the sign zoomed-in appears. -->
-    <img id="beachSignNavBlock" src="{{url_for('static', filename='beach-sign-navigation-block.png')}}"
-                                onmousedown="showSign('beachRoom')" onmouseup="removeSign('beachRoom')">
+        <div class="navBlockLayer2">
+            <!-- Add an invisible image overlaying the sign on the wall, so that when the user presses and holds on the
+            sign, a pop-up showing the sign zoomed-in appears. -->
+            <img id="beachSignNavBlock" src="{{url_for('static', filename='beach-sign-navigation-block.png')}}"
+                onmousedown="showSign('beachRoom')" onmouseup="removeSign('beachRoom')">
+        </div>
 
-    <!-- Add a clickable overlay to the chest so that the user can click on it. -->
-    <img id="chestNavBlock" src="{{url_for('static', filename='chest-navigation-block.png')}}"
-                                onclick="keyTaken('beachRoom')">
+        <div class="navBlockLayer3">
+            <!-- Add a clickable overlay to the chest so that the user can click on it. -->
+            <img id="chestNavBlock" src="{{url_for('static', filename='chest-navigation-block.png')}}"
+            onclick="keyTaken('beachRoom')">
+        </div>
 
-    <!-- Add the key pop-up for when the user clicks on the chest. -->
-    <img id="beachRoomBigKey" src="{{url_for('static', filename='key-found2.png')}}">
+        <div class="notesAndSignsLayer">
+            <!-- Add the pop-up zoomed in image of the sign that the user can read. -->
+            <img id="beachSign" src="{{url_for('static', filename='beach-room-sign.png')}}">
+        </div>
+
+        <div class="keyPopUpLayer">
+            <!-- Add the key pop-up for when the user clicks on the chest. -->
+            <img id="beachRoomBigKey" src="{{url_for('static', filename='key-found2.png')}}">
+        </div>
+
+        <div class="uiBarLayer" id="beachUIBarLayer">
+            <!-- Add the blue background for the UI buttons. -->
+            <img class="uiBar" id="beachUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
+        </div>
+
+        <div class="uiBarIconsLayer" id="beachIconsLayer">
+            <!-- Add the icons to the UI bar. -->
+            <img class="inventoryKey1" id="beachInv1" src="{{url_for('static', filename='inventory-key-1.png')}}">
+            <img class="inventoryKey2" id="beachInv2" src="{{url_for('static', filename='inventory-key-2.png')}}">
+            <img class="saveIcon" id="beachSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
+            <!-- Clicking on the exit icon should take the user to the website's home page. -->
+            <a href="/"><img class="exitIcon" id="beachExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
+                </a>
+        </div>
+
+        <div id="topOfTheBeachStack">
+            <!-- Vignette. -->
+            <img class="backgroundPic" class="vignette" src="{{url_for('static', filename='vignette.png')}}">
+        </div>
+
+    </div>
 
 </body>
 

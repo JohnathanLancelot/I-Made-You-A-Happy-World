@@ -16,29 +16,63 @@
 
 <body>
 
-    <!-- The original background, showing the note on the floor. -->
-    <img class="backgroundPic" src="{{url_for('static', filename='mirror-room.jpg')}}">
+     <div class="imageStack">
 
-    <!-- An overlay of the background without the note on the floor, activated when the note is picked up. -->
-    <img class="backgroundNoteRemoved" id="mirrorRoomNoteRemoved"
-         src="{{url_for('static', filename='mirror-room-no-note.jpg')}}">
+          <div class="bottomOfTheStack">
+               <!-- The original background, showing the note on the floor. -->
+               <img class="backgroundPic" src="{{url_for('static', filename='mirror-room.jpg')}}">
+          </div>
+          
+          <div class="altBackground">
+               <!-- An overlay of the background without the note on the floor, activated when the note is picked up. -->
+               <img class="backgroundNoteRemoved" id="mirrorRoomNoteRemoved"
+               src="{{url_for('static', filename='mirror-room-no-note.jpg')}}">
+          </div>
 
-    <!-- Add a clickable invisible image over the note on the floor, which triggers the zoomed-in overlay. -->
-    <img id="mirrorRoomNoteBlock" src="{{url_for('static', filename='mirror-room-note-block.png')}}"
-         onmousedown="showNote('mirrorRoom')" onmouseup="hideNote('mirrorRoom')">
+          <div class="navBlockLayer1">
+           <!-- Add a navigation block (an invisible shape that can be clicked on) over the spiral staircase.
+               If the user clicks on it, they will be taken to the next room. -->
+               <a href="/phantasm-room"><img id="mirrorRoomNavBlock"
+               src="{{url_for('static', filename='mirror-room-stairs-navigation-block.png')}}"></a>
+          </div>
 
-    <!-- Add a navigation block (an invisible shape that can be clicked on) over the spiral staircase.
-         If the user clicks on it, they will be taken to the next room. -->
-    <a href="/phantasm-room"><img id="mirrorRoomNavBlock"
-                              src="{{url_for('static', filename='mirror-room-stairs-navigation-block.png')}}"></a>
+          <div class="navBlockLayer2">
+               <!-- Add a clickable invisible image over the note on the floor, which triggers the zoomed-in overlay. -->
+               <img id="mirrorRoomNoteBlock" src="{{url_for('static', filename='mirror-room-note-block.png')}}"
+               onmousedown="showNote('mirrorRoom')" onmouseup="hideNote('mirrorRoom')">
+          </div>
+          
+          <div class="notesAndSignsLayer">
+               <!-- Add the note overlay. -->
+               <img id="mirrorRoomNote" src="{{url_for('static', filename='note2.png')}}">
+          </div>
 
-    <!-- Add the note overlay. -->
-    <img id="mirrorRoomNote" src="{{url_for('static', filename='note2.png')}}">
+          <div class="arrowLayer">
+               <!-- Add an arrow so that the user can choose to go back to the previous room. -->
+               <a href="/key-hall"><img id="mirrorRoomArrow" src="{{url_for('static', filename='right-arrow.png')}}"></a>
+          </div>
+          
+          <div class="uiBarLayer" id="mirrorRoomUIBarLayer">
+               <!-- Add the blue background for the UI buttons. -->
+               <img class="uiBar" id="mirrorRoomUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
+          </div>
 
-    <!-- Add an arrow so that the user can choose to go back to the previous room. -->
-    <a href="/key-hall"><img id="mirrorRoomArrow"
-                              src="{{url_for('static', filename='down-arrow.png')}}"></a>
+          <div class="uiBarIconsLayer" id="mirrorRoomIconsLayer">
+               <!-- Add the icons to the UI bar. -->
+               <img class="inventoryKey1" id="mirrorRoomInv1" src="{{url_for('static', filename='inventory-key-1.png')}}">
+               <img class="inventoryKey2" id="mirrorRoomInv2" src="{{url_for('static', filename='inventory-key-2.png')}}">
+               <img class="saveIcon" id="mirrorRoomSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
+               <!-- Clicking on the exit icon should take the user to the website's home page. -->
+               <a href="/"><img class="exitIcon" id="mirrorRoomExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
+                   </a>
+          </div>
 
+          <div id="topOfTheMirrorRoomStack">
+               <!-- Vignette. -->
+               <img class="backgroundPic" class="vignette" src="{{url_for('static', filename='vignette.png')}}">
+          </div>
+     </div>
+ 
 </body>
 
 </html>
