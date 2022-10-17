@@ -52,6 +52,12 @@
             <img id="keyHallBigKey" src="{{url_for('static', filename='key-found1.png')}}">
         </div>
 
+        <div class="arrowLayer">
+            <!-- Add an arrow so that the user can choose to go back to the previous room. -->
+            <a href="/beach"><img id="keyHallArrow"
+                              src="{{url_for('static', filename='down-arrow.png')}}"></a>
+        </div>
+
         <!-- Add the UI. -->
         <div class="uiBarLayer" id="keyHallUIBarLayer">
             <!-- Add the blue background for the UI buttons. -->
@@ -74,14 +80,6 @@
         </div>
 
     </div>
-
-
-
-
-
-    <!-- Add an arrow so that the user can choose to go back to the previous room. -->
-    <a href="/beach"><img id="keyHallArrow"
-                              src="{{url_for('static', filename='down-arrow.png')}}"></a>
 
 </body>
 

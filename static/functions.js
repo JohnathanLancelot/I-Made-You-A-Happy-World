@@ -105,7 +105,13 @@ function keyTaken(room)
         setTimeout(keyPopRemoved, 2000, "keyHall");
 
         // Add this key to the inventory:
-        document.getElementsByClassName(".inventoryKey1").style.opacity = "100%";
+        document.getElementById("hall1Inv1").style.opacity = "100%";
+        document.getElementById("bearInv1").style.opacity = "100%";
+        document.getElementById("escapeInv1").style.opacity = "100%";
+        document.getElementById("beachInv1").style.opacity = "100%";
+        document.getElementById("keyHallInv1").style.opacity = "100%";
+        document.getElementById("mirrorRoomInv1").style.opacity = "100%";
+        document.getElementById("phantasmRoomInv1").style.opacity = "100%";
 
         // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
         escapeTunnelLocked = false;
@@ -121,7 +127,13 @@ function keyTaken(room)
         setTimeout(keyPopRemoved, 2000, "beachRoom");
 
         // Add this key to the inventory:
-        document.getElementsByClassName(".inventoryKey2").style.opacity = "100%";
+        document.getElementById("hall1Inv2").style.opacity = "100%";
+        document.getElementById("bearInv2").style.opacity = "100%";
+        document.getElementById("escapeInv2").style.opacity = "100%";
+        document.getElementById("beachInv2").style.opacity = "100%";
+        document.getElementById("keyHallInv2").style.opacity = "100%";
+        document.getElementById("mirrorRoomInv2").style.opacity = "100%";
+        document.getElementById("phantasmRoomInv2").style.opacity = "100%";
 
         // With this key in the user's inventory, the gate to the next hallway will be unlocked:
         beachGateLocked = false;
