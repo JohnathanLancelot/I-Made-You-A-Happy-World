@@ -16,26 +16,68 @@
 
 <body>
 
-    <img class="backgroundPic" src="{{url_for('static', filename='hallway-with-key.jpg')}}">
+    <div class="imageStack">
 
-    <!-- Add the overlay showing a zoomed-in depiction of the sign on the wall. -->
-    <img id="keyHallSign" src="{{url_for('static', filename='key-room-sign.png')}}">
+        <!-- Add the background image. -->
+        <div class="bottomOfTheStack">
+            <img class="backgroundPic" src="{{url_for('static', filename='hallway-with-key.jpg')}}">
+        </div>
 
-    <!-- Add a navigation block (an invisible shape that can be clicked on) over the entrance to the next hallway.
-         If the user clicks on it, they will be taken to the next room. -->
-    <a href="/mirror-room"><img id="keyHallNavBlock"
+        <!-- Add the overlay showing a zoomed-in depiction of the sign on the wall. -->
+        <div class="notesAndSignsLayer">
+            <img id="keyHallSign" src="{{url_for('static', filename='key-room-sign.png')}}">
+        </div>
+
+        <!-- Add a navigation block (an invisible shape that can be clicked on) over the entrance to the next hallway.
+             If the user clicks on it, they will be taken to the next room. -->
+        <div class="navBlockLayer1">
+            <a href="/mirror-room"><img id="keyHallNavBlock"
                               src="{{url_for('static', filename='key-hallway-navigation-block.png')}}"></a>
+        </div>
 
-    <!-- Add an invisible image overlaying the sign on the wall, so that when the user presses and holds on the sign,
-         a pop-up showing the sign zoomed-in appears. -->
-    <img id="keyHallwaySignNavBlock" src="{{url_for('static', filename='key-hallway-sign-navigation-block.png')}}"
-                                onmousedown="showSign('keyRoom')" onmouseup="removeSign('keyRoom')">
+        <div class="navBlockLayer2">
+            <!-- Add an invisible image overlaying the sign on the wall, so that when the user presses and holds on the sign,
+            a pop-up showing the sign zoomed-in appears. -->
+            <img id="keyHallwaySignNavBlock" src="{{url_for('static', filename='key-hallway-sign-navigation-block.png')}}"
+                              onmousedown="showSign('keyRoom')" onmouseup="removeSign('keyRoom')">
+        </div>
 
-    <!-- Add a small key to the background that the user can click on. -->
-    <img id="keyHallSmallKey" src="{{url_for('static', filename='key1.png')}}" onclick="keyTaken('keyHall')">
+        <div class="backgroundKeyLayer">
+            <!-- Add a small key to the background that the user can click on. -->
+            <img id="keyHallSmallKey" src="{{url_for('static', filename='key1.png')}}" onclick="keyTaken('keyHall')">
+        </div>
 
-    <!-- Add a large key as a zoomed-in pop-up when the user picks up the key. -->
-    <img id="keyHallBigKey" src="{{url_for('static', filename='key-found1.png')}}">
+        <div class="keyPopUpLayer">
+            <!-- Add a large key as a zoomed-in pop-up when the user picks up the key. -->
+            <img id="keyHallBigKey" src="{{url_for('static', filename='key-found1.png')}}">
+        </div>
+
+        <!-- Add the UI. -->
+        <div class="uiBarLayer" id="keyHallUIBarLayer">
+            <!-- Add the blue background for the UI buttons. -->
+            <img class="uiBar" id="keyHallUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
+        </div>
+
+        <div class="uiBarIconsLayer" id="keyHallIconsLayer">
+            <!-- Add the icons to the UI bar. -->
+            <img class="inventoryKey1" id="keyHallInv1" src="{{url_for('static', filename='inventory-key-1.png')}}">
+            <img class="inventoryKey2" id="keyHallInv2" src="{{url_for('static', filename='inventory-key-2.png')}}">
+            <img class="saveIcon" id="keyHallSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
+            <!-- Clicking on the exit icon should take the user to the website's home page. -->
+            <a href="/"><img class="exitIcon" id="keyHallExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
+                </a>
+        </div>
+
+        <div id="topOfTheKeyHallStack">
+            <!-- Vignette. -->
+            <img class="backgroundPic" class="vignette" src="{{url_for('static', filename='vignette.png')}}">
+        </div>
+
+    </div>
+
+
+
+
 
     <!-- Add an arrow so that the user can choose to go back to the previous room. -->
     <a href="/beach"><img id="keyHallArrow"

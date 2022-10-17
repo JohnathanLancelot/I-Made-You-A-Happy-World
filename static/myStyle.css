@@ -326,7 +326,7 @@
     height: 7vw;
     grid-column: 1.5;
     grid-row: 14;
-    margin-top: 65vh;
+    margin-top: 60vh;
     margin-left: 2.5vw;
     pointer-events: auto;
 }
@@ -421,16 +421,12 @@
 /* HALLWAY WITH KEY */
 
 #keyHallSign {
-    margin-top: -900px;
-    margin-left: 378px;
-    margin-bottom: 1250px;
     /* Make this sign invisible to start with. The user has to click on the small image on the wall
        to make this sign come up as a zoomed-in image. */
-    opacity: 0%;
+    opacity: 100%;
     /* This piece of code allows users to click on items that lie within the area taken up by the sign. */
     pointer-events: none;
     z-index: 3;
-    position: relative;
 }
 
 #keyHallNavBlock {
@@ -558,7 +554,6 @@
     margin-left: 37vw;
     pointer-events: auto;
     opacity: 0%;
-    
 }
 
 #phantasmRoomUIBarLayer{
@@ -576,6 +571,30 @@
 }
 
 #topOfThePhantasmRoomStack{
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 9;
+    pointer-events: none;
+}
+
+/* ESCAPE ROOM */
+
+#escapeRoomUIBarLayer {
+    z-index: 2;
+    pointer-events: none;
+}
+
+#escapeRoomIconsLayer {
+    z-index: 3;
+    pointer-events: none;
+}
+
+#escapeRoomInv1, #escapeRoomInv2 {
+    z-index: 4;
+    pointer-events: none;
+}
+
+#topOfTheEscapeRoomStack{
     grid-column: 1;
     grid-row: 1;
     z-index: 9;
