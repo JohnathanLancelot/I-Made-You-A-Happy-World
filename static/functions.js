@@ -3,6 +3,10 @@ var key1Taken = false;
 var key2Taken = false;
 var escapeTunnelLocked = true;
 var beachGateLocked = true;
+var spokenToWendy = false;
+var spokenToSharkie = true;
+var spokenToPhantasm = false;
+var timesSpookHasMoved = 0;
 
 // The two functions enabling a timed (2 second) redirect from the title screen to the load or new game screen:
 function timedRedirect()
@@ -135,4 +139,92 @@ function keyPopRemoved(room)
         // Remove the pop-up:
         document.getElementById("beachRoomBigKey").style.opacity = "0%";
     }
+}
+
+// The function for checking whether the user has spoken to a specific NPC yet:
+function checkNPCStatus(name)
+{
+    if (name == "Wendy" && spokenToWendy)
+    {
+        // If Wendy has already been spoken to when this page loads, we want her to be invisible and non-clickable:
+        document.getElementById("wendyImage").style.opacity = "0%";
+        document.getElementById("wendyImage").style['pointer-events'] = 'none';
+
+        // We also want the dialogue and dialogue box to disappear:
+        document.getElementById("bearDialogueBox").style.opacity = "0%";
+        document.getElementById("bearDialogueBox").style['pointer-events'] = 'none';
+    }
+    else if (name == "Sharkie" && spokenToSharkie)
+    {
+        // Sharkie should still be visible, but the user should be able to click through him:
+        document.getElementById("sharkieImage").style['pointer-events'] = 'none';
+
+        // The dialogue box should also disappear:
+        document.getElementById("sharkieDialogueBox").style.opacity = "0%";
+        document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'none';
+    }
+    else if (name == "Phantasm" && spokenToPhantasm)
+    {
+        // Phantasm should still be visible, but the user should be able to click through him:
+        document.getElementById("phantasmImage").style['pointer-events'] = 'none';
+
+        // Remove the dialogue box:
+        document.getElementById("phantasmDialogueBox").style.opacity = "0%";
+        document.getElementById("phantasmDialogueBox").style['pointer-events'] = 'none';
+    }
+}
+
+// The function for bringing up the dialogue box:
+function bringUpDialogueBox(name)
+{
+    if (name == "Wendy" && !spokenToWendy)
+    {
+        // If the user hasn't spoken to Wendy yet, make the dialogue box visible:
+        document.getElementById("bearDialogueBox").style.opacity = "100%";
+        spokenToWendy = true;
+    }
+    else if (name == "Sharkie" && !spokenToSharkie)
+    {
+        document.getElementById("sharkieDialogueBox").style.opacity = "100%";
+        spokenToSharkie = true;
+    }
+    else if (name == "Phantasm" && !spokenToPhantasm)
+    {
+        document.getElementById("phantasmDialogueBox").style.opacity = "100%";
+        spokenToPhantasm = true;
+    }
+}
+
+// The function for moving Spook:
+function moveSpook()
+{
+    switch(timesSpookHasMoved)
+    {
+    case 0:
+        // Move spook into position 2:
+        document.getElementById("spookImage").style.width = "12.5vw";
+        document.getElementById("spookImage").style.height = "57vh";
+        document.getElementById("spookImage").style.gridColumn = "1";
+        document.getElementById("spookImage").style.gridRow = "1";
+        document.getElementById("spookImage").style.marginTop = "0vh";
+        document.getElementById("spookImage").style.marginLeft = "0vw";
+        break;
+
+    case 1:
+        // Switch to using cropped Spook:
+        document.getElementById("spookImage").style.opacity = "0%";
+        document.getElementById("spookImage").style['pointer-events'] = 'none';
+        document.getElementById("spookCropped").style.opacity = "100%";
+        document.getElementById("spookCropped").style['pointer-events'] = 'auto';
+        break;
+
+    case 2:
+        // Make Spook vanish altogether:
+        document.getElementById("spookCropped").style.opacity = "0%";
+        document.getElementById("spookCropped").style['pointer-events'] = 'none';
+        break;
+    }
+
+    // Increase the counter:
+    timesSpookHasMoved += 1;
 }

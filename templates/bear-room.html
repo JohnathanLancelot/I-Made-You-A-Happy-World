@@ -36,7 +36,8 @@
 
         <!-- Add NPC and dialogue elements. -->
         <div class="npcLayer">
-            <img id="wendyImage" src="{{url_for('static', filename='wendy.png')}}">
+            <img id="wendyImage" src="{{url_for('static', filename='wendy.png')}}" onload="checkNPCStatus('Wendy')"
+                onclick="bringUpDialogueBox('Wendy')">
         </div>
 
         <div class="dialogueLayer">

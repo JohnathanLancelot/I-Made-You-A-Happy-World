@@ -52,6 +52,17 @@
             <img id="beachRoomBigKey" src="{{url_for('static', filename='key-found2.png')}}">
         </div>
 
+        <!-- Add Sharkie the NPC! -->
+        <div class="npcLayer">
+            <img id="sharkieImage" src="{{url_for('static', filename='sharkie.png')}}" onload="checkNPCStatus('Sharkie')"
+                 onclick="bringUpDialogueBox('Sharkie')">
+        </div>
+
+        <!-- Add Sharkie's dialogue box. -->
+        <div class="dialogueLayer">
+            <img class="dialogueBox" id="sharkieDialogueBox" src="{{url_for('static', filename='dialogue-box.png')}}">
+        </div>
+
         <div class="uiBarLayer" id="beachUIBarLayer">
             <!-- Add the blue background for the UI buttons. -->
             <img class="uiBar" id="beachUIBar" src="{{url_for('static', filename='ui-bar.png')}}">

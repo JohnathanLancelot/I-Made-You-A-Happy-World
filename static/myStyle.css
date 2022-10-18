@@ -73,7 +73,7 @@
     grid-column: 1;
     grid-row: 1;
     pointer-events: none;
-    z-index: 4;
+    z-index: 14;
 }
 
 /* Classes for NPCs & dialogue */
@@ -84,6 +84,15 @@
     grid-row: 1;
     pointer-events: none;
     z-index: 6;
+}
+
+.npcLayer2 {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    pointer-events: none;
+    z-index: 7;
 }
 
 .dialogueLayer {
@@ -102,10 +111,8 @@
     grid-row: 7.5;
     margin-top: 37.5vh;
     margin-left: 50vw;
-    opacity: 100%;
     /* Inside the dialogue layer, this box should be at the back. */
     z-index: 0;
-    pointer-events: none;
 }
 
 .arrowLayer {
@@ -345,6 +352,12 @@
     margin-top: 17.5vh;
     margin-left: 32.5vw;
     opacity: 100%;
+    pointer-events: auto;
+}
+
+#bearDialogueBox {
+    opacity: 0%;
+    pointer-events: none;
 }
 
 #bearRoomArrow {
@@ -463,34 +476,50 @@
     pointer-events: none;
 }
 
+#sharkieImage {
+    width: 24.5vw;
+    height: 77.5vh;
+    grid-column: 6;
+    grid-row: 3.2;
+    margin-top: 11vh;
+    margin-left: 25vw;
+    opacity: 100%;
+    pointer-events: auto;
+}
+
+#sharkieDialogueBox {
+    opacity: 0%;
+    pointer-events: none;
+}
+
 #beachUIBarLayer {
-    z-index: 5;
+    z-index: 7;
 }
 
 #beachUIBar {
-    z-index: 6;
+    z-index: 8;
 }
 
 #beachIconsLayer {
-    z-index: 7;
+    z-index: 9;
     pointer-events: none;
 }
 
 #beachInv1, #beachInv2 {
-    z-index: 8;
+    z-index: 10;
     pointer-events: none;
     opacity: 0%;
 }
 
 #beachSaveIcon, #beachExitIcon {
-    z-index: 8;
+    z-index: 10;
     pointer-events: auto;
 }
 
 #topOfTheBeachStack {
     grid-column: 1;
     grid-row: 1;
-    z-index: 9;
+    z-index: 11;
     pointer-events: none;
 }
 
@@ -638,6 +667,28 @@
     pointer-events: none;
 }
 
+#spookImage {
+    width: 19vw;
+    height: 84.5vh;
+    grid-column: 4.5;
+    grid-row: 2.5;
+    margin-top: 7.5vh;
+    margin-left: 17.5vw;
+    opacity: 100%;
+    pointer-events: auto;
+}
+
+#spookCropped {
+    width: 6vw;
+    height: 57vh;
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 0vh;
+    margin-left: 0vw;
+    opacity: 0%;
+    pointer-events: none;
+}
+
 #mirrorRoomArrow {
     width: 6vw;
     height: 7vw;
@@ -649,33 +700,33 @@
 }
 
 #mirrorRoomUIBarLayer {
-    z-index: 5;
+    z-index: 9;
 }
 
 #mirrorRoomUIBar {
-    z-index: 6;
+    z-index: 10;
 }
 
 #mirrorRoomIconsLayer {
-    z-index: 7;
+    z-index: 11;
     pointer-events: none;
 }
 
 #mirrorRoomInv1, #mirrorRoomInv2 {
-    z-index: 8;
+    z-index: 12;
     pointer-events: none;
     opacity: 0%;
 }
 
 #mirrorRoomSaveIcon, #mirrorRoomExitIcon {
-    z-index: 8;
+    z-index: 12;
     pointer-events: auto;
 }
 
 #topOfTheMirrorRoomStack {
     grid-column: 1;
     grid-row: 1;
-    z-index: 9;
+    z-index: 13;
     pointer-events: none;
 }
 
@@ -692,17 +743,33 @@
     opacity: 0%;
 }
 
+#phantasmImage {
+    width: 26.5vw;
+    height: 97vh;
+    grid-column: 2.2;
+    grid-row: 1.5;
+    margin-top: 2.5vh;
+    margin-left: 6vw;
+    opacity: 100%;
+    pointer-events: auto;
+}
+
+#phantasmDialogueBox {
+    opacity: 0%;
+    pointer-events: none;
+}
+
 #phantasmRoomUIBarLayer{
-    z-index: 5;
+    z-index: 8;
 }
 
 #phantasmRoomIconsLayer{
-    z-index: 7;
+    z-index: 9;
     pointer-events: none;
 }
 
 #phantasmRoomInv1, #phantasmRoomInv2 {
-    z-index: 8;
+    z-index: 10;
     pointer-events: none;
     opacity: 0%;
 }
@@ -710,7 +777,7 @@
 #topOfThePhantasmRoomStack{
     grid-column: 1;
     grid-row: 1;
-    z-index: 9;
+    z-index: 11;
     pointer-events: none;
 }
 
