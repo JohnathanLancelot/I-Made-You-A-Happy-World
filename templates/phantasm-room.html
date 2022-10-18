@@ -30,6 +30,16 @@
                                       </a>
             </div>
 
+            <!-- Add NPC and dialogue elements. -->
+            <div class="npcLayer">
+                <img id="phantasmImage" src="{{url_for('static', filename='phantasm.png')}}"
+                     onload="checkNPCStatus('Phantasm')" onclick="bringUpDialogueBox('Phantasm')">
+            </div>
+
+            <div class="dialogueLayer">
+                <img class="dialogueBox" id="phantasmDialogueBox" src="{{url_for('static', filename='dialogue-box.png')}}">
+            </div>
+
             <div class="uiBarLayer" id="phantasmRoomUIBarLayer">
                 <!-- Add the blue background for the UI buttons. -->
                 <img class="uiBar" id="phantasmRoomUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
