@@ -352,4 +352,9 @@ function failedEscapeCheck()
         // If the user did not say no to Phantasm, redirect them to hallway 1:
         window.location = "/hallway1";
     }
+    else
+    {
+        // Make the escape screen visible:
+        document.getElementById("escapeBackground").style.opacity = "100%";
+    }
 }

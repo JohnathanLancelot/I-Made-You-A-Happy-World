@@ -892,6 +892,10 @@
 
 /* ESCAPE ROOM */
 
+#escapeBackground {
+    opacity: 0%;
+}
+
 #escapeRoomUIBarLayer {
     z-index: 2;
     pointer-events: none;
