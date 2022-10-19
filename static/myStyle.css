@@ -1,3 +1,8 @@
+/* Importing the DynaPuff font */
+@font-face {
+  font-family: dynaPuffFont;
+  src: url("/static/DynaPuff-Regular.ttf");
+}
 
 /* Class for making image stacking work */
 .imageStack {
@@ -113,6 +118,39 @@
     margin-left: 50vw;
     /* Inside the dialogue layer, this box should be at the back. */
     z-index: 0;
+}
+
+.dialogueTextLayer1 {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    pointer-events: none;
+    z-index: 8;
+    font-size: 5.5vh;
+    font-size: 2vw;
+}
+
+.dialogueTextLayer2 {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    pointer-events: none;
+    z-index: 9;
+    font-size: 5.5vh;
+    font-size: 2vw;
+}
+
+.dialogueTextLayer3 {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
+    pointer-events: none;
+    z-index: 10;
+    font-size: 5.5vh;
+    font-size: 2vw;
 }
 
 .arrowLayer {
@@ -284,39 +322,58 @@
     margin-top: 5vh;
     margin-left: 35vw;
     opacity: 0%;
-    z-index: 4;
     /* Prevent this overlay from interfering with clickable items. */
     pointer-events: none;
 }
 
-#hall1UIBarLayer {
+#failureMessageLayer {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
     z-index: 5;
+    pointer-events: none;
 }
 
-#hall1UIBar {
+#failureMessage {
+    width: 55vw;
+    height: 6vh;
+    grid-column: 7.2;
+    grid-row: 10;
+    margin-top: 45vh;
+    margin-left: 31vw;
+    opacity: 0%;
+    pointer-events: none;
+}
+
+#hall1UIBarLayer {
     z-index: 6;
 }
 
-#hall1IconsLayer {
+#hall1UIBar {
     z-index: 7;
+}
+
+#hall1IconsLayer {
+    z-index: 8;
     pointer-events: none;
 }
 
 #hall1Inv1, #hall1Inv2 {
-    z-index: 8;
+    z-index: 9;
     pointer-events: none;
     opacity: 0%;
 }
 
 #hall1SaveIcon, #hall1ExitIcon {
-    z-index: 8;
+    z-index: 9;
     pointer-events: auto;
 }
 
 #topOfTheHall1Stack {
     grid-column: 1;
     grid-row: 1;
-    z-index: 9;
+    z-index: 10;
     pointer-events: none;
 }
 
@@ -759,17 +816,88 @@
     pointer-events: none;
 }
 
+#phantasmQuestion {
+    font-family: dynaPuffFont;
+    text-align: center;
+    width: 27.5vw;
+    grid-column: 12.2;
+    grid-row: 10;
+    margin-top: 45vh;
+    margin-left: 56vw;
+    opacity: 0%;
+    pointer-events: none;
+    color: #f6ff94;
+}
+
+#answerPhantasm1 {
+    font-family: dynaPuffFont;
+    text-align: center;
+    width: 5vw;
+    height: 5vh;
+    grid-column: 12.8;
+    grid-row: 13;
+    margin-top: 5vh;
+    margin-left: 59vw;
+    opacity: 0%;
+    pointer-events: auto;
+    color: white;
+    display: inline-block;
+}
+
+#answerPhantasm2 {
+    font-family: dynaPuffFont;
+    text-align: center;
+    width: 12.5vw;
+    height: 5vh;
+    grid-column: 15.8;
+    grid-row: 13;
+    margin-top: 4.5vh;
+    margin-left: 11vw;
+    opacity: 0%;
+    pointer-events: auto;
+    color: white;
+    display: inline-block;
+}
+
+#phantasmResponse1 {
+    font-family: dynaPuffFont;
+    text-align: center;
+    width: 30vw;
+    height: 19vh;
+    grid-column: 12;
+    grid-row: 10.2;
+    margin-top: 46vh;
+    margin-left: 55vw;
+    opacity: 0%;
+    pointer-events: none;
+    color: #f6ff94;
+}
+
+#phantasmResponse2 {
+    font-family: dynaPuffFont;
+    text-align: center;
+    width: 34vw;
+    height: 28.5vh;
+    grid-column: 11.7;
+    grid-row: 9.5;
+    margin-top: 42.5vh;
+    margin-left: 53.5vw;
+    opacity: 0%;
+    pointer-events: none;
+    color: #f6ff94;
+}
+
 #phantasmRoomUIBarLayer{
-    z-index: 8;
+    z-index: 11;
 }
 
 #phantasmRoomIconsLayer{
-    z-index: 9;
+    z-index: 12;
     pointer-events: none;
 }
 
 #phantasmRoomInv1, #phantasmRoomInv2 {
-    z-index: 10;
+    z-index: 13;
     pointer-events: none;
     opacity: 0%;
 }
@@ -777,11 +905,15 @@
 #topOfThePhantasmRoomStack{
     grid-column: 1;
     grid-row: 1;
-    z-index: 11;
+    z-index: 14;
     pointer-events: none;
 }
 
 /* ESCAPE ROOM */
+
+#escapeBackground {
+    opacity: 0%;
+}
 
 #escapeRoomUIBarLayer {
     z-index: 2;

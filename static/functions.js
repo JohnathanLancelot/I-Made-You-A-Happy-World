@@ -7,6 +7,7 @@ var spokenToWendy = false;
 var spokenToSharkie = true;
 var spokenToPhantasm = false;
 var timesSpookHasMoved = 0;
+var phantasmOptionClicked = 0;
 
 // The two functions enabling a timed (2 second) redirect from the title screen to the load or new game screen:
 function timedRedirect()
@@ -16,7 +17,7 @@ function timedRedirect()
 
 function pageRedirect()
 {
-    window.location = "/load-or-new"
+    window.location = "/load-or-new";
 }
 
 // The function for when the user presses down while hovering over a sign:
@@ -181,16 +182,24 @@ function bringUpDialogueBox(name)
     {
         // If the user hasn't spoken to Wendy yet, make the dialogue box visible:
         document.getElementById("bearDialogueBox").style.opacity = "100%";
+        document.getElementById("bearDialogueBox").style['pointer-events'] = 'auto';
         spokenToWendy = true;
     }
     else if (name == "Sharkie" && !spokenToSharkie)
     {
         document.getElementById("sharkieDialogueBox").style.opacity = "100%";
+        document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'auto';
         spokenToSharkie = true;
     }
     else if (name == "Phantasm" && !spokenToPhantasm)
     {
         document.getElementById("phantasmDialogueBox").style.opacity = "100%";
+        document.getElementById("phantasmDialogueBox").style['pointer-events'] = 'auto';
+        document.getElementById("phantasmQuestion").style.opacity = "100%";
+        document.getElementById("answerPhantasm1").style.opacity = "100%";
+        document.getElementById("answerPhantasm1").style['pointer-events'] = 'auto';
+        document.getElementById("answerPhantasm2").style.opacity = "100%";
+        document.getElementById("answerPhantasm2").style['pointer-events'] = 'auto';
         spokenToPhantasm = true;
     }
 }
@@ -227,4 +236,143 @@ function moveSpook()
 
     // Increase the counter:
     timesSpookHasMoved += 1;
+}
+
+// The function for hovering over potential answers to NPC dialogue:
+function hoverText(name, optionNumber)
+{
+    // First check which NPC the user is interacting with:
+    if (name == "Phantasm")
+    {
+        // Then check which option is being hovered over:
+        if (optionNumber == "1")
+        {
+            // Change the colour of the text:
+            document.getElementById("answerPhantasm1").style.color = "#181c25";
+        }
+        else if (optionNumber == "2")
+        {
+            document.getElementById("answerPhantasm2").style.color = "#181c25";
+        }
+    }
+}
+
+// The function for changing dialogue option text colours back to normal when they are not being hovered over:
+function noHover(name, optionNumber)
+{
+    // Check which character the user is talking to:
+    if (name == "Phantasm")
+    {
+        // Check which option is not being hovered on, and make sure it hasn't been clicked on:
+        if (optionNumber == "1" && phantasmOptionClicked != 1)
+        {
+            // Change the text colour back to white:
+            document.getElementById("answerPhantasm1").style.color = "white";
+        }
+        else if (optionNumber == "2" && phantasmOptionClicked != 2)
+        {
+            document.getElementById("answerPhantasm2").style.color = "white";
+        }
+    }
+}
+
+// The function for choosing what to say to an NPC:
+function chooseAnswer(name, optionNumber)
+{
+    // Who are we talking to?
+    if (name == "Phantasm")
+    {
+        // Which option was chosen?
+        if (optionNumber == "1")
+        {
+            // Change the colour of the text:
+            document.getElementById("answerPhantasm1").style.color = "#181c25";
+
+            // Record which option was chosen so that it won't change back to white upon the mouse leaving
+            // the text:
+            phantasmOptionClicked = 1;
+
+            // Make the other option disappear:
+            document.getElementById("answerPhantasm2").style.opacity = "0%";
+            document.getElementById("answerPhantasm2").style['pointer-events'] = 'none';
+
+            // After 1 second, show Phantasm's response:
+            setTimeout(npcResponse, 1000, "Phantasm", "1");
+        }
+        else if (optionNumber == "2")
+        {
+            // Change the colour of the text:
+            document.getElementById("answerPhantasm2").style.color = "#181c25";
+
+            // Record which option was chosen so that it won't change back to white upon the mouse leaving
+            // the text:
+            phantasmOptionClicked = 2;
+
+            // Make the other option disappear:
+            document.getElementById("answerPhantasm1").style.opacity = "0%";
+            document.getElementById("answerPhantasm1").style['pointer-events'] = 'none';
+
+            // After 1 second, show Phantasm's response:
+            setTimeout(npcResponse, 1000, "Phantasm", "2");
+        }
+    }
+}
+
+// The function allowing NPCs to respond to the user:
+function npcResponse(name, responseNumber)
+{
+    // Who is replying?
+    if (name == "Phantasm")
+    {
+        // Make all the current text disappear:
+        document.getElementById("answerPhantasm1").style.opacity = "0%";
+        document.getElementById("answerPhantasm1").style['pointer-events'] = 'none';
+        document.getElementById("answerPhantasm2").style.opacity = "0%";
+        document.getElementById("answerPhantasm2").style['pointer-events'] = 'none';
+        document.getElementById("phantasmQuestion").style.opacity = "0%";
+        document.getElementById("phantasmQuestion").style['pointer-events'] = 'none';
+
+        // Which response is to be shown?
+        if (responseNumber == "1")
+        {
+            document.getElementById("phantasmResponse1").style.opacity = "100%";
+        }
+        else if (responseNumber == "2")
+        {
+            document.getElementById("phantasmResponse2").style.opacity = "100%";
+        }
+    }
+}
+
+// The function for checking if the user should be redirected to the start:
+function failedEscapeCheck(room)
+{
+    if (room == "escape")
+    {
+        if (phantasmOptionClicked != 2)
+        {
+            // If the user did not say no to Phantasm, redirect them to hallway 1:
+            window.location = "/hallway1";
+        }
+        else
+        {
+            // Make the escape screen visible:
+            document.getElementById("escapeBackground").style.opacity = "100%";
+        }
+    }
+    else if (room == "hall1")
+    {
+        if (spokenToPhantasm && phantasmOptionClicked != 2)
+        {
+            // Show the failure message for 4 seconds:
+            document.getElementById("failureMessage").style.opacity = "100%";
+            setTimeout(removeFailureMessage, 4000);
+        }
+    }
+}
+
+// Function for removing the failure message from the hallway 1 screen:
+function removeFailureMessage()
+{
+    document.getElementById("failureMessage").style.opacity = "0%";
 }
