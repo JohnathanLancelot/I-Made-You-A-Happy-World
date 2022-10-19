@@ -322,39 +322,58 @@
     margin-top: 5vh;
     margin-left: 35vw;
     opacity: 0%;
-    z-index: 4;
     /* Prevent this overlay from interfering with clickable items. */
     pointer-events: none;
 }
 
-#hall1UIBarLayer {
+#failureMessageLayer {
+    width: 100vw;
+    height: 100vh;
+    grid-column: 1;
+    grid-row: 1;
     z-index: 5;
+    pointer-events: none;
 }
 
-#hall1UIBar {
+#failureMessage {
+    width: 55vw;
+    height: 6vh;
+    grid-column: 7.2;
+    grid-row: 10;
+    margin-top: 45vh;
+    margin-left: 31vw;
+    opacity: 0%;
+    pointer-events: none;
+}
+
+#hall1UIBarLayer {
     z-index: 6;
 }
 
-#hall1IconsLayer {
+#hall1UIBar {
     z-index: 7;
+}
+
+#hall1IconsLayer {
+    z-index: 8;
     pointer-events: none;
 }
 
 #hall1Inv1, #hall1Inv2 {
-    z-index: 8;
+    z-index: 9;
     pointer-events: none;
     opacity: 0%;
 }
 
 #hall1SaveIcon, #hall1ExitIcon {
-    z-index: 8;
+    z-index: 9;
     pointer-events: auto;
 }
 
 #topOfTheHall1Stack {
     grid-column: 1;
     grid-row: 1;
-    z-index: 9;
+    z-index: 10;
     pointer-events: none;
 }
 

@@ -41,6 +41,11 @@
                 onmousedown="showNote('hallway1')" onmouseup="hideNote('hallway1')">
         </div>
 
+        <div id="failureMessageLayer">
+            <!-- Add a message to the hall 1 screen if the user failed to escape. -->
+            <img id="failureMessage" src="{{url_for('static', filename='failure.png')}}" onload="failedEscapeCheck('hall1')">
+        </div>
+
         <div class="notesAndSignsLayer">
             <!-- Add the zoomed-in image of the note. -->
             <img id="hallway1Note" src="{{url_for('static', filename='note1.png')}}">

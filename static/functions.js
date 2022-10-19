@@ -345,16 +345,34 @@ function npcResponse(name, responseNumber)
 }
 
 // The function for checking if the user should be redirected to the start:
-function failedEscapeCheck()
+function failedEscapeCheck(room)
 {
-    if (phantasmOptionClicked != 2)
+    if (room == "escape")
     {
-        // If the user did not say no to Phantasm, redirect them to hallway 1:
-        window.location = "/hallway1";
+        if (phantasmOptionClicked != 2)
+        {
+            // If the user did not say no to Phantasm, redirect them to hallway 1:
+            window.location = "/hallway1";
+        }
+        else
+        {
+            // Make the escape screen visible:
+            document.getElementById("escapeBackground").style.opacity = "100%";
+        }
     }
-    else
+    else if (room == "hall1")
     {
-        // Make the escape screen visible:
-        document.getElementById("escapeBackground").style.opacity = "100%";
+        if (spokenToPhantasm && phantasmOptionClicked != 2)
+        {
+            // Show the failure message for 4 seconds:
+            document.getElementById("failureMessage").style.opacity = "100%";
+            setTimeout(removeFailureMessage, 4000);
+        }
     }
+}
+
+// Function for removing the failure message from the hallway 1 screen:
+function removeFailureMessage()
+{
+    document.getElementById("failureMessage").style.opacity = "0%";
 }
