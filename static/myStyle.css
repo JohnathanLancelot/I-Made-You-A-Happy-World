@@ -1065,7 +1065,7 @@
 /* ESCAPE ROOM */
 
 #escapeBackground {
-    opacity: 0%;
+    opacity: 100%;
 }
 
 #escapeRoomUIBarLayer {
