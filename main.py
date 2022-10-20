@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, url_for, make_response,request
+=======
+from flask import Flask, render_template, url_for, request
+import json
+>>>>>>> 5100c17334c9bf9d12a73f349028ae6614408fd2
 app = Flask(__name__)
 
 # The home / starting page:

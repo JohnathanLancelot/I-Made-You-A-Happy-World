@@ -34,6 +34,23 @@
                               src="{{url_for('static', filename='bear-room-tunnel-2-navigation-block.png')}}"></a>
         </div>
 
+        <div class="dialogueTextLayer1">
+            <p id="wendyQuestion">Where did you come from?<br>You scared me.</p>
+            <p id="answerWendy1" onmouseover="hoverText('Wendy', '1')" onmouseout="noHover('Wendy', '1')"
+               onclick="chooseAnswer('Wendy', '1')">I don't know how I got here.<br>Where am I?</p>
+            <p id="answerWendy2" onmouseover="hoverText('Wendy', '2')" onmouseout="noHover('Wendy', '2')"
+               onclick="chooseAnswer('Wendy', '2')">Who are you?</p>
+        </div>
+
+        <div class="dialogueTextLayer2">
+            <p id="wendyResponse1">Oh... I'm sorry. You must have<br>taken a wrong turn. Or many wrong<br>
+                turns. Maybe the best way out<br>is to keep taking wrong turns<br>until one of them is right!</p>
+        </div>
+
+        <div class="dialogueTextLayer3">
+            <p id="wendyResponse2">Wendy.<br>That's what it said<br>on the posters anyway.</p>
+        </div>
+
         <!-- Add NPC and dialogue elements. -->
         <div class="npcLayer">
             <img id="wendyImage" src="{{url_for('static', filename='wendy.png')}}" onload="checkNPCStatus('Wendy')"

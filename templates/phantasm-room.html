@@ -40,6 +40,24 @@
                 <img class="dialogueBox" id="phantasmDialogueBox" src="{{url_for('static', filename='dialogue-box.png')}}">
             </div>
 
+            <div class="dialogueTextLayer1">
+                <p id="phantasmQuestion">I made you a happy world.<br>Do you like it?</p>
+                <p id="answerPhantasm1" onmouseover="hoverText('Phantasm', '1')" onmouseout="noHover('Phantasm', '1')"
+                   onclick="chooseAnswer('Phantasm', '1')">Yes!</p>
+                <p id="answerPhantasm2" onmouseover="hoverText('Phantasm', '2')" onmouseout="noHover('Phantasm', '2')"
+                   onclick="chooseAnswer('Phantasm', '2')">Not really...</p>
+            </div>
+
+            <div class="dialogueTextLayer2">
+                <p id="phantasmResponse1">How phenomenally brilliant!<br>You'll be pleased to know<br>
+                    that you will stay here<br>forever!</p>
+            </div>
+
+            <div class="dialogueTextLayer3">
+                <p id="phantasmResponse2">Oopsie, haha.<br>I must have messed this one up!<br>
+                    You better find your way out<br>soon then...<br>Wouldn't want to get stuck here<br>forever!</p>
+            </div>
+
             <div class="uiBarLayer" id="phantasmRoomUIBarLayer">
                 <!-- Add the blue background for the UI buttons. -->
                 <img class="uiBar" id="phantasmRoomUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
