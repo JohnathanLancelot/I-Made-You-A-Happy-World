@@ -647,11 +647,13 @@
     height: 14vh;
     grid-column: 11.9;
     grid-row: 13.2;
-    margin-top: -2vh;
+    margin-top: -4vh;
     margin-left: 54.5vw;
     opacity: 0%;
     pointer-events: auto;
     color: white;
+    font-size: 4vh;
+    font-size: 1.5vw;
     display: inline-block;
 }
 
@@ -662,11 +664,13 @@
     height: 14vh;
     grid-column: 15.2;
     grid-row: 13.2;
-    margin-top: -2vh;
+    margin-top: -4vh;
     margin-left: 3.5vw;
     opacity: 0%;
     pointer-events: auto;
     color: white;
+    font-size: 4vh;
+    font-size: 1.5vw;
     display: inline-block;
 }
 
