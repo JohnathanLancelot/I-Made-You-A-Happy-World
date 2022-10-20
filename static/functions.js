@@ -8,6 +8,7 @@ var spokenToSharkie = true;
 var spokenToPhantasm = false;
 var timesSpookHasMoved = 0;
 var phantasmOptionClicked = 0;
+var wendyOptionClicked = 0;
 
 // The two functions enabling a timed (2 second) redirect from the title screen to the load or new game screen:
 function timedRedirect()
@@ -180,9 +181,14 @@ function bringUpDialogueBox(name)
 {
     if (name == "Wendy" && !spokenToWendy)
     {
-        // If the user hasn't spoken to Wendy yet, make the dialogue box visible:
+        // If the user hasn't spoken to Wendy yet, make the dialogue box visible, along with the starting dialogue:
         document.getElementById("bearDialogueBox").style.opacity = "100%";
         document.getElementById("bearDialogueBox").style['pointer-events'] = 'auto';
+        document.getElementById("wendyQuestion").style.opacity = "100%";
+        document.getElementById("answerWendy1").style.opacity = "100%";
+        document.getElementById("answerWendy1").style['pointer-events'] = 'auto';
+        document.getElementById("answerWendy2").style.opacity = "100%";
+        document.getElementById("answerWendy2").style['pointer-events'] = 'auto';
         spokenToWendy = true;
     }
     else if (name == "Sharkie" && !spokenToSharkie)
@@ -193,6 +199,7 @@ function bringUpDialogueBox(name)
     }
     else if (name == "Phantasm" && !spokenToPhantasm)
     {
+        // If the user hasn't spoken to Phantasm yet, make the dialogue box and the starting dialogue visible:
         document.getElementById("phantasmDialogueBox").style.opacity = "100%";
         document.getElementById("phantasmDialogueBox").style['pointer-events'] = 'auto';
         document.getElementById("phantasmQuestion").style.opacity = "100%";
@@ -255,6 +262,19 @@ function hoverText(name, optionNumber)
             document.getElementById("answerPhantasm2").style.color = "#181c25";
         }
     }
+    else if (name == "Wendy")
+    {
+        // Which option is being hovered over?
+        if (optionNumber == "1")
+        {
+            // Change text colour:
+            document.getElementById("answerWendy1").style.color = "#181c25";
+        }
+        else if (optionNumber == "2")
+        {
+            document.getElementById("answerWendy2").style.color = "#181c25";
+        }
+    }
 }
 
 // The function for changing dialogue option text colours back to normal when they are not being hovered over:
@@ -272,6 +292,19 @@ function noHover(name, optionNumber)
         else if (optionNumber == "2" && phantasmOptionClicked != 2)
         {
             document.getElementById("answerPhantasm2").style.color = "white";
+        }
+    }
+    else if (name == "Wendy")
+    {
+        // Check which option is not being hovered on, and make sure it hasn't been clicked on:
+        if (optionNumber == "1" && wendyOptionClicked != 1)
+        {
+            // Change the text colour back to white:
+            document.getElementById("answerWendy1").style.color = "white";
+        }
+        else if (optionNumber == "2" && wendyOptionClicked != 2)
+        {
+            document.getElementById("answerWendy2").style.color = "white";
         }
     }
 }
@@ -316,6 +349,42 @@ function chooseAnswer(name, optionNumber)
             setTimeout(npcResponse, 1000, "Phantasm", "2");
         }
     }
+    else if (name == "Wendy")
+    {
+        // Which option was chosen?
+        if (optionNumber == "1")
+        {
+            // Change the colour of the text:
+            document.getElementById("answerWendy1").style.color = "#181c25";
+
+            // Record which option was chosen so that it won't change back to white upon the mouse leaving
+            // the text:
+            wendyOptionClicked = 1;
+
+            // Make the other option disappear:
+            document.getElementById("answerWendy2").style.opacity = "0%";
+            document.getElementById("answerWendy2").style['pointer-events'] = 'none';
+
+            // After 1 second, show Wendy's response:
+            setTimeout(npcResponse, 1000, "Wendy", "1");
+        }
+        else if (optionNumber == "2")
+        {
+            // Change the colour of the text:
+            document.getElementById("answerWendy2").style.color = "#181c25";
+
+            // Record which option was chosen so that it won't change back to white upon the mouse leaving
+            // the text:
+            wendyOptionClicked = 2;
+
+            // Make the other option disappear:
+            document.getElementById("answerWendy1").style.opacity = "0%";
+            document.getElementById("answerWendy1").style['pointer-events'] = 'none';
+
+            // After 1 second, show Wendy's response:
+            setTimeout(npcResponse, 1000, "Wendy", "2");
+        }
+    }
 }
 
 // The function allowing NPCs to respond to the user:
@@ -340,6 +409,26 @@ function npcResponse(name, responseNumber)
         else if (responseNumber == "2")
         {
             document.getElementById("phantasmResponse2").style.opacity = "100%";
+        }
+    }
+    else if (name == "Wendy")
+    {
+        // Make all the current text vanish:
+        document.getElementById("answerWendy1").style.opacity = "0%";
+        document.getElementById("answerWendy1").style['pointer-events'] = 'none';
+        document.getElementById("answerWendy2").style.opacity = "0%";
+        document.getElementById("answerWendy2").style['pointer-events'] = 'none';
+        document.getElementById("wendyQuestion").style.opacity = "0%";
+        document.getElementById("wendyQuestion").style['pointer-events'] = 'none';
+
+        // Which response is to be shown?
+        if (responseNumber == "1")
+        {
+            document.getElementById("wendyResponse1").style.opacity = "100%";
+        }
+        else if (responseNumber == "2")
+        {
+            document.getElementById("wendyResponse2").style.opacity = "100%";
         }
     }
 }
