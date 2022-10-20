@@ -4,11 +4,12 @@ var key2Taken = false;
 var escapeTunnelLocked = true;
 var beachGateLocked = true;
 var spokenToWendy = false;
-var spokenToSharkie = true;
+var spokenToSharkie = false;
 var spokenToPhantasm = false;
 var timesSpookHasMoved = 0;
 var phantasmOptionClicked = 0;
 var wendyOptionClicked = 0;
+var sharkieOptionClicked = 0;
 
 // The two functions enabling a timed (2 second) redirect from the title screen to the load or new game screen:
 function timedRedirect()
@@ -123,13 +124,10 @@ function keyTaken(room)
 
             //Show the item in the inventory
             document.getElementById("Inv1").style.opacity="100%";
-
         }
-
 
         if (room == "beachRoom" && !key2Taken && !sessionStorage.getItem('key_obtained'))
         {
-            
             sessionStorage.setItem('key_obtained', true)
 
             document.getElementById("Inv2").style.opacity="100%";
@@ -153,8 +151,6 @@ function keyTaken(room)
             document.getElementById("keyHallSmallKey").style.opacity = "0%";
             document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
             document.getElementById("Inv1").style.opacity="100%";
-
-
         }
         if (sessionStorage.getItem('key_obtained')==false)
         {
@@ -165,11 +161,7 @@ function keyTaken(room)
             beachGateLocked = false;
             document.getElementById("beachNavBlock2").style['pointer-events'] = 'auto';
             document.getElementById("Inv2").style.opacity="100%";
-    
         }
-         
-    
-    
 }
 
 function gateIsUnlocked(door)
@@ -191,9 +183,7 @@ function gateIsUnlocked(door)
             document.getElementById("Inv1").style.opacity="100%";
         }
     }
-
 }
-
 
 function keyInInventory(room)
 {
@@ -204,6 +194,7 @@ function keyInInventory(room)
         }
 
         if(sessionStorage.getItem('key1_obtained')){
+
             //document.getElementById("keyHallSmallKey").style.opacity = "0%";
             document.getElementById("Inv1").style.opacity="100%";
 
@@ -275,8 +266,14 @@ function bringUpDialogueBox(name)
     }
     else if (name == "Sharkie" && !spokenToSharkie)
     {
+        // If the user hasn't spoken to Sharkie yet, make the dialogue box and starting dialogue visible:
         document.getElementById("sharkieDialogueBox").style.opacity = "100%";
         document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'auto';
+        document.getElementById("sharkieQuestion").style.opacity = "100%";
+        document.getElementById("answerSharkie1").style.opacity = "100%";
+        document.getElementById("answerSharkie1").style['pointer-events'] = 'auto';
+        document.getElementById("answerSharkie2").style.opacity = "100%";
+        document.getElementById("answerSharkie2").style['pointer-events'] = 'auto';
         spokenToSharkie = true;
     }
     else if (name == "Phantasm" && !spokenToPhantasm)
@@ -357,6 +354,19 @@ function hoverText(name, optionNumber)
             document.getElementById("answerWendy2").style.color = "#181c25";
         }
     }
+    else if (name == "Sharkie")
+    {
+        // Which option is being hovered over?
+        if (optionNumber == "1")
+        {
+            // Change text colour:
+            document.getElementById("answerSharkie1").style.color = "#181c25";
+        }
+        else if (optionNumber == "2")
+        {
+            document.getElementById("answerSharkie2").style.color = "#181c25";
+        }
+    }
 }
 
 // The function for changing dialogue option text colours back to normal when they are not being hovered over:
@@ -387,6 +397,19 @@ function noHover(name, optionNumber)
         else if (optionNumber == "2" && wendyOptionClicked != 2)
         {
             document.getElementById("answerWendy2").style.color = "white";
+        }
+    }
+    else if (name == "Sharkie")
+    {
+        // Check which option is not being hovered on, and make sure it hasn't been clicked on:
+        if (optionNumber == "1" && sharkieOptionClicked != 1)
+        {
+            // Change the text colour back to white:
+            document.getElementById("answerSharkie1").style.color = "white";
+        }
+        else if (optionNumber == "2" && sharkieOptionClicked != 2)
+        {
+            document.getElementById("answerSharkie2").style.color = "white";
         }
     }
 }
@@ -467,6 +490,42 @@ function chooseAnswer(name, optionNumber)
             setTimeout(npcResponse, 1000, "Wendy", "2");
         }
     }
+    else if (name == "Sharkie")
+    {
+        // Which option was chosen?
+        if (optionNumber == "1")
+        {
+            // Change the colour of the text:
+            document.getElementById("answerSharkie1").style.color = "#181c25";
+
+            // Record which option was chosen so that it won't change back to white upon the mouse leaving
+            // the text:
+            sharkieOptionClicked = 1;
+
+            // Make the other option disappear:
+            document.getElementById("answerSharkie2").style.opacity = "0%";
+            document.getElementById("answerSharkie2").style['pointer-events'] = 'none';
+
+            // After 1 second, show Sharkie's response:
+            setTimeout(npcResponse, 1000, "Sharkie", "1");
+        }
+        else if (optionNumber == "2")
+        {
+            // Change the colour of the text:
+            document.getElementById("answerSharkie2").style.color = "#181c25";
+
+            // Record which option was chosen so that it won't change back to white upon the mouse leaving
+            // the text:
+            sharkieOptionClicked = 2;
+
+            // Make the other option disappear:
+            document.getElementById("answerSharkie1").style.opacity = "0%";
+            document.getElementById("answerSharkie1").style['pointer-events'] = 'none';
+
+            // After 1 second, show Sharkie's response:
+            setTimeout(npcResponse, 1000, "Sharkie", "2");
+        }
+    }
 }
 
 // The function allowing NPCs to respond to the user:
@@ -513,6 +572,29 @@ function npcResponse(name, responseNumber)
             document.getElementById("wendyResponse2").style.opacity = "100%";
         }
     }
+    else if (name == "Sharkie")
+    {
+        // Make all the current text vanish:
+        document.getElementById("answerSharkie1").style.opacity = "0%";
+        document.getElementById("answerSharkie1").style['pointer-events'] = 'none';
+        document.getElementById("answerSharkie2").style.opacity = "0%";
+        document.getElementById("answerSharkie2").style['pointer-events'] = 'none';
+        document.getElementById("sharkieQuestion").style.opacity = "0%";
+        document.getElementById("sharkieQuestion").style['pointer-events'] = 'none';
+
+        // Which response is to be shown?
+        if (responseNumber == "1")
+        {
+            document.getElementById("sharkieResponse1").style.opacity = "100%";
+        }
+        else if (responseNumber == "2")
+        {
+            document.getElementById("sharkieResponse2").style.opacity = "100%";
+        }
+
+        // After 8 seconds, make all the dialogue and the dialogue box disappear so the user can click on the chest:
+        setTimeout(removeDialogue, 8000);
+    }
 }
 
 // The function for checking if the user should be redirected to the start:
@@ -546,4 +628,28 @@ function failedEscapeCheck(room)
 function removeFailureMessage()
 {
     document.getElementById("failureMessage").style.opacity = "0%";
+}
+
+// Function for removing the dialogue from the beach room screen:
+function removeDialogue()
+{
+    // Check what Sharkie's response was (this depends on what the user said to him):
+    if (sharkieOptionClicked == "1")
+    {
+        // Make the corresponding dialogue elements disappear:
+        document.getElementById("sharkieResponse1").style.opacity = "0%";
+        document.getElementById("sharkieResponse1").style['pointer-events'] = 'none';
+    }
+    else if (sharkieOptionClicked == "2")
+    {
+        document.getElementById("sharkieResponse2").style.opacity = "0%";
+        document.getElementById("sharkieResponse2").style['pointer-events'] = 'none';
+    }
+
+    // Make the dialogue box itself disappear:
+    document.getElementById("sharkieDialogueBox").style.opacity = "0%";
+    document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'none';
+
+    // Make it possible to click through Sharkie:
+    document.getElementById("sharkieImage").style['pointer-events'] = 'none';
 }
