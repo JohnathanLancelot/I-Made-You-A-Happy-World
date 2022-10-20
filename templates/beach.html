@@ -26,7 +26,7 @@
             <a href="/bear-room"><img id="beachNavBlock1"
                 src="{{url_for('static', filename='beach-room-ladder-navigation-block.png')}}"></a>
             <a href="/key-hall"><img id="beachNavBlock2"
-                src="{{url_for('static', filename='beach-room-gate-navigation-block.png')}}"></a>
+                src="{{url_for('static', filename='beach-room-gate-navigation-block.png')}}" ></a>
         </div>
 
         <div class="navBlockLayer2">
@@ -38,8 +38,14 @@
 
         <div class="navBlockLayer3">
             <!-- Add a clickable overlay to the chest so that the user can click on it. -->
-            <img id="chestNavBlock" src="{{url_for('static', filename='chest-navigation-block.png')}}"
+
+            <img id="chestNavBlock" src="{{url_for('static', filename='chest-navigation-block.png')}}" onload="gateIsUnlocked('hallRoomKey')"
             onclick="keyTaken('beachRoom')">
+            <!-- <form class="form-key" name = "key1pick" action = "/setcookie" method = "POST">
+                <p><input type = 'text' name = 'key1'/></p>
+                <p><input type = 'text' name = 'key2'/></p>
+                <p><input type = 'submit' value = 'submit'/></p>
+            </form> -->
         </div>
 
         <div class="notesAndSignsLayer">
@@ -54,6 +60,7 @@
 
         <!-- Add Sharkie the NPC! -->
         <div class="npcLayer">
+            
             <img id="sharkieImage" src="{{url_for('static', filename='sharkie.png')}}" onload="checkNPCStatus('Sharkie')"
                  onclick="bringUpDialogueBox('Sharkie')">
         </div>
@@ -63,6 +70,25 @@
             <img class="dialogueBox" id="sharkieDialogueBox" src="{{url_for('static', filename='dialogue-box.png')}}">
         </div>
 
+        <div class="dialogueTextLayer1">
+            <p id="sharkieQuestion">Oh, hi there! Have you seen<br>my dad? He's a pirate.<br>Captain Lavenderbeard,
+                    you've<br>definitely heard of him!</p>
+            <p id="answerSharkie1" onmouseover="hoverText('Sharkie', '1')" onmouseout="noHover('Sharkie', '1')"
+               onclick="chooseAnswer('Sharkie', '1')">No, sorry.<br>How do I get<br>out of here?</p>
+            <p id="answerSharkie2" onmouseover="hoverText('Sharkie', '2')" onmouseout="noHover('Sharkie', '2')"
+               onclick="chooseAnswer('Sharkie', '2')">How long have<br>you been waiting<br>for him?</p>
+        </div>
+
+        <div class="dialogueTextLayer2">
+            <p id="sharkieResponse1">Well, you'll need a key for the<br>gate. There's one in my treasure<br>
+                chest! The treasure's mine,<br>but I guess I could spare<br>one thing.</p>
+        </div>
+
+        <div class="dialogueTextLayer3">
+            <p id="sharkieResponse2">...four years, give or take.<br>But I know he'll come back!<br>
+                And when he does, he'll leave<br>together on his colossal ship<br>to fight sea monsters!</p>
+        </div>
+
         <div class="uiBarLayer" id="beachUIBarLayer">
             <!-- Add the blue background for the UI buttons. -->
             <img class="uiBar" id="beachUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
@@ -70,8 +96,8 @@
 
         <div class="uiBarIconsLayer" id="beachIconsLayer">
             <!-- Add the icons to the UI bar. -->
-            <img class="inventoryKey1" id="beachInv1" src="{{url_for('static', filename='inventory-key-1.png')}}">
-            <img class="inventoryKey2" id="beachInv2" src="{{url_for('static', filename='inventory-key-2.png')}}">
+            <img class="inventoryKey1" id="Inv1"  src="{{url_for('static', filename='inventory-key-1.png')}} " onload="keyInInventory('hallRoomKey')">
+            <img class="inventoryKey2" id="Inv2" src="{{url_for('static', filename='inventory-key-2.png')}}" onload="keyInInventory('escapeRoom')">
             <img class="saveIcon" id="beachSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
             <!-- Clicking on the exit icon should take the user to the website's home page. -->
             <a href="/"><img class="exitIcon" id="beachExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
@@ -84,6 +110,7 @@
         </div>
 
     </div>
+
 
 </body>
 
