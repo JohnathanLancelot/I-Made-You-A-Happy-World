@@ -176,15 +176,25 @@ function gateIsUnlocked(door)
     }
     if (door==="escapeRoom")
     {
-        if(sessionStorage.getItem('key1_obtained'))
+        if(sessionStorage.getItem('key1_obtained') && (sessionStorage.getItem("escape_option")||sessionStorage.getItem("escape_option2")))
         {
-            
             document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
             document.getElementById("Inv1").style.opacity="100%";
         }
+
     }
 }
 
+function redirectToHallway(door)
+{
+        if(sessionStorage.getItem("escape_option2"))
+        {
+            // If the user did not say no to Phantasm, redirect them to hallway 1:
+            window.location = "/hallway1";
+            alert("Oopsie, you have failed to escape this world. I thought You liked this place...");
+        }
+
+}
 function keyInInventory(room)
 {
         if(sessionStorage.getItem('key_obtained')){
@@ -430,6 +440,11 @@ function chooseAnswer(name, optionNumber)
             // the text:
             phantasmOptionClicked = 1;
 
+            // Remember the answer
+            sessionStorage.setItem("escape_option2", true);
+
+            
+
             // Make the other option disappear:
             document.getElementById("answerPhantasm2").style.opacity = "0%";
             document.getElementById("answerPhantasm2").style['pointer-events'] = 'none';
@@ -445,6 +460,10 @@ function chooseAnswer(name, optionNumber)
             // Record which option was chosen so that it won't change back to white upon the mouse leaving
             // the text:
             phantasmOptionClicked = 2;
+
+            // Remember the answer
+            sessionStorage.setItem("escape_option", true);
+
 
             // Make the other option disappear:
             document.getElementById("answerPhantasm1").style.opacity = "0%";
@@ -597,32 +616,6 @@ function npcResponse(name, responseNumber)
     }
 }
 
-// The function for checking if the user should be redirected to the start:
-function failedEscapeCheck(room)
-{
-    if (room == "escape")
-    {
-        if (phantasmOptionClicked != 2)
-        {
-            // If the user did not say no to Phantasm, redirect them to hallway 1:
-            window.location = "/hallway1";
-        }
-        else
-        {
-            // Make the escape screen visible:
-            document.getElementById("escapeBackground").style.opacity = "100%";
-        }
-    }
-    else if (room == "hall1")
-    {
-        if (spokenToPhantasm && phantasmOptionClicked != 2)
-        {
-            // Show the failure message for 4 seconds:
-            document.getElementById("failureMessage").style.opacity = "100%";
-            setTimeout(removeFailureMessage, 4000);
-        }
-    }
-}
 
 // Function for removing the failure message from the hallway 1 screen:
 function removeFailureMessage()
