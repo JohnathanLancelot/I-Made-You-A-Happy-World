@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+from flask import Flask, render_template, url_for, make_response,request
+=======
 from flask import Flask, render_template, url_for, request
 import json
+>>>>>>> 5100c17334c9bf9d12a73f349028ae6614408fd2
 app = Flask(__name__)
 
 # The home / starting page:
@@ -51,6 +55,27 @@ def mirrorRoom():
 @app.route("/phantasm-room")
 def phantasmRoom():
     return render_template("phantasm-room.html")
+
+#Set cookie for keys
+@app.route('/setcookie', methods=['POST', 'GET'])
+def setcookie():
+    if request.method == 'POST':
+        key1 = request.form['key1']
+        key2 = request.form['key2']
+
+    resp = make_response(render_template('beach.html'))
+    resp.set_cookie('key1', key1)
+    resp.set_cookie('key2', key2)
+
+    return resp
+
+#Get cookies for keys
+@app.route('/getcookie')
+def getcookie():
+   key1 = request.cookies.get('key1')
+   key2 = request.cookies.get('key2')
+   return key1, key2
+
 
 if __name__ == '__main__':
     app.run(debug = True)

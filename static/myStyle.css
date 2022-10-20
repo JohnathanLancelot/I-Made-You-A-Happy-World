@@ -17,6 +17,7 @@
     width: 100vw;
     height: 100vh;
     pointer-events: none;
+    opacity: 100%;
 }
 
 .vignette {
@@ -267,6 +268,12 @@
     z-index: 1;
 }
 
+#Inv1, #Inv2{
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0%;
+}
+
 .menuButtons {
     width: 20vw;
     height: 10vh;
@@ -364,6 +371,8 @@
     pointer-events: none;
     opacity: 0%;
 }
+
+
 
 #hall1SaveIcon, #hall1ExitIcon {
     z-index: 9;

@@ -44,7 +44,8 @@
 
         <div class="backgroundKeyLayer">
             <!-- Add a small key to the background that the user can click on. -->
-            <img id="keyHallSmallKey" src="{{url_for('static', filename='key1.png')}}" onclick="keyTaken('keyHall')">
+            <img id="keyHallSmallKey" src="{{url_for('static', filename='key1.png')}}" onload="gateIsUnlocked('escapeRoom')" onclick="keyTaken('keyHall')">
+
         </div>
 
         <div class="keyPopUpLayer">
@@ -66,8 +67,8 @@
 
         <div class="uiBarIconsLayer" id="keyHallIconsLayer">
             <!-- Add the icons to the UI bar. -->
-            <img class="inventoryKey1" id="keyHallInv1" src="{{url_for('static', filename='inventory-key-1.png')}}">
-            <img class="inventoryKey2" id="keyHallInv2" src="{{url_for('static', filename='inventory-key-2.png')}}">
+            <img class="inventoryKey1" id="Inv1" src="{{url_for('static', filename='inventory-key-1.png')}}" onload="keyInInventory('hallRoomKey')">
+            <img class="inventoryKey2" id="Inv2" src="{{url_for('static', filename='inventory-key-2.png')}}" onload="keyInInventory('escapeRoom')">
             <img class="saveIcon" id="keyHallSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
             <!-- Clicking on the exit icon should take the user to the website's home page. -->
             <a href="/"><img class="exitIcon" id="keyHallExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
