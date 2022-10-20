@@ -6,6 +6,7 @@ var beachGateLocked = true;
 var spokenToWendy = false;
 var spokenToSharkie = false;
 var spokenToPhantasm = false;
+var escapeAttempt = false;
 var timesSpookHasMoved = 0;
 var phantasmOptionClicked = 0;
 var wendyOptionClicked = 0;
@@ -191,9 +192,12 @@ function redirectToHallway(door)
         {
             // If the user did not say no to Phantasm, redirect them to hallway 1:
             window.location = "/hallway1";
-            alert("Oopsie, you have failed to escape this world. I thought You liked this place...");
         }
-
+        else
+        {
+            // Make the background visible:
+            document.getElementById("escapeBackground").style.opacity = "100%";
+        }
 }
 function keyInInventory(room)
 {
@@ -616,6 +620,25 @@ function npcResponse(name, responseNumber)
     }
 }
 
+// The function for checking if the failure message should be shown:
+function failedEscapeCheck(room)
+{
+    if (room == "bearRoom")
+    {
+        // When the user clicks on the escape tunnel in the bear room, change this boolean so that we know there was an
+        // escape attempt:
+        escapeAttempt = true;
+    }
+    if (room == "hall1")
+    {
+        // If an escape attempt was made, and the user hasn't said no to Phantasm, show the failure message for 4 seconds:
+        if (escapeAttempt && phantasmOptionClicked != 2)
+        {
+            document.getElementById("failureMessage").style.opacity = "100%";
+            setTimeout(removeFailureMessage, 4000);
+        }
+    }
+}
 
 // Function for removing the failure message from the hallway 1 screen:
 function removeFailureMessage()
