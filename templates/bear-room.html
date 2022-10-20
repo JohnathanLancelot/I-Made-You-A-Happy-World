@@ -26,7 +26,8 @@
              These can be clicked on and will take the user through the corresponding tunnel. -->
         <div class="navBlockLayer1">
             <a href="/escape"><img id="bearRoomNavBlock1"
-                              src="{{url_for('static', filename='bear-room-tunnel-1-navigation-block.png')}}" onload="gateIsUnlocked('escapeRoom')"></a>
+                              src="{{url_for('static', filename='bear-room-tunnel-1-navigation-block.png')}}"
+                                   onload="gateIsUnlocked('escapeRoom')" onclick="failedEscapeCheck('bearRoom')"></a>
         </div>
 
         <div class="navBlockLayer2">
