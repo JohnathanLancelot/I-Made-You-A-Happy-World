@@ -14,6 +14,11 @@ function timedRedirect()
     setTimeout(pageRedirect, 2000);
 }
 
+function resetGame()
+{
+    sessionStorage.clear();
+}
+
 function pageRedirect()
 {
     window.location = "/load-or-new"
@@ -96,34 +101,111 @@ function hideNote(room)
 // The function for picking up keys:
 function keyTaken(room)
 {
-    if (room == "keyHall" && !key1Taken)
+        if (room == "keyHall" && !key1Taken && !sessionStorage.getItem('key1_obtained'))
+        {
+            sessionStorage.setItem('key1_obtained', true)
+            // Make the small key in the background disappear:
+            document.getElementById("keyHallSmallKey").style.opacity = "0%";
+    
+            document.getElementById("Inv1").style.opacity="100%";
+            // Change the key taken variable to true:
+           key1Taken = true;
+    
+            // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
+            escapeTunnelLocked = false;
+            document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
+    
+            // Show the pop-up for a short amount of time (2 seconds):
+            document.getElementById("keyHallBigKey").style.opacity = "100%";
+            setTimeout(keyPopRemoved, 2000, "keyHall");
+
+            //Show the item in the inventory
+            document.getElementById("Inv1").style.opacity="100%";
+
+        }
+
+
+        if (room == "beachRoom" && !key2Taken && !sessionStorage.getItem('key_obtained'))
+        {
+            
+            sessionStorage.setItem('key_obtained', true)
+
+            document.getElementById("Inv2").style.opacity="100%";
+
+            document.getElementById("beachNavBlock2").style['pointer-events'] = 'auto';
+            // Show the key pop-up for 2 seconds:
+            document.getElementById("beachRoomBigKey").style.opacity = "100%";
+            setTimeout(keyPopRemoved, 2000, "beachRoom");
+
+            //Show the item in the inventory
+            document.getElementById("Inv2").style.opacity="100%";
+        }
+
+        //Check that key has been added to the inventory
+        if (sessionStorage.getItem('key1_obtained')==flase)
+        {
+            key1Taken=true;
+
+            escapeTunnelLocked=flase;
+
+            document.getElementById("keyHallSmallKey").style.opacity = "0%";
+            document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
+            document.getElementById("Inv1").style.opacity="100%";
+
+
+        }
+        if (sessionStorage.getItem('key_obtained')==false)
+        {
+            // Change the key taken variable to true:
+            key2Taken = true;
+    
+            // With this key in the user's inventory, the gate to the next hallway will be unlocked:
+            beachGateLocked = false;
+            document.getElementById("beachNavBlock2").style['pointer-events'] = 'auto';
+            document.getElementById("Inv2").style.opacity="100%";
+    
+        }
+         
+    
+    
+}
+
+function gateIsUnlocked(door)
+{
+    if (door === "hallRoomKey")
     {
-        // Make the small key in the background disappear:
-        document.getElementById("keyHallSmallKey").style.opacity = "0%";
-
-        // Change the key taken variable to true:
-        key1Taken = true;
-
-        // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
-        escapeTunnelLocked = false;
-
-        // Show the pop-up for a short amount of time (2 seconds):
-        document.getElementById("keyHallBigKey").style.opacity = "100%";
-        setTimeout(keyPopRemoved, 2000, "keyHall");
+        if(sessionStorage.getItem('key_obtained'))
+        {
+            document.getElementById("beachNavBlock2").style['pointer-events'] = 'auto';
+            document.getElementById("Inv2").style.opacity="100%";
+        }
     }
-    else if (room == "beachRoom" && !key2Taken)
+    if (door==="escapeRoom")
     {
-        // Change the key taken variable to true:
-        key2Taken = true;
-
-        // With this key in the user's inventory, the gate to the next hallway will be unlocked:
-        beachGateLocked = false;
-        document.getElementById("beachNavBlock2").style['pointer-events'] = 'auto';
-
-        // Show the key pop-up for 2 seconds:
-        document.getElementById("beachRoomBigKey").style.opacity = "100%";
-        setTimeout(keyPopRemoved, 2000, "beachRoom");
+        if(sessionStorage.getItem('key1_obtained'))
+        {
+            
+            document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
+            document.getElementById("Inv1").style.opacity="100%";
+        }
     }
+
+}
+
+
+function keyInInventory(room)
+{
+        if(sessionStorage.getItem('key_obtained')){
+            
+            document.getElementById("Inv2").style.opacity="100%";
+
+        }
+
+        if(sessionStorage.getItem('key1_obtained')){
+            //document.getElementById("keyHallSmallKey").style.opacity = "0%";
+            document.getElementById("Inv1").style.opacity="100%";
+
+        }
 }
 
 // The function for removing a key pop-up, and adding the key to the inventory:

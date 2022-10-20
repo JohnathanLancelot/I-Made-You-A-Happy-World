@@ -47,8 +47,8 @@
 
             <div class="uiBarIconsLayer" id="phantasmRoomIconsLayer">
                 <!-- Add the icons to the UI bar. -->
-                <img class="inventoryKey1" id="phantasmRoomInv1" src="{{url_for('static', filename='inventory-key-1.png')}}">
-                <img class="inventoryKey2" id="phantasmRoomInv2" src="{{url_for('static', filename='inventory-key-2.png')}}">
+                <img class="inventoryKey1" id="Inv1" src="{{url_for('static', filename='inventory-key-1.png')}}" onload="keyInInventory('hallRoomKey')">
+                <img class="inventoryKey2" id="Inv2" src="{{url_for('static', filename='inventory-key-2.png')}}" onload="keyInInventory('escapeRoom')">
                 <img class="saveIcon" id="phantasmRoomSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
                 <!-- Clicking on the exit icon should take the user to the website's home page. -->
                 <a href="/"><img class="exitIcon" id="phantasmRoomExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">

@@ -26,7 +26,7 @@
              These can be clicked on and will take the user through the corresponding tunnel. -->
         <div class="navBlockLayer1">
             <a href="/escape"><img id="bearRoomNavBlock1"
-                              src="{{url_for('static', filename='bear-room-tunnel-1-navigation-block.png')}}"></a>
+                              src="{{url_for('static', filename='bear-room-tunnel-1-navigation-block.png')}}" onload="gateIsUnlocked('escapeRoom')"></a>
         </div>
 
         <div class="navBlockLayer2">
@@ -57,8 +57,8 @@
 
         <div class="uiBarIconsLayer" id="bearRoomIconsLayer">
             <!-- Add the icons to the UI bar. -->
-            <img class="inventoryKey1" id="bearInv1" src="{{url_for('static', filename='inventory-key-1.png')}}">
-            <img class="inventoryKey2" id="bearInv2" src="{{url_for('static', filename='inventory-key-2.png')}}">
+            <img class="inventoryKey1" id="Inv1" src="{{url_for('static', filename='inventory-key-1.png')}}" onload="keyInInventory('hallRoomKey')">
+            <img class="inventoryKey2" id="Inv2" src="{{url_for('static', filename='inventory-key-2.png')}}" onload="keyInInventory('escapeRoom')">
             <img class="saveIcon" id="bearSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
             <!-- Clicking on the exit icon should take the user to the website's home page. -->
             <a href="/"><img class="exitIcon" id="bearExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
