@@ -21,12 +21,13 @@
         <div class="bottomOfTheStack">
             <!-- The default background, with the note showing on the floor. -->
             <img class="backgroundPic" src="{{url_for('static', filename='hallway1.jpg')}}">
+            <img class="backgroundPic" id="failMsg" src="{{url_for('static', filename='failure.png')}}">
         </div>
 
         <div class="altBackground">
             <!-- The alternative background without the note on the floor, activated when the note is picked up. -->
             <img class="backgroundNoteRemoved" id="hall1BackgroundNoteRemoved" src="{{url_for('static',
-                filename='hallway1-no-note.jpg')}}">
+                filename='hallway1-no-note.jpg')}}" onload="failMsg()">
         </div>
 
         <div class="navBlockLayer1">
