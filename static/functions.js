@@ -177,7 +177,7 @@ function gateIsUnlocked(door)
     }
     if (door==="escapeRoom")
     {
-        if(sessionStorage.getItem('key1_obtained') && (sessionStorage.getItem("escape_option")||sessionStorage.getItem("escape_option2")))
+        if(sessionStorage.getItem('key1_obtained')&&(sessionStorage.getItem('escape_option2')||sessionStorage.getItem('escape_option')))
         {
             document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
             document.getElementById("Inv1").style.opacity="100%";
@@ -198,6 +198,17 @@ function redirectToHallway(door)
             // Make the background visible:
             document.getElementById("escapeBackground").style.opacity = "100%";
         }
+}
+
+function failMsg()
+{
+    
+    if(sessionStorage.getItem("escape_option2"))
+    {
+        // If the user did not say no to Phantasm, redirect them to hallway 1:
+       document.getElementById("failureMessage").style.opacity="100%"
+        setTimeout(removeFailureMessage,3000)
+    }
 }
 function keyInInventory(room)
 {
