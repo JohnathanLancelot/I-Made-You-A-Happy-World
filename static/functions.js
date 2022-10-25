@@ -177,7 +177,7 @@ function gateIsUnlocked(door)
     }
     if (door==="escapeRoom")
     {
-        if(sessionStorage.getItem('key1_obtained')&&(sessionStorage.getItem('escape_option2')||sessionStorage.getItem('escape_option')))
+        if(sessionStorage.getItem('key1_obtained'))
         {
             document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
             document.getElementById("Inv1").style.opacity="100%";
@@ -192,6 +192,10 @@ function redirectToHallway(door)
         {
             // If the user did not say no to Phantasm, redirect them to hallway 1:
             window.location = "/hallway1";
+        }
+        if (!sessionStorage.getItem("escape_option")) {
+           // If the user did not say no to Phantasm, redirect them to hallway 1:
+           window.location = "/hallway1";
         }
         else
         {
@@ -224,6 +228,93 @@ function keyInInventory(room)
             document.getElementById("Inv1").style.opacity="100%";
 
         }
+}
+
+//Function to rember what room you are in
+function rememberRoom(roomNum)
+{
+    switch(roomNum) {
+        case 1:
+            sessionStorage.setItem('bear',true);
+            sessionStorage.removeItem('beach');
+            sessionStorage.removeItem('keyHall');
+            sessionStorage.removeItem('mirror');
+            sessionStorage.removeItem('phantasm');
+            sessionStorage.removeItem('hall1');
+            break;
+        case 2:
+            sessionStorage.setItem('beach',true);
+            sessionStorage.removeItem('bear');
+            sessionStorage.removeItem('keyHall');
+            sessionStorage.removeItem('mirror');
+            sessionStorage.removeItem('phantasm');
+            sessionStorage.removeItem('hall1');
+          break;
+        case 3:
+            sessionStorage.setItem('keyHall',true);
+            sessionStorage.removeItem('beach');
+            sessionStorage.removeItem('bear');
+            sessionStorage.removeItem('mirror');
+            sessionStorage.removeItem('phantasm');
+            sessionStorage.removeItem('hall1');
+            break;
+        case 4:
+            sessionStorage.setItem('mirror',true);
+            sessionStorage.removeItem('beach');
+            sessionStorage.removeItem('keyHall');
+            sessionStorage.removeItem('bear');
+            sessionStorage.removeItem('phantasm');
+            sessionStorage.removeItem('hall1');
+            break;
+        case 5:
+            sessionStorage.setItem('phantasm',true);
+            sessionStorage.removeItem('beach');
+            sessionStorage.removeItem('keyHall');
+            sessionStorage.removeItem('mirror');
+            sessionStorage.removeItem('bear');
+            sessionStorage.removeItem('hall1');
+            break;
+        case 6:
+            sessionStorage.setItem('hall1',true);
+            sessionStorage.removeItem('beach');
+            sessionStorage.removeItem('keyHall');
+            sessionStorage.removeItem('mirror');
+            sessionStorage.removeItem('phantasm');
+            sessionStorage.removeItem('bear');
+                  break;
+        default:
+
+          // code block
+      }
+}
+
+function loadGame(){
+
+    if(sessionStorage.getItem('beach'))
+    {
+        window.location = "/beach";
+    }
+
+    if(sessionStorage.getItem('keyHall'))
+    {
+        window.location = "/key-hall";
+    }
+    if(sessionStorage.getItem('mirror'))
+    {
+        window.location = "/mirror-room";
+    }
+    if(sessionStorage.getItem('phantasm'))
+    {
+        window.location = "/phantasm-room";
+    }
+    if(sessionStorage.getItem('bear'))
+    {
+        window.location = "/bear-room";
+    }
+    if(sessionStorage.getItem('hall1'))
+    {
+        window.location = "/hallway1";
+    }
 }
 
 // The function for removing a key pop-up, and adding the key to the inventory:
