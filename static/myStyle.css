@@ -280,7 +280,7 @@
     margin-left: 40vw;
 }
 
-#loadButton {
+#loadGameButton {
     grid-column: 9;
     grid-row: 8;
     z-index: 2;
