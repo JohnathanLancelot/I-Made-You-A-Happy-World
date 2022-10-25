@@ -20,7 +20,7 @@
 
         <div class="bottomOfTheStack">
             <!-- The default background, with the note showing on the floor. -->
-            <img class="backgroundPic" src="{{url_for('static', filename='hallway1.jpg')}}">
+            <img class="backgroundPic" src="{{url_for('static', filename='hallway1.jpg')}}" onload="rememberRoom(6)">
             <img class="backgroundPic" id="failMsg" src="{{url_for('static', filename='failure.png')}}">
         </div>
 
