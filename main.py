@@ -12,11 +12,6 @@ def index():
 def loadOrNew():
     return render_template("load-or-new.html")
 
-# The in-game menu page:
-@app.route("/menu")
-def menu():
-    return render_template("menu.html")
-
 # The first hallway:
 @app.route("/hallway1")
 def hallway1():
