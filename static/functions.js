@@ -11,6 +11,20 @@ var timesSpookHasMoved = 0;
 var phantasmOptionClicked = 0;
 var wendyOptionClicked = 0;
 var sharkieOptionClicked = 0;
+var timerIsActive = true;
+var hourGlassStage = 1;
+
+// Arrays containing all the timer stages:
+const timerStage1 = document.getElementsByClassName("hourGlass1")
+const timerStage2 = document.getElementsByClassName("hourGlass2")
+const timerStage3 = document.getElementsByClassName("hourGlass3")
+const timerStage4 = document.getElementsByClassName("hourGlass4")
+const timerStage5 = document.getElementsByClassName("hourGlass5")
+const timerStage6 = document.getElementsByClassName("hourGlass6")
+const timerStage7 = document.getElementsByClassName("hourGlass7")
+const timerStage8 = document.getElementsByClassName("hourGlass8")
+const timerStage9 = document.getElementsByClassName("hourGlass9")
+const timerStage10 = document.getElementsByClassName("hourGlass10")
 
 // The two functions enabling a timed (2 second) redirect from the title screen to the load or new game screen:
 function timedRedirect()
@@ -770,4 +784,192 @@ function removeDialogue()
 
     // Make it possible to click through Sharkie:
     document.getElementById("sharkieImage").style['pointer-events'] = 'none';
+}
+
+// Functions for implementing the timer:
+function timerFunction()
+{
+    // First, check if the timer should be shown at all (if it's active):
+    if (timerIsActive)
+    {
+        // If it's active, check what stage it's at, and change image opacities accordingly:
+        switch(hourGlassStage)
+        {
+            case 1:
+                for (let i = 0; i < timerStage1.length; i++) {
+                    // Make the last stage invisible:
+                    timerStage10[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage1[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 2:
+                    hourGlassStage = 2;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 2:
+                for (let i = 0; i < timerStage2.length; i++)
+                {
+                    // Make the last stage invisible:
+                    timerStage1[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage2[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 3:
+                    hourGlassStage = 3;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 3:
+                for (let i = 0; i < timerStage3.length; i++)
+                {
+                    // Make the last stage invisible:
+                    timerStage2[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage3[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 4:
+                    hourGlassStage = 4;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 4:
+                for (let i = 0; i < timerStage4.length; i++)
+                {
+                    // Make the last stage invisible:
+                    timerStage3[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage4[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 5:
+                    hourGlassStage = 5;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 5:
+                for (let i = 0; i < timerStage5.length; i++)
+                {
+                    // Make the last stage invisible:
+                    timerStage4[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage5[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 6:
+                    hourGlassStage = 6;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 6:
+                for (let i = 0; i < timerStage6.length; i++)
+                {
+                    // Make the last stage invisible:
+                    timerStage5[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage6[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 7:
+                    hourGlassStage = 7;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 7:
+                for (let i = 0; i < timerStage7.length; i++)
+                {
+                    // Make the last stage invisible:
+                    timerStage6[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage7[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 8:
+                    hourGlassStage = 8;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 8:
+                for (let i = 0; i < timerStage8.length; i++)
+                {
+                    // Make the last stage invisible:
+                    timerStage7[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage8[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 9:
+                    hourGlassStage = 9;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 9:
+                for (let i = 0; i < timerStage9.length; i++)
+                {
+                    // Make the last stage invisible:
+                    timerStage8[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage9[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 10:
+                    hourGlassStage = 10;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 10:
+                for (let i = 0; i < timerStage10.length; i++)
+                {
+                    // Make the last stage invisible:
+                    timerStage9[i].style.opacity = "0%";
+
+                    // Make the current stage visible:
+                    timerStage10[i].style.opacity = "100%";
+
+                    // After half a second, change the stage to stage 11:
+                    hourGlassStage = 11;
+                    setTimeout(timerFunction, 500);
+                }
+                break;
+            case 11:
+                // Time has now run out, so the timer will disappear...
+                for (let i = 0; i < timerStage10.length; i++)
+                {
+                    timerStage10[i].style.opacity = "0%";
+                }
+
+                // ...and then we will set phantasmOptionClicked to 0 so that the user cannot escape:
+                phantasmOptionClicked = 0;
+
+                // And end the timer:
+                timerIsActive = false;
+
+                break;
+        }
+    }
+}
+
+// Start the timer when the user clicks on the spiral staircase in Phantasm's room, IF they answered no to Phantasm:
+function startTimer()
+{
+    if (phantasmOptionClicked == 2)
+    {
+        timerIsActive = true;
+
+        // NOTE: Since clicking on the staircase leads the user to a new room, and the timer function is called
+        // 'onload' in every in-game room minus the 3 outlined below, there is no need to call it in this function.
+    }
+}
+
+// Make the timer code run as soon as the window loads, IF it isn't the index, load / new game or escape window:
+window.onload = function()
+{
+    if (window.location.pathname != "/" && window.location.pathname != "/load-or-new"
+        && window.location.pathname != "/escape")
+    {
+        timerFunction();
+    }
 }
