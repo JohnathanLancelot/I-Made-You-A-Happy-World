@@ -687,8 +687,8 @@
     grid-column: 4.6;
     grid-row: 1;
     margin-top: 0vh;
-    margin-bottom: 50vh;
-    margin-left: 3.5vw;
+    margin-bottom: 48vh;
+    margin-left: 3vw;
     opacity: 0%;
     pointer-events: none;
 }
@@ -699,7 +699,7 @@
     grid-column: 11.2;
     grid-row: 4;
     margin-top: 15vh;
-    margin-left: 51.5vw;
+    margin-left: 50.5vw;
     opacity: 0%;
     pointer-events: auto;
 }
@@ -709,8 +709,8 @@
     height: 22vh;
     grid-column: 7.7;
     grid-row: 5;
-    margin-top: 20vh;
-    margin-left: 33.5vw;
+    margin-top: 21vh;
+    margin-left: 32.6vw;
     opacity: 0%;
     pointer-events: auto;
 }
@@ -748,11 +748,11 @@
     width: 34vw;
     grid-column: 11.7;
     grid-row: 9;
-    margin-top: 40vh;
+    margin-top: 40.5vh;
     margin-left: 53.5vw;
     opacity: 0%;
     pointer-events: none;
-    color: #85d4dd;
+    color: #97b1c4;
 }
 
 #answerSharkie1 {
@@ -800,7 +800,7 @@
     margin-left: 53vw;
     opacity: 0%;
     pointer-events: none;
-    color: #85d4dd;
+    color: #97b1c4;
 }
 
 #sharkieResponse2 {
@@ -814,7 +814,7 @@
     margin-left: 55vw;
     opacity: 0%;
     pointer-events: none;
-    color: #85d4dd;
+    color: #97b1c4;
 }
 
 #beachUIBarLayer {
