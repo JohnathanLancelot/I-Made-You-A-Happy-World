@@ -789,25 +789,29 @@ function removeDialogue()
 function timerFunction() {
 
     if (sessionStorage.getItem("timerIsActive")) {
-        let pipiska = parseInt(sessionStorage.getItem('currentStage'));
-        let pipiskaToRemove = pipiska - 1;
+        let hourStage = parseInt(sessionStorage.getItem('currentStage'));
+        let hourStageToRemove = hourStage - 1;
         // Removing the previous stage and adding a new one
-        sessionStorage.removeItem("stage" + pipiskaToRemove);
-        sessionStorage.setItem("stage" + pipiska, pipiska);
+        sessionStorage.removeItem("stage" + hourStageToRemove);
+        sessionStorage.setItem("stage" + hourStage, hourStage);
 
         renderTimer();
 
-        if (pipiska < 11){
-            sessionStorage.setItem("currentStage", pipiska + 1);
+        if (hourStage < 11){
+            sessionStorage.setItem("currentStage", hourStage + 1);
             setTimeout(timerFunction, 1000);
+        }
+        if(hourStage>=11)
+        {
+            sessionStorage.removeItem("escape_option");
         }
     }
 }
 
 function renderTimer() {
     if (sessionStorage.getItem("timerIsActive")) {
-        let pipiska = parseInt(sessionStorage.getItem('currentStage'));
-        let pipiskaToRemove = pipiska - 1;
+        let hourStage = parseInt(sessionStorage.getItem('currentStage'));
+        let hourStageToRemove = hourStage - 1;
 
         // Iterating because there is no better way
         for (let i = 0; i < alphaTimerStages.length; i++){
@@ -816,7 +820,7 @@ function renderTimer() {
             alphaTimerStages[i][0].style.opacity = "100%";
 
             // Make the last stage invisible:
-            if (i != pipiska){
+            if (i != hourStage){
                 alphaTimerStages[i][0].style.opacity = "0%";
             }
         }
