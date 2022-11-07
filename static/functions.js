@@ -233,18 +233,16 @@ function keyInInventory(room)
         if(sessionStorage.getItem('key_obtained')){
             
             document.getElementById("Inv2").style.opacity="100%";
-
         }
 
         if(sessionStorage.getItem('key1_obtained')){
 
-            //document.getElementById("keyHallSmallKey").style.opacity = "0%";
             document.getElementById("Inv1").style.opacity="100%";
-
+            document.getElementById("keyHallSmallKey").style.opacity = "0%";
         }
 }
 
-//Function to rember what room you are in
+//Function to remember what room you are in:
 function rememberRoom(roomNum)
 {
     switch(roomNum) {
