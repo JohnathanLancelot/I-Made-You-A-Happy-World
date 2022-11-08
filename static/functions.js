@@ -390,8 +390,8 @@ function bringUpDialogueBox(name)
     {
         // If the user hasn't spoken to Wendy yet, make the dialogue box visible, along with the starting dialogue:
         document.getElementById("bearDialogueBox").style.opacity = "100%";
-        document.getElementById("bearDialogueBox").style['pointer-events'] = 'auto';
         document.getElementById("wendyQuestion").style.opacity = "100%";
+        document.getElementById("wendyQuestion").style['pointer-events'] = 'auto';
         document.getElementById("answerWendy1").style.opacity = "100%";
         document.getElementById("answerWendy1").style['pointer-events'] = 'auto';
         document.getElementById("answerWendy2").style.opacity = "100%";
@@ -402,8 +402,8 @@ function bringUpDialogueBox(name)
     {
         // If the user hasn't spoken to Sharkie yet, make the dialogue box and starting dialogue visible:
         document.getElementById("sharkieDialogueBox").style.opacity = "100%";
-        document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'auto';
         document.getElementById("sharkieQuestion").style.opacity = "100%";
+        document.getElementById("sharkieQuestion").style['pointer-events'] = 'auto';
         document.getElementById("answerSharkie1").style.opacity = "100%";
         document.getElementById("answerSharkie1").style['pointer-events'] = 'auto';
         document.getElementById("answerSharkie2").style.opacity = "100%";
@@ -414,8 +414,8 @@ function bringUpDialogueBox(name)
     {
         // If the user hasn't spoken to Phantasm yet, make the dialogue box and the starting dialogue visible:
         document.getElementById("phantasmDialogueBox").style.opacity = "100%";
-        document.getElementById("phantasmDialogueBox").style['pointer-events'] = 'auto';
         document.getElementById("phantasmQuestion").style.opacity = "100%";
+        document.getElementById("phantasmQuestion").style['pointer-events'] = 'auto';
         document.getElementById("answerPhantasm1").style.opacity = "100%";
         document.getElementById("answerPhantasm1").style['pointer-events'] = 'auto';
         document.getElementById("answerPhantasm2").style.opacity = "100%";
