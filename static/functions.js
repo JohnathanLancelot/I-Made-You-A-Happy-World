@@ -3,14 +3,44 @@ var key1Taken = false;
 var key2Taken = false;
 var escapeTunnelLocked = true;
 var beachGateLocked = true;
-var spokenToWendy = false;
-var spokenToSharkie = false;
-var spokenToPhantasm = false;
+var spokenToSharkie;
+var spokenToPhantasm;
+var spokenToWendy;
 var escapeAttempt = false;
 var timesSpookHasMoved = 0;
 var phantasmOptionClicked = 0;
 var wendyOptionClicked = 0;
 var sharkieOptionClicked = 0;
+
+// Determine if Wendy has been spoken to based on session storage:
+if (sessionStorage.getItem("spokenToWendy"))
+{
+    spokenToWendy = true;
+}
+else
+{
+    spokenToWendy = false;
+}
+
+// Determine if Sharkie has been spoken to based on session storage:
+if (sessionStorage.getItem("spokenToSharkie"))
+{
+    spokenToSharkie = true;
+}
+else
+{
+    spokenToSharkie = false;
+}
+
+// Determine if Phantasm has been spoken to based on session storage:
+if (sessionStorage.getItem("spokenToPhantasm"))
+{
+    spokenToPhantasm = true;
+}
+else
+{
+    spokenToPhantasm = false;
+}
 
 // Arrays containing all the timer stages:
 const alphaTimerStages = [
@@ -121,24 +151,27 @@ function keyTaken(room)
 {
         if (room == "keyHall" && !key1Taken && !sessionStorage.getItem('key1_obtained'))
         {
+            // Save the fact that this key was taken to session storage:
             sessionStorage.setItem('key1_obtained', true)
+
             // Make the small key in the background disappear:
             document.getElementById("keyHallSmallKey").style.opacity = "0%";
-    
-            document.getElementById("Inv1").style.opacity="100%";
+
+            // Make the key in the inventory appear:
+            document.getElementById("Inv1").style.opacity = "100%";
+
             // Change the key taken variable to true:
            key1Taken = true;
     
             // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
             escapeTunnelLocked = false;
-            document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
     
             // Show the pop-up for a short amount of time (2 seconds):
             document.getElementById("keyHallBigKey").style.opacity = "100%";
             setTimeout(keyPopRemoved, 2000, "keyHall");
 
             //Show the item in the inventory
-            document.getElementById("Inv1").style.opacity="100%";
+            document.getElementById("Inv1").style.opacity = "100%";
         }
 
         if (room == "beachRoom" && !key2Taken && !sessionStorage.getItem('key_obtained'))
@@ -372,15 +405,8 @@ function checkNPCStatus(name)
         document.getElementById("sharkieDialogueBox").style.opacity = "0%";
         document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'none';
     }
-    else if (name == "Phantasm" && spokenToPhantasm)
-    {
-        // Phantasm should still be visible, but the user should be able to click through him:
-        document.getElementById("phantasmImage").style['pointer-events'] = 'none';
-
-        // Remove the dialogue box:
-        document.getElementById("phantasmDialogueBox").style.opacity = "0%";
-        document.getElementById("phantasmDialogueBox").style['pointer-events'] = 'none';
-    }
+    // NOTE: We kept the ability to talk to Phantasm again in order to give the user another chance at winning
+    // the game (i.e. escaping).
 }
 
 // The function for bringing up the dialogue box:
@@ -390,37 +416,46 @@ function bringUpDialogueBox(name)
     {
         // If the user hasn't spoken to Wendy yet, make the dialogue box visible, along with the starting dialogue:
         document.getElementById("bearDialogueBox").style.opacity = "100%";
-        document.getElementById("bearDialogueBox").style['pointer-events'] = 'auto';
         document.getElementById("wendyQuestion").style.opacity = "100%";
+        document.getElementById("wendyQuestion").style['pointer-events'] = 'auto';
         document.getElementById("answerWendy1").style.opacity = "100%";
         document.getElementById("answerWendy1").style['pointer-events'] = 'auto';
         document.getElementById("answerWendy2").style.opacity = "100%";
         document.getElementById("answerWendy2").style['pointer-events'] = 'auto';
         spokenToWendy = true;
+
+        // Save the fact that Wendy has been spoken to:
+        sessionStorage.setItem("spokenToWendy", true);
     }
     else if (name == "Sharkie" && !spokenToSharkie)
     {
         // If the user hasn't spoken to Sharkie yet, make the dialogue box and starting dialogue visible:
         document.getElementById("sharkieDialogueBox").style.opacity = "100%";
-        document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'auto';
         document.getElementById("sharkieQuestion").style.opacity = "100%";
+        document.getElementById("sharkieQuestion").style['pointer-events'] = 'auto';
         document.getElementById("answerSharkie1").style.opacity = "100%";
         document.getElementById("answerSharkie1").style['pointer-events'] = 'auto';
         document.getElementById("answerSharkie2").style.opacity = "100%";
         document.getElementById("answerSharkie2").style['pointer-events'] = 'auto';
         spokenToSharkie = true;
+
+        // Save the fact that Sharkie has been spoken to:
+        sessionStorage.setItem("spokenToSharkie", true);
     }
-    else if (name == "Phantasm" && !spokenToPhantasm)
+    else if (name == "Phantasm")
     {
-        // If the user hasn't spoken to Phantasm yet, make the dialogue box and the starting dialogue visible:
+        // Make the dialogue box and the starting dialogue visible:
         document.getElementById("phantasmDialogueBox").style.opacity = "100%";
-        document.getElementById("phantasmDialogueBox").style['pointer-events'] = 'auto';
         document.getElementById("phantasmQuestion").style.opacity = "100%";
+        document.getElementById("phantasmQuestion").style['pointer-events'] = 'auto';
         document.getElementById("answerPhantasm1").style.opacity = "100%";
         document.getElementById("answerPhantasm1").style['pointer-events'] = 'auto';
         document.getElementById("answerPhantasm2").style.opacity = "100%";
         document.getElementById("answerPhantasm2").style['pointer-events'] = 'auto';
         spokenToPhantasm = true;
+
+        // Save the fact that Phantasm has been spoken to:
+        sessionStorage.setItem("spokenToPhantasm", true);
     }
 }
 
@@ -857,18 +892,41 @@ function timerFunction()
 
         renderTimer();
 
-        if (hourStage < 9){
+        if (hourStage < 10){
             sessionStorage.setItem("currentStage", hourStage + 1);
+
+            // After 1 second, bring up the next hourglass stage:
             setTimeout(timerFunction, 1000);
+
+            if (hourStage == 9)
+            {
+                sessionStorage.removeItem("escape_option");
+            }
         }
-        else if (hourStage >= 9)
+        else if (hourStage >= 10)
         {
-            sessionStorage.removeItem("escape_option");
+            // After 1 second, make the hourglass disappear:
+            setTimeout(timerGone, 1000);
         }
     }
 }
 
-function renderTimer() {
+// The function for making the timer disappear:
+function timerGone()
+{
+    // Using an array of timer stages to make all of the last stage hourglasses disappear:
+    let hourStage = parseInt(sessionStorage.getItem('currentStage'));
+    let hourStageToRemove = hourStage - 1;
+
+    for (let i = 0; i < alphaTimerStages.length; i++)
+    {
+        // Make the current stage visible:
+        alphaTimerStages[i][0].style.opacity = "0%";
+    }
+}
+
+function renderTimer()
+{
     if (sessionStorage.getItem("timerIsActive"))
     {
         let hourStage = parseInt(sessionStorage.getItem('currentStage'));

@@ -44,11 +44,11 @@
 
         <div class="backgroundKeyLayer">
             <!-- Add a small key to the background that the user can click on. -->
-            <img id="keyHallSmallKey" src="{{url_for('static', filename='key1.png')}}" onload="gateIsUnlocked('escapeRoom')" onclick="keyTaken('keyHall')">
-
+            <img id="keyHallSmallKey" src="{{url_for('static', filename='key1.png')}}" onload="gateIsUnlocked('escapeRoom')"
+                 onclick="keyTaken('keyHall')">
         </div>
 
-        <div class="keyPopUpLayer">
+        <div class="keyPopUpLayer" id="keyHallKeyPopUpLayer">
             <!-- Add a large key as a zoomed-in pop-up when the user picks up the key. -->
             <img id="keyHallBigKey" src="{{url_for('static', filename='key-found1.png')}}">
         </div>

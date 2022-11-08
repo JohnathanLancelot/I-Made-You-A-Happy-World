@@ -240,7 +240,6 @@
     height: 100vh;
     grid-column: 1;
     grid-row: 1;
-    z-index: 7;
     pointer-events: none;
 }
 
@@ -817,6 +816,10 @@
     color: #97b1c4;
 }
 
+#beachKeyPopUpLayer {
+    z-index: 7;
+}
+
 #beachUIBarLayer {
     z-index: 7;
 }
@@ -918,40 +921,44 @@
     pointer-events: auto;
 }
 
-#keyHallUIBarLayer {
+#keyHallKeyPopUpLayer {
     z-index: 9;
 }
 
-#keyHallUIBar {
+#keyHallUIBarLayer {
     z-index: 10;
 }
 
-#keyHallIconsLayer {
+#keyHallUIBar {
     z-index: 11;
+}
+
+#keyHallIconsLayer {
+    z-index: 12;
     pointer-events: none;
 }
 
 #keyHallInv1 {
-    z-index: 12;
+    z-index: 13;
     pointer-events: none;
     opacity: 0%;
 }
 
 #keyHallInv2 {
-    z-index: 12;
+    z-index: 13;
     pointer-events: none;
     opacity: 0%;
 }
 
 #keyHallSaveIcon, #keyHallExitIcon {
-    z-index: 12;
+    z-index: 13;
     pointer-events: auto;
 }
 
 #topOfTheKeyHallStack {
     grid-column: 1;
     grid-row: 1;
-    z-index: 13;
+    z-index: 14;
     pointer-events: none;
 }
 
