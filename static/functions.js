@@ -220,11 +220,17 @@ function redirectToHallway(door)
 
 function failMsg()
 {
-    
     if(sessionStorage.getItem("escape_option2"))
     {
         // If the user did not say no to Phantasm, redirect them to hallway 1:
-       document.getElementById("failureMessage").style.opacity="100%"
+        document.getElementById("failureMessage").style.opacity="100%"
+        setTimeout(removeFailureMessage,3000)
+    }
+    else if(sessionStorage.getItem("escapeAttempt") && !sessionStorage.getItem("escape_option")
+        && !sessionStorage.getItem("escape_option2"))
+    {
+        // Also redirect if the user hasn't spoken to Phantasm:
+        document.getElementById("failureMessage").style.opacity="100%"
         setTimeout(removeFailureMessage,3000)
     }
 }
@@ -561,8 +567,6 @@ function chooseAnswer(name, optionNumber)
             // Remember the answer
             sessionStorage.setItem("escape_option2", true);
 
-            
-
             // Make the other option disappear:
             document.getElementById("answerPhantasm2").style.opacity = "0%";
             document.getElementById("answerPhantasm2").style['pointer-events'] = 'none';
@@ -581,7 +585,6 @@ function chooseAnswer(name, optionNumber)
 
             // Remember the answer
             sessionStorage.setItem("escape_option", true);
-
 
             // Make the other option disappear:
             document.getElementById("answerPhantasm1").style.opacity = "0%";
@@ -748,14 +751,17 @@ function failedEscapeCheck(room)
         // When the user clicks on the escape tunnel in the bear room, change this boolean so that we know there was an
         // escape attempt:
         escapeAttempt = true;
+
+        // Remember the answer
+        sessionStorage.setItem("escapeAttempt", true);
     }
     if (room == "hall1")
     {
-        // If an escape attempt was made, and the user hasn't said no to Phantasm, show the failure message for 4 seconds:
-        if (escapeAttempt && phantasmOptionClicked != 2)
+        // If an escape attempt was made, and the user hasn't said no to Phantasm, show the failure message for 3 seconds:
+        if (sessionStorage.getItem("escapeAttempt") && sessionStorage.getItem("escape_option"))
         {
             document.getElementById("failureMessage").style.opacity = "100%";
-            setTimeout(removeFailureMessage, 4000);
+            setTimeout(removeFailureMessage, 3000);
         }
     }
 }
@@ -764,6 +770,7 @@ function failedEscapeCheck(room)
 function removeFailureMessage()
 {
     document.getElementById("failureMessage").style.opacity = "0%";
+    sessionStorage.removeItem("escapeAttempt");
 }
 
 // Function for removing the dialogue from the beach room screen:
