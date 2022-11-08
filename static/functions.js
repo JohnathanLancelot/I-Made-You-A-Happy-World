@@ -857,18 +857,41 @@ function timerFunction()
 
         renderTimer();
 
-        if (hourStage < 9){
+        if (hourStage < 10){
             sessionStorage.setItem("currentStage", hourStage + 1);
+
+            // After 1 second, bring up the next hourglass stage:
             setTimeout(timerFunction, 1000);
+
+            if (hourStage == 9)
+            {
+                sessionStorage.removeItem("escape_option");
+            }
         }
-        else if (hourStage >= 9)
+        else if (hourStage >= 10)
         {
-            sessionStorage.removeItem("escape_option");
+            // After 1 second, make the hourglass disappear:
+            setTimeout(timerGone, 1000);
         }
     }
 }
 
-function renderTimer() {
+// The function for making the timer disappear:
+function timerGone()
+{
+    // Using an array of timer stages to make all of the last stage hourglasses disappear:
+    let hourStage = parseInt(sessionStorage.getItem('currentStage'));
+    let hourStageToRemove = hourStage - 1;
+
+    for (let i = 0; i < alphaTimerStages.length; i++)
+    {
+        // Make the current stage visible:
+        alphaTimerStages[i][0].style.opacity = "0%";
+    }
+}
+
+function renderTimer()
+{
     if (sessionStorage.getItem("timerIsActive"))
     {
         let hourStage = parseInt(sessionStorage.getItem('currentStage'));
