@@ -35,6 +35,7 @@
                               src="{{url_for('static', filename='bear-room-tunnel-2-navigation-block.png')}}"></a>
         </div>
 
+        <!-- Add NPC and dialogue elements. -->
         <div class="dialogueTextLayer1">
             <p id="wendyQuestion">Where did you come from?<br>You scared me.</p>
             <p id="answerWendy1" onmouseover="hoverText('Wendy', '1')" onmouseout="noHover('Wendy', '1')"
@@ -52,14 +53,14 @@
             <p id="wendyResponse2">Wendy.<br>That's what it said<br>on the posters anyway.</p>
         </div>
 
-        <!-- Add NPC and dialogue elements. -->
         <div class="npcLayer">
             <img id="wendyImage" src="{{url_for('static', filename='wendy.png')}}" onload="checkNPCStatus('Wendy')"
                 onclick="bringUpDialogueBox('Wendy')">
         </div>
 
         <div class="dialogueLayer">
-            <img class="dialogueBox" id="bearDialogueBox" src="{{url_for('static', filename='dialogue-box.png')}}">
+            <img class="dialogueBox" id="bearDialogueBox" src="{{url_for('static', filename='dialogue-box.png')}}"
+                onclick="removeDialogue('Wendy')">
         </div>
 
         <div class="arrowLayer">
