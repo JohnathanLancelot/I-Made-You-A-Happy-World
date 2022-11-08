@@ -121,24 +121,27 @@ function keyTaken(room)
 {
         if (room == "keyHall" && !key1Taken && !sessionStorage.getItem('key1_obtained'))
         {
+            // Save the fact that this key was taken to session storage:
             sessionStorage.setItem('key1_obtained', true)
+
             // Make the small key in the background disappear:
             document.getElementById("keyHallSmallKey").style.opacity = "0%";
-    
-            document.getElementById("Inv1").style.opacity="100%";
+
+            // Make the key in the inventory appear:
+            document.getElementById("Inv1").style.opacity = "100%";
+
             // Change the key taken variable to true:
            key1Taken = true;
     
             // Now that the user has this key, the tunnel to the escape screen will behave as if it is unlocked:
             escapeTunnelLocked = false;
-            document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
     
             // Show the pop-up for a short amount of time (2 seconds):
             document.getElementById("keyHallBigKey").style.opacity = "100%";
             setTimeout(keyPopRemoved, 2000, "keyHall");
 
             //Show the item in the inventory
-            document.getElementById("Inv1").style.opacity="100%";
+            document.getElementById("Inv1").style.opacity = "100%";
         }
 
         if (room == "beachRoom" && !key2Taken && !sessionStorage.getItem('key_obtained'))
