@@ -845,22 +845,23 @@ function removeDialogue(name)
     }
 }
 
-function timerFunction() {
-
+function timerFunction()
+{
     if (sessionStorage.getItem("timerIsActive")) {
         let hourStage = parseInt(sessionStorage.getItem('currentStage'));
         let hourStageToRemove = hourStage - 1;
+
         // Removing the previous stage and adding a new one
         sessionStorage.removeItem("stage" + hourStageToRemove);
         sessionStorage.setItem("stage" + hourStage, hourStage);
 
         renderTimer();
 
-        if (hourStage < 11){
+        if (hourStage < 9){
             sessionStorage.setItem("currentStage", hourStage + 1);
             setTimeout(timerFunction, 1000);
         }
-        if(hourStage>=11)
+        else if (hourStage >= 9)
         {
             sessionStorage.removeItem("escape_option");
         }
@@ -868,7 +869,8 @@ function timerFunction() {
 }
 
 function renderTimer() {
-    if (sessionStorage.getItem("timerIsActive")) {
+    if (sessionStorage.getItem("timerIsActive"))
+    {
         let hourStage = parseInt(sessionStorage.getItem('currentStage'));
         let hourStageToRemove = hourStage - 1;
 
@@ -879,7 +881,8 @@ function renderTimer() {
             alphaTimerStages[i][0].style.opacity = "100%";
 
             // Make the last stage invisible:
-            if (i != hourStage){
+            if (i != hourStage)
+            {
                 alphaTimerStages[i][0].style.opacity = "0%";
             }
         }
@@ -907,8 +910,6 @@ function startTimer()
 window.onload = timerLoop = () => {
     if (sessionStorage.getItem("timerIsActive"))
     {
-        // sessionStorage.setItem("stage1",1)
-        // var hourGlassStage = parseInt(sessionStorage.getItem("stage1"));    
         renderTimer()
         setTimeout(timerFunction, 1000);
     }
