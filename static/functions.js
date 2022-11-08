@@ -157,11 +157,11 @@ function keyTaken(room)
         }
 
         //Check that key has been added to the inventory
-        if (sessionStorage.getItem('key1_obtained')==flase)
+        if (sessionStorage.getItem('key1_obtained')==false)
         {
             key1Taken=true;
 
-            escapeTunnelLocked=flase;
+            escapeTunnelLocked=false;
 
             document.getElementById("keyHallSmallKey").style.opacity = "0%";
             document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
@@ -688,6 +688,9 @@ function npcResponse(name, responseNumber)
         {
             document.getElementById("phantasmResponse2").style.opacity = "100%";
         }
+
+        // Make the dialogue box clickable:
+        document.getElementById("phantasmDialogueBox").style['pointer-events'] = 'auto';
     }
     else if (name == "Wendy")
     {
@@ -708,6 +711,9 @@ function npcResponse(name, responseNumber)
         {
             document.getElementById("wendyResponse2").style.opacity = "100%";
         }
+
+        // Make the dialogue box clickable:
+        document.getElementById("bearDialogueBox").style['pointer-events'] = 'auto';
     }
     else if (name == "Sharkie")
     {
@@ -729,8 +735,8 @@ function npcResponse(name, responseNumber)
             document.getElementById("sharkieResponse2").style.opacity = "100%";
         }
 
-        // After 8 seconds, make all the dialogue and the dialogue box disappear so the user can click on the chest:
-        setTimeout(removeDialogue, 8000);
+        // Make the dialogue box clickable:
+        document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'auto';
     }
 }
 
@@ -761,27 +767,75 @@ function removeFailureMessage()
 }
 
 // Function for removing the dialogue from the beach room screen:
-function removeDialogue()
+function removeDialogue(name)
 {
-    // Check what Sharkie's response was (this depends on what the user said to him):
-    if (sharkieOptionClicked == "1")
+    // Check who the user just spoke to:
+    if (name == "Sharkie")
     {
-        // Make the corresponding dialogue elements disappear:
-        document.getElementById("sharkieResponse1").style.opacity = "0%";
-        document.getElementById("sharkieResponse1").style['pointer-events'] = 'none';
+        // Check what Sharkie's response was (this depends on what the user said to him):
+        if (sharkieOptionClicked == "1")
+        {
+            // Make the corresponding dialogue elements disappear:
+            document.getElementById("sharkieResponse1").style.opacity = "0%";
+            document.getElementById("sharkieResponse1").style['pointer-events'] = 'none';
+        }
+        else if (sharkieOptionClicked == "2")
+        {
+            document.getElementById("sharkieResponse2").style.opacity = "0%";
+            document.getElementById("sharkieResponse2").style['pointer-events'] = 'none';
+        }
+
+        // Make the dialogue box itself disappear:
+        document.getElementById("sharkieDialogueBox").style.opacity = "0%";
+        document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'none';
+
+        // Make it possible to click through Sharkie:
+        document.getElementById("sharkieImage").style['pointer-events'] = 'none';
     }
-    else if (sharkieOptionClicked == "2")
+    else if (name == "Wendy")
     {
-        document.getElementById("sharkieResponse2").style.opacity = "0%";
-        document.getElementById("sharkieResponse2").style['pointer-events'] = 'none';
+        // Check what Wendy's response was (this depends on what the user said to them):
+        if (wendyOptionClicked == "1")
+        {
+            // Make the corresponding dialogue elements disappear:
+            document.getElementById("wendyResponse1").style.opacity = "0%";
+            document.getElementById("wendyResponse1").style['pointer-events'] = 'none';
+        }
+        else if (wendyOptionClicked == "2")
+        {
+            document.getElementById("wendyResponse2").style.opacity = "0%";
+            document.getElementById("wendyResponse2").style['pointer-events'] = 'none';
+        }
+
+        // Make the dialogue box itself disappear:
+        document.getElementById("bearDialogueBox").style.opacity = "0%";
+        document.getElementById("bearDialogueBox").style['pointer-events'] = 'none';
+
+        // Make it possible to click through Wendy:
+        document.getElementById("wendyImage").style['pointer-events'] = 'none';
     }
+    else if (name == "Phantasm")
+    {
+        // Check what Phantasm's response was (this depends on what the user said to him):
+        if (phantasmOptionClicked == "1")
+        {
+            // Make the corresponding dialogue elements disappear:
+            document.getElementById("phantasmResponse1").style.opacity = "0%";
+            document.getElementById("phantasmResponse1").style['pointer-events'] = 'none';
+        }
+        else if (phantasmOptionClicked == "2")
+        {
+            document.getElementById("phantasmResponse2").style.opacity = "0%";
+            document.getElementById("phantasmResponse2").style['pointer-events'] = 'none';
+        }
 
-    // Make the dialogue box itself disappear:
-    document.getElementById("sharkieDialogueBox").style.opacity = "0%";
-    document.getElementById("sharkieDialogueBox").style['pointer-events'] = 'none';
+        // Make the dialogue box itself disappear:
+        document.getElementById("phantasmDialogueBox").style.opacity = "0%";
+        document.getElementById("phantasmDialogueBox").style['pointer-events'] = 'none';
 
-    // Make it possible to click through Sharkie:
-    document.getElementById("sharkieImage").style['pointer-events'] = 'none';
+        // Make it possible to click through Phantasm:
+        document.getElementById("phantasmImage").style['pointer-events'] = 'none';
+    }
 }
 
 function timerFunction() {
