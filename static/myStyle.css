@@ -4,6 +4,11 @@
   src: url("/static/DynaPuff-Regular.ttf");
 }
 
+/* To avoid a flash of unstyled content, we're going to make the body invisible until it's all loaded */
+body {
+    visibility: hidden;
+}
+
 /* Class for making image stacking work */
 .imageStack {
     display: grid;

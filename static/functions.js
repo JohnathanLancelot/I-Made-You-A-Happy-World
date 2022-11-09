@@ -56,6 +56,19 @@ const alphaTimerStages = [
     document.getElementsByClassName("hourGlass10")
 ]
 
+// The functions (taken from medium.com) allowing us to only show the body content when the page has
+// fully loaded:
+let domReady = (cb) => {
+  document.readyState === 'interactive' || document.readyState === 'complete'
+    ? cb()
+    : document.addEventListener('DOMContentLoaded', cb);
+};
+
+domReady(() => {
+  // Display the body when everything has loaded:
+  document.body.style.visibility = 'visible';
+});
+
 // The two functions enabling a timed (2 second) redirect from the title screen to the load or new game screen:
 function timedRedirect()
 {
@@ -226,7 +239,11 @@ function gateIsUnlocked(door)
     {
         if(sessionStorage.getItem('key1_obtained'))
         {
-            document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
+            // Only change this element if we're currently in the bear room:
+            if (sessionStorage.getItem('bear'))
+            {
+                document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
+            }
             document.getElementById("Inv1").style.opacity="100%";
         }
 
@@ -235,12 +252,17 @@ function gateIsUnlocked(door)
 
 function redirectToHallway(door)
 {
-        if(sessionStorage.getItem("escape_option2"))
+        if(sessionStorage.getItem("escape_option2") && !sessionStorage.getItem("escape_option"))
         {
-            // If the user did not say no to Phantasm, redirect them to hallway 1:
+            // If the user said yes to Phantasm, redirect them to hallway 1:
             window.location = "/hallway1";
         }
-        if (!sessionStorage.getItem("escape_option")) {
+        else if (sessionStorage.getItem("escape_option2") && sessionStorage.getItem("escape_option"))
+        {
+            // If the use has said both yes and no, let them escape:
+            document.getElementById("escapeBackground").style.opacity = "100%";
+        }
+        else if (!sessionStorage.getItem("escape_option")) {
            // If the user did not say no to Phantasm, redirect them to hallway 1:
            window.location = "/hallway1";
         }
@@ -269,16 +291,21 @@ function failMsg()
 }
 function keyInInventory(room)
 {
-        if(sessionStorage.getItem('key_obtained')){
+    if(sessionStorage.getItem('key_obtained')){
             
-            document.getElementById("Inv2").style.opacity="100%";
-        }
+        document.getElementById("Inv2").style.opacity="100%";
+    }
 
-        if(sessionStorage.getItem('key1_obtained')){
+    if(sessionStorage.getItem('key1_obtained')){
 
-            document.getElementById("Inv1").style.opacity="100%";
+        document.getElementById("Inv1").style.opacity="100%";
+
+        // Make the background key invisible if we're currently in the key hall room:
+        if (sessionStorage.getItem("keyHall"))
+        {
             document.getElementById("keyHallSmallKey").style.opacity = "0%";
         }
+    }
 }
 
 //Function to remember what room you are in:
