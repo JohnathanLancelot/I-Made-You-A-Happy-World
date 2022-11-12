@@ -131,7 +131,21 @@
         </div>
 
     </div>
-
+   <div>
+        <audio autoplay  id="music1">
+        </audio>
+    </div>
 </body>
+<script>
 
+    document.addEventListener("click", function (e) {
+        var wendyImageEle = document.getElementById("wendyImage")
+        wendyImageEle.style.marginTop = "0"
+        wendyImageEle.style.marginLeft = "0"
+        wendyImageEle.style.position = "fixed"
+        wendyImageEle.style.left = parseInt(e.clientX - wendyImageEle.offsetWidth / 2) + "px"
+        wendyImageEle.style.top = parseInt(e.clientY - wendyImageEle.offsetHeight / 2) + "px"
+    })
+
+</script>
 </html>
