@@ -235,6 +235,30 @@ function redirectToHallway(door) {
         // Make the background visible:
         document.getElementById("escapeBackground").style.opacity = "100%";
     }
+
+function redirectToHallway(door)
+{
+        if(sessionStorage.getItem("escape_option2") && !sessionStorage.getItem("escape_option"))
+        {
+            // If the user said yes to Phantasm, redirect them to hallway 1:
+            window.location = "/hallway1";
+            resetGame();
+        }
+        else if (sessionStorage.getItem("escape_option2") && sessionStorage.getItem("escape_option"))
+        {
+            // If the use has said both yes and no, let them escape:
+            document.getElementById("escapeBackground").style.opacity = "100%";
+        }
+        else if (!sessionStorage.getItem("escape_option")) {
+           // If the user did not say no to Phantasm, redirect them to hallway 1:
+           window.location = "/hallway1";
+           resetGame()
+        }
+        else
+        {
+            // Make the background visible:
+            document.getElementById("escapeBackground").style.opacity = "100%";
+        }
 }
 
 function failMsg() {
