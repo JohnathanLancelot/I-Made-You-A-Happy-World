@@ -256,6 +256,7 @@ function redirectToHallway(door)
         {
             // If the user said yes to Phantasm, redirect them to hallway 1:
             window.location = "/hallway1";
+            resetGame();
         }
         else if (sessionStorage.getItem("escape_option2") && sessionStorage.getItem("escape_option"))
         {
@@ -265,6 +266,7 @@ function redirectToHallway(door)
         else if (!sessionStorage.getItem("escape_option")) {
            // If the user did not say no to Phantasm, redirect them to hallway 1:
            window.location = "/hallway1";
+           resetGame()
         }
         else
         {
