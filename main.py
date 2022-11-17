@@ -7,6 +7,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route("/credit")
+def credit():
+    return render_template("credit.html")
+
 # The new game / load game page:
 @app.route("/load-or-new")
 def loadOrNew():
