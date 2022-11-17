@@ -1,52 +1,12 @@
 /* Importing the DynaPuff font */
 @font-face {
-    font-family: dynaPuffFont;
-    src: url("/static/DynaPuff-Regular.ttf");
+  font-family: dynaPuffFont;
+  src: url("/static/DynaPuff-Regular.ttf");
 }
 
 /* To avoid a flash of unstyled content, we're going to make the body invisible until it's all loaded */
 body {
     visibility: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: #000;
-}
-
-.creditTitle {
-    z-index: 1000;
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    margin-left: -9vw;
-    margin-top: -10vw;
-    font-family: dynaPuffFont;
-    text-align: center;
-
-}
-.startButton{
-    font-size: 8vh;
-    color: rgba(255, 255, 255, .8);
-    margin-bottom: 3vh;
-}
-.startButton:hover{
-    color: rgba(255, 255, 255, .5);
-}
-.creditTitle .author {
-    font-size: 3vh;
-    color: rgba(255, 255, 255, .6);
-    margin-bottom: 1vh;
-}
-.creditTitle .author:hover{
-    color: rgba(255, 255, 255, .5);
-}
-.creditTitle .source , .creditTitle .source a{
-    font-size: 2vh;
-    color: rgba(255, 255, 255, .6) ;
-}
-.creditTitle .source a:hover{
-    color: rgba(255, 255, 255, .5) ;
 }
 
 /* Class for making image stacking work */
@@ -312,7 +272,7 @@ a {
     z-index: 1;
 }
 
-#Inv1, #Inv2 {
+#Inv1, #Inv2{
     z-index: 20;
     pointer-events: none;
     opacity: 0%;
@@ -501,7 +461,7 @@ a {
     pointer-events: none;
 }
 
-#failMsg {
+#failMsg{
     width: 55vw;
     height: 6vh;
     grid-column: 7.2;
@@ -530,6 +490,7 @@ a {
     pointer-events: none;
     opacity: 0%;
 }
+
 
 
 #hall1SaveIcon, #hall1ExitIcon {
@@ -1206,11 +1167,11 @@ a {
     color: #9895c0;
 }
 
-#phantasmRoomUIBarLayer {
+#phantasmRoomUIBarLayer{
     z-index: 11;
 }
 
-#phantasmRoomIconsLayer {
+#phantasmRoomIconsLayer{
     z-index: 12;
     pointer-events: none;
 }
@@ -1221,7 +1182,7 @@ a {
     opacity: 0%;
 }
 
-#topOfThePhantasmRoomStack {
+#topOfThePhantasmRoomStack{
     grid-column: 1;
     grid-row: 1;
     z-index: 14;
@@ -1250,7 +1211,7 @@ a {
     opacity: 0%;
 }
 
-#topOfTheEscapeRoomStack {
+#topOfTheEscapeRoomStack{
     grid-column: 1;
     grid-row: 1;
     z-index: 9;
