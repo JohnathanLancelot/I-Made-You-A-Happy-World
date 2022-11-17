@@ -2,132 +2,126 @@
 
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
 
-    <title>I Made You A Happy World</title>
+        <title>I Made You A Happy World</title>
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='myStyle.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='myStyle.css')}}">
 
-    <script src="{{ url_for('static', filename='functions.js')}}"></script>
+        <script src="{{ url_for('static', filename='functions.js')}}"></script>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-<div class="imageStack">
+        <div class="imageStack">
 
-    <div class="bottomOfTheStack">
-        <img class="backgroundPic" src="{{url_for('static', filename='phantasm-room.jpg')}}" onload="rememberRoom(5)">
-    </div>
+            <div class="bottomOfTheStack">
+                <img class="backgroundPic" src="{{url_for('static', filename='phantasm-room.jpg')}}" onload="rememberRoom(5)">
+            </div>
 
-    <div class="navBlockLayer1">
-        <!-- Add a navigation block (an invisible shape that can be clicked on) over the spiral staircase.
-        If the user clicks on it, they will be taken to the previous room. -->
-        <a href="/mirror-room"><img id="phantasmRoomNavBlock"
-                                    src="{{url_for('static', filename='phantasm-room-stairs-navigation-block.png')}}"
-                                    onclick="startTimer()"></a>
-    </div>
+            <div class="navBlockLayer1">
+                <!-- Add a navigation block (an invisible shape that can be clicked on) over the spiral staircase.
+                If the user clicks on it, they will be taken to the previous room. -->
+                <a href="/mirror-room"><img id="phantasmRoomNavBlock"
+                                      src="{{url_for('static', filename='phantasm-room-stairs-navigation-block.png')}}"
+                                            onclick="startTimer()"></a>
+            </div>
 
-    <!-- Add NPC and dialogue elements. -->
-    <div class="npcLayer">
-        <img id="phantasmImage" src="{{url_for('static', filename='phantasm.png')}}"
-             onload="checkNPCStatus('Phantasm')" onclick="bringUpDialogueBox('Phantasm')">
-    </div>
+            <!-- Add NPC and dialogue elements. -->
+            <div class="npcLayer">
+                <img id="phantasmImage" src="{{url_for('static', filename='phantasm.png')}}"
+                     onload="checkNPCStatus('Phantasm')" onclick="bringUpDialogueBox('Phantasm')">
+            </div>
 
-    <div class="dialogueLayer">
-        <img class="dialogueBox" id="phantasmDialogueBox" src="{{url_for('static', filename='dialogue-box.png')}}"
-             onclick="removeDialogue('Phantasm')">
-    </div>
+            <div class="dialogueLayer">
+                <img class="dialogueBox" id="phantasmDialogueBox" src="{{url_for('static', filename='dialogue-box.png')}}"
+                    onclick="removeDialogue('Phantasm')">
+            </div>
 
-    <div class="dialogueTextLayer1">
-        <p id="phantasmQuestion">I made you a happy world.<br>Do you like it?</p>
-        <p id="answerPhantasm1" onmouseover="hoverText('Phantasm', '1')" onmouseout="noHover('Phantasm', '1')"
-           onclick="chooseAnswer('Phantasm', '1')">Yes!</p>
-        <p id="answerPhantasm2" onmouseover="hoverText('Phantasm', '2')" onmouseout="noHover('Phantasm', '2')"
-           onclick="chooseAnswer('Phantasm', '2')">Not really...</p>
-    </div>
+            <div class="dialogueTextLayer1">
+                <p id="phantasmQuestion">I made you a happy world.<br>Do you like it?</p>
+                <p id="answerPhantasm1" onmouseover="hoverText('Phantasm', '1')" onmouseout="noHover('Phantasm', '1')"
+                   onclick="chooseAnswer('Phantasm', '1')">Yes!</p>
+                <p id="answerPhantasm2" onmouseover="hoverText('Phantasm', '2')" onmouseout="noHover('Phantasm', '2')"
+                   onclick="chooseAnswer('Phantasm', '2')">Not really...</p>
+            </div>
 
-    <div class="dialogueTextLayer2">
-        <p id="phantasmResponse1">How phenomenally brilliant!<br>You'll be pleased to know<br>
-            that you will stay here<br>forever!</p>
-    </div>
+            <div class="dialogueTextLayer2">
+                <p id="phantasmResponse1">How phenomenally brilliant!<br>You'll be pleased to know<br>
+                    that you will stay here<br>forever!</p>
+            </div>
 
-    <div class="dialogueTextLayer3">
-        <p id="phantasmResponse2">Oopsie, haha.<br>I must have messed this one up!<br>
-            You better find your way out<br>soon then...<br>Wouldn't want to get stuck here<br>forever!</p>
-    </div>
+            <div class="dialogueTextLayer3">
+                <p id="phantasmResponse2">Oopsie, haha.<br>I must have messed this one up!<br>
+                    You better find your way out<br>soon then...<br>Wouldn't want to get stuck here<br>forever!</p>
+            </div>
 
-    <div class="uiBarLayer" id="phantasmRoomUIBarLayer">
-        <!-- Add the blue background for the UI buttons. -->
-        <img class="uiBar" id="phantasmRoomUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
-    </div>
+            <div class="uiBarLayer" id="phantasmRoomUIBarLayer">
+                <!-- Add the blue background for the UI buttons. -->
+                <img class="uiBar" id="phantasmRoomUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
+            </div>
 
-    <div class="uiBarIconsLayer" id="phantasmRoomIconsLayer">
-        <!-- Add the icons to the UI bar. -->
-        <img class="inventoryKey1" id="Inv1" src="{{url_for('static', filename='inventory-key-1.png')}}"
-             onload="keyInInventory('hallRoomKey')">
-        <img class="inventoryKey2" id="Inv2" src="{{url_for('static', filename='inventory-key-2.png')}}"
-             onload="keyInInventory('escapeRoom')">
-        <img class="saveIcon" id="phantasmRoomSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
-        <!-- Clicking on the exit icon should take the user to the website's home page. -->
-        <a href="/"><img class="exitIcon" id="phantasmRoomExitIcon"
-                         src="{{url_for('static', filename='exit-icon.png')}}">
-        </a>
-    </div>
+            <div class="uiBarIconsLayer" id="phantasmRoomIconsLayer">
+                <!-- Add the icons to the UI bar. -->
+                <img class="inventoryKey1" id="Inv1" src="{{url_for('static', filename='inventory-key-1.png')}}" onload="keyInInventory('hallRoomKey')">
+                <img class="inventoryKey2" id="Inv2" src="{{url_for('static', filename='inventory-key-2.png')}}" onload="keyInInventory('escapeRoom')">
+                <img class="saveIcon" id="phantasmRoomSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
+                <!-- Clicking on the exit icon should take the user to the website's home page. -->
+                <a href="/"><img class="exitIcon" id="phantasmRoomExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
+                </a>
+            </div>
 
-    <div id="topOfThePhantasmRoomStack">
-        <!-- Vignette. -->
-        <img class="backgroundPic" class="vignette" src="{{url_for('static', filename='vignette.png')}}">
-    </div>
+            <div id="topOfThePhantasmRoomStack">
+                <!-- Vignette. -->
+                <img class="backgroundPic" class="vignette" src="{{url_for('static', filename='vignette.png')}}">
+            </div>
 
-    <!-- Add the hour glass stages for the timer. -->
-    <div class="hourGlassLayer1">
-        <img class="timer hourGlass1" src="{{url_for('static', filename='hour-glass1.png')}}">
-    </div>
+            <!-- Add the hour glass stages for the timer. -->
+        <div class="hourGlassLayer1">
+            <img class="timer hourGlass1" src="{{url_for('static', filename='hour-glass1.png')}}">
+        </div>
 
-    <div class="hourGlassLayer2">
-        <img class="timer hourGlass2" src="{{url_for('static', filename='hour-glass2.png')}}">
-    </div>
+        <div class="hourGlassLayer2">
+            <img class="timer hourGlass2" src="{{url_for('static', filename='hour-glass2.png')}}">
+        </div>
 
-    <div class="hourGlassLayer3">
-        <img class="timer hourGlass3" src="{{url_for('static', filename='hour-glass3.png')}}">
-    </div>
+        <div class="hourGlassLayer3">
+            <img class="timer hourGlass3" src="{{url_for('static', filename='hour-glass3.png')}}">
+        </div>
 
-    <div class="hourGlassLayer4">
-        <img class="timer hourGlass4" src="{{url_for('static', filename='hour-glass4.png')}}">
-    </div>
+        <div class="hourGlassLayer4">
+            <img class="timer hourGlass4" src="{{url_for('static', filename='hour-glass4.png')}}">
+        </div>
 
-    <div class="hourGlassLayer5">
-        <img class="timer hourGlass5" src="{{url_for('static', filename='hour-glass5.png')}}">
-    </div>
+        <div class="hourGlassLayer5">
+            <img class="timer hourGlass5" src="{{url_for('static', filename='hour-glass5.png')}}">
+        </div>
 
-    <div class="hourGlassLayer6">
-        <img class="timer hourGlass6" src="{{url_for('static', filename='hour-glass6.png')}}">
-    </div>
+        <div class="hourGlassLayer6">
+            <img class="timer hourGlass6" src="{{url_for('static', filename='hour-glass6.png')}}">
+        </div>
 
-    <div class="hourGlassLayer7">
-        <img class="timer hourGlass7" src="{{url_for('static', filename='hour-glass7.png')}}">
-    </div>
+        <div class="hourGlassLayer7">
+            <img class="timer hourGlass7" src="{{url_for('static', filename='hour-glass7.png')}}">
+        </div>
 
-    <div class="hourGlassLayer8">
-        <img class="timer hourGlass8" src="{{url_for('static', filename='hour-glass8.png')}}">
-    </div>
+        <div class="hourGlassLayer8">
+            <img class="timer hourGlass8" src="{{url_for('static', filename='hour-glass8.png')}}">
+        </div>
 
-    <div class="hourGlassLayer9">
-        <img class="timer hourGlass9" src="{{url_for('static', filename='hour-glass9.png')}}">
-    </div>
+        <div class="hourGlassLayer9">
+            <img class="timer hourGlass9" src="{{url_for('static', filename='hour-glass9.png')}}">
+        </div>
 
-    <div class="hourGlassLayer10">
-        <img class="timer hourGlass10" src="{{url_for('static', filename='hour-glass10.png')}}">
-    </div>
+        <div class="hourGlassLayer10">
+            <img class="timer hourGlass10" src="{{url_for('static', filename='hour-glass10.png')}}">
+        </div>
 
-</div>
+        </div>
 
-</body>
-<div>
-    <audio autoplay id="music1">
-    </audio>
-</div>
+    </body>
+
 </html>
