@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+<div class="key-hall-entrance" onclick="pageRedirect('/key-hall')"></div>
 <div class="imageStack">
 
     <div class="bottomOfTheStack">
@@ -23,10 +23,12 @@
     </div>
 
     <div class="navBlockLayer1">
-        <a href="/bear-room"><img id="beachNavBlock1"
+        <a href="/bear-room"><img id="beachNavBlock1" style="margin-left: 15vw"
                                   src="{{url_for('static', filename='beach-room-ladder-navigation-block.png')}}"></a>
-        <a href="/key-hall"><img id="beachNavBlock2"
-                                 src="{{url_for('static', filename='beach-room-gate-navigation-block.png')}}"></a>
+
+
+{#        <a href="/key-hall"><img id="beachNavBlock2"#}
+{#                                 src="{{url_for('static', filename='beach-room-gate-navigation-block.png')}}"></a>#}
     </div>
 
     <div class="navBlockLayer2">

@@ -25,28 +25,34 @@ a {
     text-align: center;
 
 }
-.startButton{
+
+.startButton {
     font-size: 8vh;
     color: rgba(255, 255, 255, .8);
     margin-bottom: 3vh;
 }
-.startButton:hover{
+
+.startButton:hover {
     color: rgba(255, 255, 255, .5);
 }
+
 .creditTitle .author {
     font-size: 3vh;
     color: rgba(255, 255, 255, .6);
     margin-bottom: 1vh;
 }
-.creditTitle .author:hover{
+
+.creditTitle .author:hover {
     color: rgba(255, 255, 255, .5);
 }
-.creditTitle .source , .creditTitle .source a{
+
+.creditTitle .source, .creditTitle .source a {
     font-size: 2vh;
-    color: rgba(255, 255, 255, .6) ;
+    color: rgba(255, 255, 255, .6);
 }
-.creditTitle .source a:hover{
-    color: rgba(255, 255, 255, .5) ;
+
+.creditTitle .source a:hover {
+    color: rgba(255, 255, 255, .5);
 }
 
 /* Class for making image stacking work */
@@ -1255,4 +1261,56 @@ a {
     grid-row: 1;
     z-index: 9;
     pointer-events: none;
+}
+
+
+.key-hall-entrance {
+    width: 15vw;
+    height: 30vh;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.ghostPot {
+    width: 6vw;
+    height: 12vh;
+    position: fixed;
+    z-index: 999999;
+    top: 41vh;
+    left: 54vw;
+
+}
+
+.ghostPotPic {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 1;
+}
+
+.ghostPic {
+    position: absolute;
+    animation: ghostShow 4s;
+    width: 3vw;
+    height: 6vh;
+    /*width: 10vw;*/
+    /*height: 20vh;*/
+    bottom: 4vh;
+    left: 2vh;
+    margin: 0 auto;
+    opacity: .8;
+    z-index: -1;
+}
+
+@keyframes ghostShow {
+    0% {
+
+    }
+    100% {
+        width: 10vw;
+        height: 20vh;
+        bottom: 13vh;
+    }
 }
