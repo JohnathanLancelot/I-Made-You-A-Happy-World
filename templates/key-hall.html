@@ -17,11 +17,30 @@
 <body>
 
     <div class="imageStack">
+      <div class="dialogueLayer">
+            <img class="dialogueBox" id="bearDialogueBox" src="{{url_for('static', filename='dialogue-box.png')}}"
+                onclick="removeDialogue('Wendy')">
+        </div>
 
-        
+      <div class="dialogueTextLayer1">
+            <p id="wendyQuestion">Do you have any dessert?<br>I'm hungry.</p>
+            <p id="answerWendy1" onmouseover="hoverText('Wendy', '1')" onmouseout="noHover('Wendy', '1')"
+               onclick="chooseAnswer('Wendy', '1',playAudios=false)">Yes, I have some.<br>Here you are！</p>
+            <p id="answerWendy2" onmouseover="hoverText('Wendy', '2')" onmouseout="noHover('Wendy', '2')"
+               onclick="chooseAnswer('Wendy', '2',playAudios=false)">No, I don't have any candy.</p>
+        </div>
+
+        <div class="dialogueTextLayer2">
+            <p id="wendyResponse1">Thank you, you are a good person!</p>
+        </div>
+
+        <div class="dialogueTextLayer3">
+            <p id="wendyResponse2">That's too bad. I hope you can bring me some candy next time you come</p>
+        </div>
+
         <div class="ghostPot">
-            <img src="{{url_for('static', filename='ghost.png')}}" alt="" class="ghostPic">
-            <img class="ghostPotPic" src="{{url_for('static', filename='pot.png')}}" alt="">
+            <img src="{{url_for('static', filename='ghost.png')}}" alt="" class="ghostPic" id="ghost" onclick="bringUpDialogueBox('Ghost')">
+            <img class="ghostPotPic" src="{{url_for('static', filename='pot.png')}}" alt="" onclick="ghostShow()">
 
         </div>
         <!-- Add the background image. -->
@@ -130,5 +149,48 @@
     </div>
 
 </body>
+
+
+<script>
+    var isGhostShow = false;
+    function ghostShow()
+    {
+        if(isGhostShow){
+            return
+        }
+        var ghost = document.getElementById("ghost");
+        setTimeout(()=>{isGhostShow=true},4000)
+        ghost.animate(
+        [
+                {width:'10vw',height:'20vh',bottom:'13vh'},
+        ],
+        {
+            duration: 4000,
+            iterations: 1,
+            fill:'forwards',
+            delay:0,
+            easing:'linear'
+        },
+       );
+    }
+    function ghostBack(){
+        if(!isGhostShow){
+            return
+        }
+         var ghost = document.getElementById("ghost");
+        ghost.animate(
+        [
+                {width:'3vw',height:'6vh',bottom:'4vh'},     // 第一帧
+        ],
+        {
+            duration: 4000,
+            iterations: 1,
+            fill:'forwards',
+            delay:0,
+            easing:'linear'
+        },
+       );
+    }
+</script>
 
 </html>

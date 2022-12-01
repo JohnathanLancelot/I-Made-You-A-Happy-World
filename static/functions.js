@@ -383,6 +383,7 @@ function checkNPCStatus(name) {
 // The function for bringing up the dialogue box:
 function bringUpDialogueBox(name) {
     if (name == "Wendy" && !spokenToWendy) {
+
         // If the user hasn't spoken to Wendy yet, make the dialogue box visible, along with the starting dialogue:
         document.getElementById("bearDialogueBox").style.opacity = "100%";
         document.getElementById("wendyQuestion").style.opacity = "100%";
@@ -421,6 +422,19 @@ function bringUpDialogueBox(name) {
         playAudio("phantasm_1.mp3");
         // Save the fact that Phantasm has been spoken to:
         sessionStorage.setItem("spokenToPhantasm", true);
+    }else if (name == "Ghost" && !spokenToWendy) {
+        // Make the dialogue box and the starting dialogue visible:
+       document.getElementById("bearDialogueBox").style.opacity = "100%";
+        document.getElementById("wendyQuestion").style.opacity = "100%";
+        document.getElementById("wendyQuestion").style['pointer-events'] = 'auto';
+        document.getElementById("answerWendy1").style.opacity = "100%";
+        document.getElementById("answerWendy1").style['pointer-events'] = 'auto';
+        document.getElementById("answerWendy2").style.opacity = "100%";
+        document.getElementById("answerWendy2").style['pointer-events'] = 'auto';
+        spokenToWendy = true;
+        // playAudio("wendy_1.mp3");
+        // Save the fact that Wendy has been spoken to:
+        sessionStorage.setItem("spokenToWendy", true);
     }
 }
 
@@ -516,8 +530,20 @@ function noHover(name, optionNumber) {
     }
 }
 
+function closeDialogue(){
+        document.getElementById("bearDialogueBox").style.opacity = "0";
+        document.getElementById("wendyQuestion").style.opacity = "0";
+        document.getElementById("wendyQuestion").style['pointer-events'] = 'auto';
+        document.getElementById("answerWendy1").style.opacity = "0";
+        document.getElementById("answerWendy1").style['pointer-events'] = 'auto';
+        document.getElementById("answerWendy2").style.opacity = "0";
+        document.getElementById("answerWendy2").style['pointer-events'] = 'auto';
+        document.getElementById("wendyResponse1").style.opacity = "0"
+        document.getElementById("wendyResponse2").style.opacity = "0"
+}
+
 // The function for choosing what to say to an NPC:
-function chooseAnswer(name, optionNumber) {
+function chooseAnswer(name, optionNumber,playAudios=true) {
     // Who are we talking to?
     if (name == "Phantasm") {
         // Which option was chosen?
@@ -569,7 +595,13 @@ function chooseAnswer(name, optionNumber) {
             // Make the other option disappear:
             document.getElementById("answerWendy2").style.opacity = "0%";
             document.getElementById("answerWendy2").style['pointer-events'] = 'none';
-            playAudio("wendy_2.mp3")
+            if(playAudios){
+                   playAudio("wendy_2.mp3")
+
+            }
+            setTimeout(closeDialogue,2500)
+                        setTimeout(ghostBack,2500)
+
             // After 1 second, show Wendy's response:
             setTimeout(npcResponse, 1000, "Wendy", "1");
         } else if (optionNumber == "2") {
@@ -583,7 +615,12 @@ function chooseAnswer(name, optionNumber) {
             // Make the other option disappear:
             document.getElementById("answerWendy1").style.opacity = "0%";
             document.getElementById("answerWendy1").style['pointer-events'] = 'none';
-            playAudio("wendy_3.mp3")
+              if(playAudios){
+                   playAudio("wendy_3.mp3")
+            }
+              setTimeout(closeDialogue,2500)
+                                    setTimeout(ghostBack,2500)
+
             // After 1 second, show Wendy's response:
             setTimeout(npcResponse, 1000, "Wendy", "2");
         }
@@ -843,3 +880,43 @@ window.onload = timerLoop = () => {
         setTimeout(timerFunction, 1000);
     }
 }
+
+var isGhostShow = false;
+    function ghostShow()
+    {
+        if(isGhostShow){
+            return
+        }
+        var ghost = document.getElementById("ghost");
+        setTimeout(()=>{isGhostShow=true},4000)
+        ghost.animate(
+        [
+                {width:'10vw',height:'20vh',bottom:'13vh'},
+        ],
+        {
+            duration: 4000,
+            iterations: 1,
+            fill:'forwards',
+            delay:0,
+            easing:'linear'
+        },
+       );
+    }
+    function ghostBack(){
+        if(!isGhostShow){
+            return
+        }
+         var ghost = document.getElementById("ghost");
+        ghost.animate(
+        [
+                {width:'3vw',height:'6vh',bottom:'4vh'},     // 第一帧
+        ],
+        {
+            duration: 4000,
+            iterations: 1,
+            fill:'forwards',
+            delay:0,
+            easing:'linear'
+        },
+       );
+    }
