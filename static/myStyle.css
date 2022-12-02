@@ -1302,7 +1302,21 @@ a {
     margin: 0 auto;
     opacity: .8;
     z-index: -1;
+
 }
+
+
+.candyPic {
+    position: absolute;
+    width: 3vw;
+    height: 3vh;
+    opacity: 1;
+    z-index: 2;
+    top: 20vh;
+    left: -42vh;
+
+}
+
 
 @keyframes ghostShow {
     0% {

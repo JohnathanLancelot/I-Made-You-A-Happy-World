@@ -422,9 +422,9 @@ function bringUpDialogueBox(name) {
         playAudio("phantasm_1.mp3");
         // Save the fact that Phantasm has been spoken to:
         sessionStorage.setItem("spokenToPhantasm", true);
-    }else if (name == "Ghost" && !spokenToWendy) {
+    } else if (name == "Ghost" && !spokenToWendy) {
         // Make the dialogue box and the starting dialogue visible:
-       document.getElementById("bearDialogueBox").style.opacity = "100%";
+        document.getElementById("bearDialogueBox").style.opacity = "100%";
         document.getElementById("wendyQuestion").style.opacity = "100%";
         document.getElementById("wendyQuestion").style['pointer-events'] = 'auto';
         document.getElementById("answerWendy1").style.opacity = "100%";
@@ -530,20 +530,20 @@ function noHover(name, optionNumber) {
     }
 }
 
-function closeDialogue(){
-        document.getElementById("bearDialogueBox").style.opacity = "0";
-        document.getElementById("wendyQuestion").style.opacity = "0";
-        document.getElementById("wendyQuestion").style['pointer-events'] = 'auto';
-        document.getElementById("answerWendy1").style.opacity = "0";
-        document.getElementById("answerWendy1").style['pointer-events'] = 'auto';
-        document.getElementById("answerWendy2").style.opacity = "0";
-        document.getElementById("answerWendy2").style['pointer-events'] = 'auto';
-        document.getElementById("wendyResponse1").style.opacity = "0"
-        document.getElementById("wendyResponse2").style.opacity = "0"
+function closeDialogue() {
+    document.getElementById("bearDialogueBox").style.opacity = "0";
+    document.getElementById("wendyQuestion").style.opacity = "0";
+    document.getElementById("wendyQuestion").style['pointer-events'] = 'auto';
+    document.getElementById("answerWendy1").style.opacity = "0";
+    document.getElementById("answerWendy1").style['pointer-events'] = 'auto';
+    document.getElementById("answerWendy2").style.opacity = "0";
+    document.getElementById("answerWendy2").style['pointer-events'] = 'auto';
+    document.getElementById("wendyResponse1").style.opacity = "0"
+    document.getElementById("wendyResponse2").style.opacity = "0"
 }
 
 // The function for choosing what to say to an NPC:
-function chooseAnswer(name, optionNumber,playAudios=true) {
+function chooseAnswer(name, optionNumber, playAudios = true) {
     // Who are we talking to?
     if (name == "Phantasm") {
         // Which option was chosen?
@@ -595,12 +595,12 @@ function chooseAnswer(name, optionNumber,playAudios=true) {
             // Make the other option disappear:
             document.getElementById("answerWendy2").style.opacity = "0%";
             document.getElementById("answerWendy2").style['pointer-events'] = 'none';
-            if(playAudios){
-                   playAudio("wendy_2.mp3")
+            if (playAudios) {
+                playAudio("wendy_2.mp3")
 
             }
-            setTimeout(closeDialogue,2500)
-                        setTimeout(ghostBack,2500)
+            setTimeout(closeDialogue, 2500)
+            setTimeout(ghostBack, 2500)
 
             // After 1 second, show Wendy's response:
             setTimeout(npcResponse, 1000, "Wendy", "1");
@@ -615,11 +615,11 @@ function chooseAnswer(name, optionNumber,playAudios=true) {
             // Make the other option disappear:
             document.getElementById("answerWendy1").style.opacity = "0%";
             document.getElementById("answerWendy1").style['pointer-events'] = 'none';
-              if(playAudios){
-                   playAudio("wendy_3.mp3")
+            if (playAudios) {
+                playAudio("wendy_3.mp3")
             }
-              setTimeout(closeDialogue,2500)
-                                    setTimeout(ghostBack,2500)
+            setTimeout(closeDialogue, 2500)
+            setTimeout(ghostBack, 2500)
 
             // After 1 second, show Wendy's response:
             setTimeout(npcResponse, 1000, "Wendy", "2");
@@ -882,41 +882,100 @@ window.onload = timerLoop = () => {
 }
 
 var isGhostShow = false;
-    function ghostShow()
-    {
-        if(isGhostShow){
-            return
-        }
-        var ghost = document.getElementById("ghost");
-        setTimeout(()=>{isGhostShow=true},4000)
-        ghost.animate(
+
+function ghostShow() {
+    if (isGhostShow) {
+        return
+    }
+    var ghost = document.getElementById("ghost");
+    setTimeout(() => {
+        isGhostShow = true
+    }, 4000)
+    ghost.animate(
         [
-                {width:'10vw',height:'20vh',bottom:'13vh'},
+            {width: '10vw', height: '20vh', bottom: '13vh'},
         ],
         {
             duration: 4000,
             iterations: 1,
-            fill:'forwards',
-            delay:0,
-            easing:'linear'
+            fill: 'forwards',
+            delay: 0,
+            easing: 'linear'
         },
-       );
+    );
+}
+
+function ghostBack() {
+    if (!isGhostShow) {
+        return
     }
-    function ghostBack(){
-        if(!isGhostShow){
-            return
-        }
-         var ghost = document.getElementById("ghost");
-        ghost.animate(
+    var ghost = document.getElementById("ghost");
+    ghost.animate(
         [
-                {width:'3vw',height:'6vh',bottom:'4vh'},     // 第一帧
+            {width: '3vw', height: '6vh', bottom: '4vh'},     // 第一帧
         ],
         {
             duration: 4000,
             iterations: 1,
-            fill:'forwards',
-            delay:0,
-            easing:'linear'
+            fill: 'forwards',
+            delay: 0,
+            easing: 'linear'
         },
-       );
+    );
+}
+
+function elementsOverlap(el1, el2) {
+    const domRect1 = el1.getBoundingClientRect();
+    const domRect2 = el2.getBoundingClientRect();
+    return (
+        domRect1.top < domRect2.top &&
+        domRect1.right > domRect2.right &&
+        domRect1.bottom > domRect2.bottom &&
+        domRect1.left < domRect2.left
+    );
+}
+
+
+function setCandyMove() {
+    var isClickCandy = false;
+    var box = document.getElementById("candyPic")
+    var pot = document.getElementById("ghostPotPic")
+    box.onmousedown = function (event) {
+        isClickCandy = !isClickCandy
+        if (!isClickCandy && elementsOverlap(pot, box)) {
+            box.style.display = "none"
+            setTimeout(ghostShow, 1000)
+        }
     }
+    document.onmousemove = function (e) {
+        if (!isClickCandy) return;
+        box.style.marginTop = "0"
+        box.style.marginLeft = "0"
+        box.style.position = "fixed"
+        box.style.left = parseInt(e.clientX - box.offsetWidth / 2) + "px"
+        box.style.top = parseInt(e.clientY - box.offsetHeight / 2) + "px"
+    }
+}
+
+//Inv1
+
+function UseKey() {
+    var isClickCandy = false;
+    var inv = document.getElementById("Inv1")
+    if(!inv)return
+    inv.onmousedown = function (event) {
+        isClickCandy = !isClickCandy
+
+    }
+    document.onmousemove = function (e) {
+        if (!isClickCandy) return;
+        inv.style.marginTop = "0"
+        inv.style.marginLeft = "0"
+        inv.style.position = "fixed"
+        inv.style.left = parseInt(e.clientX - box.offsetWidth / 2) + "px"
+        inv.style.top = parseInt(e.clientY - box.offsetHeight / 2) + "px"
+    }
+}
+window.onload = function (){
+    UseKey()
+}
