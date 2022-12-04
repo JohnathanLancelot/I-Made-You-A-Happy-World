@@ -160,11 +160,16 @@ function keyTaken(room) {
     }
 
     if (room == "beachRoom" && !key2Taken && !sessionStorage.getItem('key_obtained')) {
+        if (!isUseKey1) {
+            return
+        }
+        document.getElementById("Inv1").style.opacity = "0";
+        sessionStorage.setItem('key1Used', true)
         sessionStorage.setItem('key_obtained', true)
 
         document.getElementById("Inv2").style.opacity = "100%";
 
-        document.getElementById("beachNavBlock2").style['pointer-events'] = 'auto';
+        // document.getElementById("beachNavBlock2").style['pointer-events'] = 'auto';
         // Show the key pop-up for 2 seconds:
         document.getElementById("beachRoomBigKey").style.opacity = "100%";
         setTimeout(keyPopRemoved, 2000, "beachRoom");
@@ -178,7 +183,6 @@ function keyTaken(room) {
         key1Taken = true;
 
         escapeTunnelLocked = false;
-
         document.getElementById("keyHallSmallKey").style.opacity = "0%";
         document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
         document.getElementById("Inv1").style.opacity = "100%";
@@ -215,7 +219,7 @@ function gateIsUnlocked(door) {
             if (sessionStorage.getItem('bear')) {
                 document.getElementById("bearRoomNavBlock1").style['pointer-events'] = 'auto';
             }
-            document.getElementById("Inv1").style.opacity = "100%";
+            // document.getElementById("Inv1").style.opacity = "100%";
         }
 
     }
@@ -255,15 +259,21 @@ function keyInInventory(room) {
 
         document.getElementById("Inv2").style.opacity = "100%";
     }
-
+    console.log(sessionStorage.getItem('key1_obtained'), sessionStorage.getItem('key1Used'))
     if (sessionStorage.getItem('key1_obtained')) {
-
-        document.getElementById("Inv1").style.opacity = "100%";
-
+        let Inv1 =  document.getElementById("Inv1")
+        if (sessionStorage.getItem('key1Used')) {
+            Inv1.style.opacity = "0% !important"
+            console.log(Inv1)
+           return
+        }
+        console.log("^^^^^^^^^^^^^^^^^")
+        Inv1.style.opacity = "100%";
         // Make the background key invisible if we're currently in the key hall room:
-        if (sessionStorage.getItem("keyHall")) {
+        if (sessionStorage.getItem("keyHall" && document.getElementById("keyHallSmallKey"))) {
             document.getElementById("keyHallSmallKey").style.opacity = "0%";
         }
+
     }
 }
 
@@ -720,6 +730,12 @@ function npcResponse(name, responseNumber) {
 
 // The function for checking if the failure message should be shown:
 function failedEscapeCheck(room) {
+    if(isUseKey2){
+        window.location.href = "/escape"
+    }else {
+
+    }
+
     if (room == "bearRoom") {
         // When the user clicks on the escape tunnel in the bear room, change this boolean so that we know there was an
         // escape attempt:
@@ -957,25 +973,76 @@ function setCandyMove() {
     }
 }
 
+var isUseKey1 = false
+var isUseKey2 = false
+
+
+function useKey1() {
+    var inv = document.getElementById("Inv1")
+    if (!inv) {
+        return
+    }
+    inv.onmousedown = function (event) {
+        isUseKey1 = !isUseKey1
+        if (isUseKey1) {
+            inv.style.height = inv.offsetHeight + 90 + 'px'
+            inv.style.marginTop = 72 + 'vh'
+
+        } else {
+            inv.style.height = inv.offsetHeight - 90 + 'px'
+            inv.style.marginTop = 82 + 'vh'
+
+        }
+    }
+
+}
+
+function useKey2() {
+    var inv = document.getElementById("Inv2")
+    if (!inv) {
+        return
+    }
+    inv.onmousedown = function (event) {
+        isUseKey2 = !isUseKey2
+        if (isUseKey2) {
+            inv.style.height = inv.offsetHeight + 90 + 'px'
+            inv.style.marginTop = 72 + 'vh'
+
+        } else {
+            inv.style.height = inv.offsetHeight - 90 + 'px'
+            inv.style.marginTop = 82 + 'vh'
+
+        }
+    }
+
+}
+
 //Inv1
 
-function UseKey() {
-    var isClickCandy = false;
-    var inv = document.getElementById("Inv1")
-    if(!inv)return
-    inv.onmousedown = function (event) {
-        isClickCandy = !isClickCandy
+// function UseKey() {
+//     var isClickCandy = false;
+//     var inv = document.getElementById("Inv1")
+//     if(!inv)return
+//     inv.onmousedown = function (event) {
+//         isClickCandy = !isClickCandy
+//
+//     }
+//     document.onmousemove = function (e) {
+//         if (!isClickCandy) return;
+//         inv.style.marginTop = "0"
+//         inv.style.marginLeft = "0"
+//         inv.style.position = "fixed"
+//         inv.style.left = parseInt(e.clientX - box.offsetWidth / 2) + "px"
+//         inv.style.top = parseInt(e.clientY - box.offsetHeight / 2) + "px"
+//     }
+// }
 
+
+window.onload = function () {
+    useKey1()
+    useKey2()
+    let keyFlootr = document.getElementById("keyHallSmallKey")
+    if (keyFlootr && sessionStorage.getItem("key1_obtained")) {
+        keyFlootr.style.opacity = "0"
     }
-    document.onmousemove = function (e) {
-        if (!isClickCandy) return;
-        inv.style.marginTop = "0"
-        inv.style.marginLeft = "0"
-        inv.style.position = "fixed"
-        inv.style.left = parseInt(e.clientX - box.offsetWidth / 2) + "px"
-        inv.style.top = parseInt(e.clientY - box.offsetHeight / 2) + "px"
-    }
-}
-window.onload = function (){
-    UseKey()
 }

@@ -246,6 +246,7 @@ a {
     grid-row: 17.5;
     margin-top: 82vh;
     margin-left: 25vw;
+    pointer-events: auto;
 }
 
 .inventoryKey2 {
@@ -255,6 +256,7 @@ a {
     grid-row: 17.5;
     margin-top: 82vh;
     margin-left: 5vw;
+    pointer-events: auto;
 }
 
 .saveIcon {
@@ -320,7 +322,7 @@ a {
 
 #Inv1, #Inv2 {
     z-index: 20;
-    pointer-events: none;
+
     opacity: 0%;
 }
 
@@ -1237,7 +1239,7 @@ a {
 /* ESCAPE ROOM */
 
 #escapeBackground {
-    opacity: 0%;
+    /*opacity: 0%;*/
 }
 
 #escapeRoomUIBarLayer {
