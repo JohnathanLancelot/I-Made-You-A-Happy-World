@@ -51,6 +51,10 @@ def mirrorRoom():
 def phantasmRoom():
     return render_template("phantasm-room.html")
 
+@app.route("/ghost-house")
+def GhostHouse():
+    return render_template("ghost_house.html")
+
 #Set cookie for keys
 @app.route('/setcookie', methods=['POST', 'GET'])
 def setcookie():

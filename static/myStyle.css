@@ -1330,3 +1330,20 @@ a {
         bottom: 13vh;
     }
 }
+
+.ghostEntrance{
+    position: fixed;
+    width: 10vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+
+}
+
+.phaEntrance{
+    position: fixed;
+    width: 15vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}

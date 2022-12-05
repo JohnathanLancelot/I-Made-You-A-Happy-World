@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>I Made You A Happy World</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='myStyle.css')}}">
+
+    <script src="{{ url_for('static', filename='functions.js')}}"></script>
+
+</head>
+
+<body>
+
+    <div class="imageStack">
+
+        <!-- Add the background image with a congratulatory message. -->
+        <div class="bottomOfTheStack">
+            <!-- When this page loads, we want to check if we need to redirect to the start! -->
+            <img class="backgroundPic" id="escapeBackground" src="{{url_for('static', filename='ghost-house.jpeg')}}"
+                >
+        </div>
+
+        <!-- Add the UI. -->
+        <div class="uiBarLayer" id="escapeRoomUIBarLayer">
+            <!-- Add the blue background for the UI buttons. -->
+            <img class="uiBar" id="escapeRoomUIBar" src="{{url_for('static', filename='ui-bar.png')}}">
+        </div>
+
+        <div class="uiBarIconsLayer" id="escapeRoomIconsLayer">
+            <!-- Add the icons to the UI bar. -->
+            <img class="inventoryKey1" id="Inv1" src="{{url_for('static', filename='inventory-key-1.png')}}" onload="keyInInventory('hallRoomKey')">
+            <img class="inventoryKey2" id="Inv2" src="{{url_for('static', filename='inventory-key-2.png')}}" onload="keyInInventory('escapeRoom')">
+            <img class="saveIcon" id="escapeSaveIcon" src="{{url_for('static', filename='save-icon.png')}}">
+            <!-- Clicking on the exit icon should take the user to the website's home page. -->
+            <a href="/"><img class="exitIcon" id="escapeExitIcon" src="{{url_for('static', filename='exit-icon.png')}}">
+                </a>
+        </div>
+
+        <div id="topOfTheEscapeRoomStack">
+            <!-- Vignette. -->
+            <img class="backgroundPic" class="vignette" src="{{url_for('static', filename='vignette.png')}}">
+        </div>
+<div    class="phaEntrance"  onclick="pageRedirect('/phantasm-room')"></div>
+    </div>
+
+</body>
+
+</html>
